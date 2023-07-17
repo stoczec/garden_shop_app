@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
+import { routes } from './routes';
+import { fetchProducts } from './store/slice/productSlice';
+import { ProductContainer } from './components/ProductContainer/ProductContainer';
+import { CategoryContaner } from './components/CategoryContaner/CategoryContaner';
 
 function App() {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.products);
+  // console.log(products);
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        {routes.map(({ path, element }, idx) => {
+          return <Route key={idx} path={path} Component={element} />;
+        })}
+      </Routes>
+      <CategoryContaner />
+      <ProductContainer />
     </div>
   );
 }

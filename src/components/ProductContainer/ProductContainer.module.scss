@@ -1,0 +1,6 @@
+.product_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 320px);
+  justify-content: center;
+  gap: 40px;
+}
