@@ -7,10 +7,14 @@ footer {
   .contact_info {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    // justify-content: space-between;
+    gap: 160px;
     article {
       width: 50%;
       @include flex-col-jcc-aic;
+      align-items: start;
+
       h3 {
         font-size: $fs_40;
         font-weight: $font_bold;
@@ -23,8 +27,49 @@ footer {
         font-weight: $font_semi_bold;
         margin-bottom: 30px;
       }
+      .social_links {
+        display: flex;
+        gap: 64px;
+        & a {
+          @include flex-col-jcc-aic;
+          color: $clr_000000;
+          font-size: $fs_15;
+          font-weight: $font_semi_bold;
+          transition: 0.5s;
+          img {
+            margin-bottom: 8px;
+          }
+        }
+        & a:hover {
+          transform: scale(1.2);
+        }
+      }
     }
     .adress {
+      a {
+        color: $clr_000000;
+
+        font-size: $fs_40;
+        font-weight: $font_semi_bold;
+        text-decoration-line: underline;
+        margin-bottom: 20px;
+        line-height: 130%;
+        transition: 0.5s;
+
+        &:hover {
+          color: $clr_339933;
+        }
+      }
+      h6 {
+        font-size: $fs_18;
+        font-weight: $font_medium;
+        margin-top: 20px;
+        margin-bottom: 2px;
+      }
+      span {
+        font-size: $fs_24;
+        font-weight: $font_semi_bold;
+      }
     }
   }
 }
