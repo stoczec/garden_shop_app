@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './ProductContainer.module.scss';
+import style from './productContainer.module.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../store/slice/productSlice';

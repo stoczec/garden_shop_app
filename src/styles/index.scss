@@ -1,0 +1,21 @@
+@import './fonts.scss';
+@import './colors.scss';
+html,
+body {
+  font-family: Montserrat, serif;
+  font-style: normal;
+  line-height: 130%;
+  font-weight: $font_semi_bold;
+  font-size: 16px;
+  color: $clr_000000;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  width: min(1384px, 96%);
+  margin-inline: auto;
+}

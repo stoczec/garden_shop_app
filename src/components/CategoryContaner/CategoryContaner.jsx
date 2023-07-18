@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './CategoryContaner.module.scss';
+import style from './categoryContaner.module.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategories } from '../../store/slice/categorySlice';

@@ -1,0 +1,30 @@
+@import '../../styles/main.scss';
+footer {
+  color: $clr_000000;
+  @include flex-col-jcc-aic;
+  gap: 65px;
+  padding: 48px 0 38px 0;
+  .contact_info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    article {
+      width: 50%;
+      @include flex-col-jcc-aic;
+      h3 {
+        font-size: $fs_40;
+        font-weight: $font_bold;
+        margin-bottom: 25px;
+      }
+    }
+    .contact {
+      p {
+        font-size: $fs_70;
+        font-weight: $font_semi_bold;
+        margin-bottom: 30px;
+      }
+    }
+    .adress {
+    }
+  }
+}

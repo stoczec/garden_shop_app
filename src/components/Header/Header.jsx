@@ -1,0 +1,30 @@
+import React from 'react';
+import style from './header.module.scss';
+import logo from '../../assets/logo.png';
+import cartIcon from '../../assets/cart.png';
+import { Link } from 'react-router-dom';
+
+export const Header = () => {
+  return (
+    <header>
+      <div className={style.logo_container}>
+        <Link to="/" className={style.logo}>
+          <img src={logo} alt="Logo" />
+        </Link>
+        <Link to="/categories" className={style.categories}>
+          Catalog
+        </Link>
+      </div>
+      <div className={style.nav_menu}>
+        <nav>
+          <Link to="/">Main Page</Link>
+          <Link to="/products">All products</Link>
+          <Link to="/sales">All sales</Link>
+        </nav>
+        <Link to="/cart" className={style.cart}>
+          <img src={cartIcon} alt="Cart Icon" />
+        </Link>
+      </div>
+    </header>
+  );
+};
