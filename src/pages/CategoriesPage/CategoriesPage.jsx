@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const CategoriesPage = () => {
+export default function CategoriesPage() {
   return <div>CategoriesPage</div>;
-};
+}

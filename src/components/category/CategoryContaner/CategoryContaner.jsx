@@ -3,11 +3,11 @@ import style from './categoryContaner.module.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategories } from '../../../store/slice/categorySlice';
-import { CategoryCard } from '../CategoryCard/CategoryCard';
-import { Loading } from '../../ui/Loading/Loading';
+import CategoryCard from '../CategoryCard/CategoryCard';
+import Loading from '../../ui/Loading/Loading';
 import { NotFoundPage } from '../../../pages';
 
-export const CategoryContaner = () => {
+export default function CategoryContaner() {
   const dispatch = useDispatch();
   const { categories, loading, error } = useSelector(
     (state) => state.categories
@@ -28,4 +28,4 @@ export const CategoryContaner = () => {
       ))}
     </section>
   );
-};
+}

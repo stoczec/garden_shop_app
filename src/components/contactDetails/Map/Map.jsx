@@ -2,7 +2,7 @@ import React from 'react';
 import './map.module.scss';
 import { MAPURL } from '../../../assets/constants/URL';
 
-export const Map = () => {
+export default function Map() {
   return (
     <iframe
       title="Map"
@@ -12,4 +12,4 @@ export const Map = () => {
       referrerPolicy="no-referrer-when-downgrade"
     ></iframe>
   );
-};
+}

@@ -2,8 +2,8 @@
 
 .adress {
   width: 50%;
-  @include flex-col-jcc-aic;
-  align-items: start;
+  @include flex-col-jcc-ais;
+
   h3 {
     font-size: $fs_40;
     font-weight: $font_bold;
@@ -34,7 +34,7 @@
   }
   @media (max-width: $mq_900) {
     width: 100%;
-    align-items: center;
+    @include flex-col-jcc-aic;
     a {
       text-align: center;
     }

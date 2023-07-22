@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const MainPage = () => {
+export default function MainPage() {
   return <div>MainPage</div>;
-};
+}

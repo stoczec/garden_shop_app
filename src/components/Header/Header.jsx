@@ -3,9 +3,9 @@ import style from './header.module.scss';
 import logo from '../../assets/images/logo.png';
 import cartIcon from '../../assets/images/cart.png';
 import { Link } from 'react-router-dom';
-import { NavMenu } from './NavMenu/NavMenu';
+import NavMenu from './NavMenu/NavMenu';
 
-export const Header = () => {
+export default function Header() {
   return (
     <header>
       <div className={style.logo_container}>
@@ -24,4 +24,4 @@ export const Header = () => {
       </div>
     </header>
   );
-};
+}

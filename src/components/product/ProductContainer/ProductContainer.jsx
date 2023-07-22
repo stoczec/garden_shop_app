@@ -3,11 +3,11 @@ import style from './productContainer.module.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../../store/slice/productSlice';
-import { ProductCard } from '../ProductCard/ProductCard';
-import { Loading } from '../../ui/Loading/Loading';
+import ProductCard from '../ProductCard/ProductCard';
+import Loading from '../../ui/Loading/Loading';
 import { NotFoundPage } from '../../../pages';
 
-export const ProductContainer = () => {
+export default function ProductContainer() {
   const dispatch = useDispatch();
 
   const { products, loading, error } = useSelector((state) => state.products);
@@ -29,4 +29,4 @@ export const ProductContainer = () => {
       ))}
     </section>
   );
-};
+}

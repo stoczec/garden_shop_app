@@ -4,3 +4,10 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin flex-col-jcc-ais {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: start;
+}
