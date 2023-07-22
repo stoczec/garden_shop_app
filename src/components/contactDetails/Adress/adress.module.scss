@@ -1,0 +1,42 @@
+@import '../../../assets/styles/main.scss';
+
+.adress {
+  width: 50%;
+  @include flex-col-jcc-aic;
+  align-items: start;
+  h3 {
+    font-size: $fs_40;
+    font-weight: $font_bold;
+    margin-bottom: clamp(0.94rem, calc(0.76rem + 0.89vw), 1.56rem);
+  }
+  a {
+    color: $clr_000000;
+
+    font-size: $fs_40;
+    font-weight: $font_semi_bold;
+    text-decoration-line: underline;
+    margin-bottom: clamp(0.63rem, calc(0.45rem + 0.89vw), 1.25rem);
+    line-height: 130%;
+    transition: all 0.5s ease;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+  h6 {
+    font-size: $fs_18;
+    font-weight: $font_medium;
+    margin-bottom: 2px;
+  }
+  span {
+    font-size: $fs_24;
+    font-weight: $font_semi_bold;
+  }
+  @media (max-width: $mq_900) {
+    width: 100%;
+    align-items: center;
+    a {
+      text-align: center;
+    }
+  }
+}

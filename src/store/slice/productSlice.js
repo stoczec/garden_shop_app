@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { BASEURL } from '../../constants/URL';
+import { BASEURL } from '../../assets/constants/URL';
 
 const initialState = {
   loading: false,

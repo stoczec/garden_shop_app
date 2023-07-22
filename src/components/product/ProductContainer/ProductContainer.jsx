@@ -2,10 +2,10 @@ import React from 'react';
 import style from './productContainer.module.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../store/slice/productSlice';
+import { fetchProducts } from '../../../store/slice/productSlice';
 import { ProductCard } from '../ProductCard/ProductCard';
-import { Loading } from '../Loading/Loading';
-import { NotFoundPage } from '../../pages';
+import { Loading } from '../../ui/Loading/Loading';
+import { NotFoundPage } from '../../../pages';
 
 export const ProductContainer = () => {
   const dispatch = useDispatch();

@@ -1,8 +1,9 @@
 import React from 'react';
 import style from './header.module.scss';
-import logo from '../../assets/logo.png';
-import cartIcon from '../../assets/cart.png';
+import logo from '../../assets/images/logo.png';
+import cartIcon from '../../assets/images/cart.png';
 import { Link } from 'react-router-dom';
+import { NavMenu } from './NavMenu/NavMenu';
 
 export const Header = () => {
   return (
@@ -16,11 +17,7 @@ export const Header = () => {
         </Link>
       </div>
       <div className={style.nav_menu}>
-        <nav>
-          <Link to="/">Main Page</Link>
-          <Link to="/products">All products</Link>
-          <Link to="/sales">All sales</Link>
-        </nav>
+        <NavMenu />
         <Link to="/cart" className={style.cart}>
           <img src={cartIcon} alt="Cart Icon" />
         </Link>

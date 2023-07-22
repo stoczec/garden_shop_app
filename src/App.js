@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import { routes } from './routes';
-import { ProductContainer } from './components/ProductContainer/ProductContainer';
-import { CategoryContaner } from './components/CategoryContaner/CategoryContaner';
+import { ProductContainer } from './components/product/ProductContainer/ProductContainer';
+import { CategoryContaner } from './components/category/CategoryContaner/CategoryContaner';
 import { Header } from './components/Header/Header';
-import { Footer } from './components/Footer/Footer';
+import { Footer } from './components/contactDetails/Footer/Footer';
 
 function App() {
   return (

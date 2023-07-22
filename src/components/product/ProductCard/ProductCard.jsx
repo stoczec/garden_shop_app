@@ -1,5 +1,5 @@
 import React from 'react';
-import { BASEURL } from '../../constants/URL';
+import { BASEURL } from '../../../assets/constants/URL';
 import style from './productCard.module.scss';
 
 export const ProductCard = ({ image, title, price, discont_price }) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './categoryCard.module.scss';
-import { BASEURL } from '../../constants/URL';
+import { BASEURL } from '../../../assets/constants/URL';
 
 export const CategoryCard = ({ image, title }) => {
   return (

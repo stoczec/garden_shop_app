@@ -1,4 +1,4 @@
-@import '../../styles/main.scss';
+@import '../../assets/styles/main.scss';
 
 header {
   display: flex;
@@ -10,12 +10,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 60px;
+    gap: clamp(1rem, calc(-0.07rem + 5.37vw), 3.75rem);
     .logo {
       transition: all 350ms ease-in-out;
 
       &:hover {
-        filter: contrast(300%);
+        filter: contrast(200%);
       }
     }
     .categories {
@@ -23,8 +23,8 @@ header {
       font-weight: $font_bold;
       line-height: normal;
       font-size: $fs_16;
-
-      padding: 15px 30px;
+      padding-block: clamp(0.44rem, calc(0.29rem + 0.71vw), 0.94rem);
+      padding-inline: clamp(0.94rem, calc(0.67rem + 1.34vw), 1.88rem);
       border-radius: 5px;
       border: 2px solid $clr_339933;
       background-color: $clr_339933;
@@ -42,28 +42,12 @@ header {
   .nav_menu {
     display: flex;
     justify-content: space-between;
-    gap: 172px;
-    nav {
+    gap: clamp(1rem, calc(-2.8rem + 19.02vw), 10.75rem);
+
+    .cart {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      width: 330px;
-      & * {
-        color: $clr_000000;
-        font-size: $fs_16;
-        font-weight: $font_medium;
-        transition: all 100ms ease-in-out;
-
-        &:hover {
-          border-bottom: 3px solid $clr_339933;
-          border-top: 3px solid $clr_339933;
-          border-radius: 5px;
-          transition: all 100ms ease-in-out;
-        }
-      }
-    }
-    .cart {
-      transition: all 150ms ease-in-out;
+      transition: all 250ms ease-in-out;
 
       &:hover {
         filter: invert(75%);

@@ -2,10 +2,10 @@ import React from 'react';
 import style from './categoryContaner.module.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCategories } from '../../store/slice/categorySlice';
+import { fetchCategories } from '../../../store/slice/categorySlice';
 import { CategoryCard } from '../CategoryCard/CategoryCard';
-import { Loading } from '../Loading/Loading';
-import { NotFoundPage } from '../../pages';
+import { Loading } from '../../ui/Loading/Loading';
+import { NotFoundPage } from '../../../pages';
 
 export const CategoryContaner = () => {
   const dispatch = useDispatch();

@@ -11,6 +11,9 @@ body {
 }
 
 .wrapper {
+  width: min(1440px, 90%);
+  margin-inline: auto;
+
   min-height: 100%;
   overflow: hidden;
 }

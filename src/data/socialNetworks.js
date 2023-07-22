@@ -1,7 +1,7 @@
-import facebook from '../assets/socialNetworks/f.svg';
-import instagram from '../assets/socialNetworks/inst.svg';
-import linkedin from '../assets/socialNetworks/in.svg';
-import youtube from '../assets/socialNetworks/yt.svg';
+import facebook from '../assets/images/socialNetworks/f.svg';
+import instagram from '../assets/images/socialNetworks/inst.svg';
+import linkedin from '../assets/images/socialNetworks/in.svg';
+import youtube from '../assets/images/socialNetworks/yt.svg';
 
 export const social_networks = [
   {
