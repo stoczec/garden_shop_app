@@ -7,7 +7,7 @@ import CategoryCard from '../CategoryCard/CategoryCard';
 import Loading from '../../ui/Loading/Loading';
 import { NotFoundPage } from '../../../pages';
 
-export default function CategoryContaner() {
+const CategoryContaner = (props) => {
   const dispatch = useDispatch();
   const { categories, loading, error } = useSelector(
     (state) => state.categories
@@ -22,10 +22,11 @@ export default function CategoryContaner() {
     return <NotFoundPage textError={error} />;
   }
   return (
-    <section className={style.category_container}>
+    <section className={`${style.category_container} ${props.classname}`}>
       {categories.map((category) => (
         <CategoryCard key={category.id} {...category} />
       ))}
     </section>
   );
-}
+};
+export default CategoryContaner;

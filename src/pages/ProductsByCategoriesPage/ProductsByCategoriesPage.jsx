@@ -1,5 +1,6 @@
 import React from 'react';
 
-export default function ProductsByCategoriesPage() {
+const ProductsByCategoriesPage = () => {
   return <div>ProductsByCategoriesPage</div>;
-}
+};
+export default ProductsByCategoriesPage;

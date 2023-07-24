@@ -4,9 +4,9 @@ import Map from '../contactDetails/Map/Map';
 import Contact from '../contactDetails/Contact/Contact';
 import Adress from '../contactDetails/Adress/Adress';
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer>
+    <footer className={style.container}>
       <section className={style.contact_info}>
         <Contact />
         <Adress />
@@ -14,4 +14,5 @@ export default function Footer() {
       <Map />
     </footer>
   );
-}
+};
+export default Footer;

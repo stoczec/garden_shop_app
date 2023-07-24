@@ -1,0 +1,13 @@
+@import '../../../assets/styles/main.scss';
+
+.category_carousel {
+  div {
+    overflow: hidden;
+    .category_contaner {
+      display: flex;
+      transform: translateX(-100px);
+      transition: all 1s;
+      animation: 8s gablok_sedakoda-ani infinite;
+    }
+  }
+}

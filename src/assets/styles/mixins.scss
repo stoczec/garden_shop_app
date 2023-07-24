@@ -11,3 +11,8 @@
   justify-content: center;
   flex: start;
 }
+
+@mixin container {
+  width: min(1384px, 96%);
+  margin-inline: auto;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 
-export default function AllSalesPage() {
+const AllSalesPage = () => {
   return <div>AllSalesPage</div>;
-}
+};
+export default AllSalesPage;

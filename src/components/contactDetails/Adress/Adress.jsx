@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './adress.module.scss';
 
-export default function Adress() {
+const Adress = () => {
   return (
     <article className={style.adress}>
       <h3>Address</h3>
@@ -16,4 +16,5 @@ export default function Adress() {
       <span>24 hours a day</span>
     </article>
   );
-}
+};
+export default Adress;

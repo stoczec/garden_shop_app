@@ -2,7 +2,7 @@ import React from 'react';
 import style from './contact.module.scss';
 import { social_networks } from '../../../data/socialNetworks';
 
-export default function Contact() {
+const Contact = () => {
   return (
     <article className={style.contact}>
       <h3>Contact</h3>
@@ -19,4 +19,5 @@ export default function Contact() {
       </div>
     </article>
   );
-}
+};
+export default Contact;

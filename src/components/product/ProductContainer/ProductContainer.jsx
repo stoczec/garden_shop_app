@@ -7,7 +7,7 @@ import ProductCard from '../ProductCard/ProductCard';
 import Loading from '../../ui/Loading/Loading';
 import { NotFoundPage } from '../../../pages';
 
-export default function ProductContainer() {
+const ProductContainer = () => {
   const dispatch = useDispatch();
 
   const { products, loading, error } = useSelector((state) => state.products);
@@ -29,4 +29,6 @@ export default function ProductContainer() {
       ))}
     </section>
   );
-}
+};
+
+export default ProductContainer;

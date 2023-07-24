@@ -1,5 +1,11 @@
 import React from 'react';
+import CategoryContaner from '../../components/category/CategoryContaner/CategoryContaner';
 
-export default function CategoriesPage() {
-  return <div>CategoriesPage</div>;
-}
+const CategoriesPage = () => {
+  return (
+    <div>
+      <CategoryContaner />
+    </div>
+  );
+};
+export default CategoriesPage;

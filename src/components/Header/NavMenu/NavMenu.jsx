@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import style from './navMenu.module.scss';
 import { Divide as Hamburger } from 'hamburger-react';
 
-export default function NavMenu() {
+const NavMenu = () => {
   const navRef = useRef();
   const showNavMenu = () => {
     navRef.current.classList.toggle('active_navMenu');
@@ -21,4 +21,5 @@ export default function NavMenu() {
       </div>
     </>
   );
-}
+};
+export default NavMenu;

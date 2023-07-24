@@ -1,10 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import { routes } from './routes';
 import Layout from './components/Layout/Layout';
+import ProductCard from './components/product/ProductCard/ProductCard';
 
 function App() {
   return (
-    <div className="container">
+    <div>
       <Routes>
         <Route path="/" element={<Layout />}>
           {routes.map(({ path, element }, idx) => {

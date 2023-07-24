@@ -1,5 +1,11 @@
 import React from 'react';
+import ProductContainer from '../../components/product/ProductContainer/ProductContainer';
 
-export default function AllProductsPage() {
-  return <div>AllProductsPage</div>;
-}
+const AllProductsPage = () => {
+  return (
+    <div>
+      <ProductContainer />
+    </div>
+  );
+};
+export default AllProductsPage;

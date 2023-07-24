@@ -5,9 +5,9 @@ import cartIcon from '../../assets/images/cart.png';
 import { Link } from 'react-router-dom';
 import NavMenu from './NavMenu/NavMenu';
 
-export default function Header() {
+const Header = () => {
   return (
-    <header>
+    <header className={style.container}>
       <div className={style.logo_container}>
         <Link to="/" className={style.logo}>
           <img src={logo} alt="Logo" />
@@ -24,4 +24,5 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+export default Header;
