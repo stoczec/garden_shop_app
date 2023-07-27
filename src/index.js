@@ -5,12 +5,24 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { Provider } from 'react-redux';
 import { store } from './store';
+import GlobalStyle from './assets/styles/GlobalStyle';
+import { ThemeProvider, styled } from 'styled-components';
+import { theme } from './assets/styles/theme';
+
+const Wrapper = styled.div`
+  ${theme.mixins.wrapper}
+`;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>
+  <Wrapper>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <GlobalStyle />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    </ThemeProvider>
+  </Wrapper>
 );

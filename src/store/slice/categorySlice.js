@@ -27,19 +27,20 @@ export const categorySlice = createSlice({
   name: 'category',
   initialState,
   reducers: {},
-  extraReducers: {
-    [fetchCategories.pending]: (state, action) => {
-      state.loading = true; // change loading on true
-      state.error = ''; // reset error
-    },
-    [fetchCategories.fulfilled]: (state, action) => {
-      state.loading = false; // change loading on false
-      state.categories = action.payload;
-    },
-    [fetchCategories.rejected]: (state, action) => {
-      state.loading = false; // change loading on false
-      state.error = action.payload;
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchCategories.pending, (state, action) => {
+        state.loading = true; // change loading on true
+        state.error = ''; // reset error
+      })
+      .addCase(fetchCategories.fulfilled, (state, action) => {
+        state.loading = false; // change loading on false
+        state.categories = action.payload;
+      })
+      .addCase(fetchCategories.rejected, (state, action) => {
+        state.loading = false; // change loading on false
+        state.error = action.payload;
+      });
   },
 });
 

@@ -27,19 +27,20 @@ export const productSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {},
-  extraReducers: {
-    [fetchProducts.pending]: (state) => {
-      state.loading = true; // change loading on true
-      state.error = ''; // reset error
-    },
-    [fetchProducts.fulfilled]: (state, action) => {
-      state.loading = false; // change loading on false
-      state.products = action.payload;
-    },
-    [fetchProducts.rejected]: (state, action) => {
-      state.loading = false; // change loading on false
-      state.error = action.payload;
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.loading = true; // change loading on true
+        state.error = ''; // reset error
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.loading = false; // change loading on false
+        state.products = action.payload;
+      })
+      .addCase(fetchProducts.rejected, (state, action) => {
+        state.loading = false; // change loading on false
+        state.error = action.payload;
+      });
   },
 });
 

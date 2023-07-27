@@ -1,6 +1,6 @@
 import React from 'react';
 import SaleBanner from '../../components/sale/SaleBanner/SaleBanner';
-import CategoryCatalog from '../../components/category/CategoryCatalog/CategoryCatalog';
+import CategoryCatalog from '../../components/category/CategoryCatalog';
 import GetDiscount from '../../components/GetDiscount/GetDiscount';
 
 const MainPage = () => {
@@ -12,4 +12,5 @@ const MainPage = () => {
     </main>
   );
 };
+
 export default MainPage;

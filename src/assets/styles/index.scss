@@ -1,25 +1,24 @@
 @import './fonts.scss';
 @import './colors.scss';
-html,
-body {
-  font-family: Montserrat, serif;
-  font-style: normal;
-  line-height: 1;
-  font-weight: $font_semi_bold;
-  font-size: 16px;
-  color: $clr_black;
-  background-color: $clr_white;
-}
+// html,
+// body {
+//   // font-family: Montserrat, serif;
+//   font-style: normal;
+//   line-height: 1;
+//   font-weight: $font_semi_bold;
+//   font-size: 16px;
+//   color: $clr_black;
+//   background-color: $clr_white;
+// }
 
-.wrapper {
-  max-width: 1920px;
-  margin-inline: auto;
+// .wrapper {
+//   max-width: 1920px;
+//   margin-inline: auto;
+//   min-height: 100%;
+//   overflow: hidden;
+// }
 
-  min-height: 100%;
-  overflow: hidden;
-}
-
-.container {
-  width: min(1384px, 96%);
-  margin-inline: auto;
-}
+// .container {
+//   width: min(1384px, 96%);
+//   margin-inline: auto;
+// }
