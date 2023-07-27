@@ -6,7 +6,7 @@ import Adress from '../contactDetails/Adress/Adress';
 
 const Footer = () => {
   return (
-    <footer className={style.container}>
+    <footer className={`${style.footer} ${style.container}`}>
       <section className={style.contact_info}>
         <Contact />
         <Adress />

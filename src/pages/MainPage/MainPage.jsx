@@ -1,12 +1,14 @@
 import React from 'react';
 import SaleBanner from '../../components/sale/SaleBanner/SaleBanner';
-import CategoryCarousel from '../../components/category/CategoryCarousel/CategoryCarousel';
+import CategoryCatalog from '../../components/category/CategoryCatalog/CategoryCatalog';
+import GetDiscount from '../../components/GetDiscount/GetDiscount';
 
 const MainPage = () => {
   return (
     <main>
       <SaleBanner />
-      <CategoryCarousel />
+      <CategoryCatalog />
+      <GetDiscount />
     </main>
   );
 };

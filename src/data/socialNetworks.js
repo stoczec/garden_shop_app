@@ -3,7 +3,7 @@ import instagram from '../assets/images/socialNetworks/inst.svg';
 import linkedin from '../assets/images/socialNetworks/in.svg';
 import youtube from '../assets/images/socialNetworks/yt.svg';
 
-export const social_networks = [
+const social_networks = [
   {
     id: 1,
     name: 'Facebook',
@@ -29,3 +29,5 @@ export const social_networks = [
     src: 'https://www.youtube.com/@tel-ran.europe',
   },
 ];
+
+export default social_networks;

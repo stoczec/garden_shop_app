@@ -10,13 +10,13 @@
     margin-bottom: clamp(0.94rem, calc(0.76rem + 0.89vw), 1.56rem);
   }
   a {
-    color: $clr_000000;
+    color: $clr_black;
 
     font-size: $fs_40;
     font-weight: $font_semi_bold;
     text-decoration-line: underline;
     margin-bottom: clamp(0.63rem, calc(0.45rem + 0.89vw), 1.25rem);
-    line-height: 130%;
+    line-height: $lh_accent;
     transition: all 0.5s ease;
 
     &:hover {

@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700);
 
+// FONT WEIGHT
 $font_regular: 400;
 $font_medium: 500;
 $font_semi_bold: 600;
@@ -16,6 +17,11 @@ $fs_28: clamp(1.56rem, calc(1.51rem + 0.27vw), 1.75rem);
 $fs_30: clamp(1.69rem, calc(1.63rem + 0.27vw), 1.88rem);
 $fs_36: clamp(2rem, calc(1.93rem + 0.36vw), 2.25rem);
 $fs_40: clamp(1.44rem, calc(1rem + 1.5vw), 2.5rem);
+$fs_50: clamp(1.81rem, calc(1.55rem + 1.31vw), 3.13rem);
 $fs_63: clamp(2.25rem, calc(1.77rem + 2.41vw), 3.94rem);
 $fs_70: clamp(1.85rem, calc(1rem + 2.14vw), 4.06rem);
 $fs_80: clamp(2.88rem, calc(2.27rem + 3.04vw), 5rem);
+$fs_90: clamp(3.25rem, calc(2.78rem + 2.38vw), 5.63rem);
+
+// LINE HIGHT
+$lh_accent: 130%;

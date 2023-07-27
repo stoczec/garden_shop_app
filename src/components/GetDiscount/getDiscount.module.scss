@@ -1,0 +1,55 @@
+@import '../../assets/styles/main.scss';
+.get_discount {
+  background: linear-gradient(223deg, #393 0%, #006300 100%);
+  div {
+    padding: 30px 225px 30px 60px;
+
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    gap: 200px;
+    article {
+      h2 {
+        color: $clr_white;
+        font-size: $fs_50;
+        font-weight: 700;
+        line-height: 120%;
+        letter-spacing: 1.5px;
+        margin-bottom: 45px;
+        span {
+          color: $clr_white;
+          font-size: $fs_90;
+          letter-spacing: 2.7px;
+        }
+      }
+      form {
+        @include flex-col-jcc-ais;
+        gap: 30px;
+        input {
+          width: 473px;
+          height: 75.441px;
+          border-radius: 25.147px;
+
+          color: #6c6c6c;
+          font-size: $fs_18;
+          font-weight: 600;
+          line-height: 120%; /* 21.6px */
+          letter-spacing: 0.54px;
+        }
+        button {
+          width: 473px;
+          height: 75.441px;
+          border-radius: 25.147px;
+          border: 2.395px solid #fff;
+          background-color: transparent;
+          color: $clr_white;
+          font-size: $fs_28;
+          font-weight: 700;
+          line-height: 120%;
+          letter-spacing: 0.862px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

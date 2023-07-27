@@ -1,12 +1,16 @@
 @import '../../../assets/styles/main.scss';
 .card {
   @include flex-col-jcc-aic;
+  gap: 20px;
   img {
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 370px;
     object-fit: cover;
   }
   h2 {
     font-size: $fs_18;
+    font-weight: $font_semi_bold;
+    line-height: $lh_accent;
+    letter-spacing: 0.54px;
   }
 }

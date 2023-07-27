@@ -2,6 +2,7 @@
 2. Установка библиотек:
    npm i react-router-dom
    npm i @reduxjs/toolkit react-redux
+   npm install styled-components
    npm install react-icons --save
    npm install hamburger-react
    npm i sass

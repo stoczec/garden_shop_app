@@ -7,11 +7,12 @@ body {
   line-height: 1;
   font-weight: $font_semi_bold;
   font-size: 16px;
-  color: $clr_000000;
+  color: $clr_black;
+  background-color: $clr_white;
 }
 
 .wrapper {
-  width: min(1920px, 90%);
+  max-width: 1920px;
   margin-inline: auto;
 
   min-height: 100%;

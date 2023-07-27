@@ -1,6 +1,6 @@
 @import '../../assets/styles/main.scss';
 
-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,22 +19,22 @@ header {
       }
     }
     .categories {
-      color: $clr_ffffff;
+      color: $clr_white;
       font-weight: $font_bold;
       line-height: normal;
       font-size: $fs_16;
       padding-block: clamp(0.44rem, calc(0.29rem + 0.71vw), 0.94rem);
       padding-inline: clamp(0.94rem, calc(0.67rem + 1.34vw), 1.88rem);
       border-radius: 5px;
-      border: 2px solid $clr_339933;
-      background-color: $clr_339933;
+      border: 2px solid $clr_accent;
+      background-color: $clr_accent;
 
-      box-shadow: 0 0 40px 40px $clr_339933 inset, 0 0 0 0 $clr_339933;
+      box-shadow: 0 0 40px 40px $clr_accent inset, 0 0 0 0 $clr_accent;
       transition: all 350ms ease-in-out;
       &:hover {
-        color: $clr_339933;
-        background-color: $clr_ffffff;
-        box-shadow: 0 0 10px 0 $clr_339933 inset, 0 0 10px 4px $clr_339933;
+        color: $clr_accent;
+        background-color: $clr_white;
+        box-shadow: 0 0 10px 0 $clr_accent inset, 0 0 10px 4px $clr_accent;
       }
     }
   }

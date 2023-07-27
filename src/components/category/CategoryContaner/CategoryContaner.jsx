@@ -7,7 +7,7 @@ import CategoryCard from '../CategoryCard/CategoryCard';
 import Loading from '../../ui/Loading/Loading';
 import { NotFoundPage } from '../../../pages';
 
-const CategoryContaner = (props) => {
+const CategoryContaner = ({ className, showCount }) => {
   const dispatch = useDispatch();
   const { categories, loading, error } = useSelector(
     (state) => state.categories
@@ -21,9 +21,11 @@ const CategoryContaner = (props) => {
   if (error) {
     return <NotFoundPage textError={error} />;
   }
+  // Для отрисовки нужного количества элементов
+  const visibleCategories = categories.slice(0, showCount);
   return (
-    <section className={`${style.category_container} ${props.classname}`}>
-      {categories.map((category) => (
+    <section className={`${style.category_container} ${className}`}>
+      {visibleCategories.map((category) => (
         <CategoryCard key={category.id} {...category} />
       ))}
     </section>

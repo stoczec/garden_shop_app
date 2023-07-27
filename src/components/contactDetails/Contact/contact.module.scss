@@ -13,24 +13,7 @@
     font-weight: $font_semi_bold;
     margin-bottom: clamp(0.94rem, calc(0.67rem + 1.34vw), 1.88rem);
   }
-  .social_links {
-    display: flex;
-    gap: clamp(0.4rem, 3vw, 4rem);
-    & a {
-      @include flex-col-jcc-aic;
-      color: $clr_000000;
-      font-size: $fs_15;
-      font-weight: $font_semi_bold;
 
-      img {
-        margin-bottom: 8px;
-        transition: all 0.5s ease-in-out;
-      }
-    }
-    & a:hover img {
-      transform: scale(1.2);
-    }
-  }
   @media (max-width: $mq_900) {
     width: 100%;
     @include flex-col-jcc-aic;

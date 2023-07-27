@@ -7,7 +7,7 @@ import NavMenu from './NavMenu/NavMenu';
 
 const Header = () => {
   return (
-    <header className={style.container}>
+    <header className={`${style.container} ${style.header}`}>
       <div className={style.logo_container}>
         <Link to="/" className={style.logo}>
           <img src={logo} alt="Logo" />

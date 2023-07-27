@@ -5,7 +5,7 @@
     height: 30px;
     transition: height 1.5s cubic-bezier(0.22, 0.61, 0.36, 1),
       background-color 1.5s ease;
-    background-color: $clr_339933;
+    background-color: $clr_accent;
     border-radius: 10px;
     padding: 0 5px;
 
@@ -22,15 +22,15 @@ nav {
   align-items: center;
   justify-content: space-between;
   width: 330px;
-  background-color: $clr_ffffff;
+  background-color: $clr_white;
   & * {
-    color: $clr_000000;
+    color: $clr_black;
     font-size: $fs_16;
     font-weight: $font_medium;
     transition: all 1.5s ease;
 
     &:hover {
-      text-shadow: 5px 5px 5px $clr_000000;
+      text-shadow: 5px 5px 5px $clr_black;
       transition: all 0.5s ease;
     }
   }

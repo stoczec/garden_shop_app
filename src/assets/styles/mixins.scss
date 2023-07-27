@@ -1,3 +1,9 @@
+@mixin flex-jcc-aic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @mixin flex-col-jcc-aic {
   display: flex;
   flex-direction: column;

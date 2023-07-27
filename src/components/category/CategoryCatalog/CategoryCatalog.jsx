@@ -1,19 +1,17 @@
 import React from 'react';
-import style from './categoryCarousel.module.scss';
+import style from './categoryCatalog.module.scss';
 import { Link } from 'react-router-dom';
 import CategoryContaner from '../CategoryContaner/CategoryContaner';
 
-const CategoryCarousel = () => {
+const CategoryCatalog = () => {
   return (
-    <section className={`${style.category_carousel} container`}>
+    <section className={`${style.category_catalog} ${style.container}`}>
       <header>
         <h2>Catalog</h2>
         <Link to="/categories">All categories</Link>
       </header>
-      <div>
-        <CategoryContaner classname={style.category_contaner} />
-      </div>
+      <CategoryContaner className={style.category_container} showCount={4} />
     </section>
   );
 };
-export default CategoryCarousel;
+export default CategoryCatalog;
