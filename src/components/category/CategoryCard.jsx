@@ -12,17 +12,16 @@ const CategoryCard = ({ image, title }) => {
   );
 };
 
-// VARIABLES STYLED COMPONENTS
+// SCC ========== VARIABLES STYLED COMPONENTS ========== //
 const fs_18 = (props) => props.theme.font_size.fs_18;
-// STYLED COMPONENTS
+const primary_lh = (props) => props.theme.line_height.primary;
+// SCC ========== STYLED COMPONENTS ========== //
 const Card = styled.article`
-  ${(props) =>
-    props.theme.mixins.flex({
-      fd: 'column',
-      ai: 'center',
-      jc: 'center',
-      gap: '20px',
-    })};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 `;
 const Image = styled.img`
   width: clamp(10rem, calc(8rem + 10vw), 20rem);
@@ -34,13 +33,11 @@ const Image = styled.img`
   }
 `;
 const CustomTitle = styled(Title)`
-  ${(props) =>
-    props.theme.mixins.flex({
-      ai: 'center',
-      jc: 'center',
-    })};
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: ${fs_18};
-  line-height: ${(props) => props.theme.line_height.primary};
+  line-height: ${primary_lh};
   letter-spacing: 0.54px;
 `;
 

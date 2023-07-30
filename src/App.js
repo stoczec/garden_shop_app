@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { routes } from './routes';
 import Layout from './components/Layout/Layout';
-import ProductCard from './components/product/ProductCard/ProductCard';
 
 function App() {
   return (

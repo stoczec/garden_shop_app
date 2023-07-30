@@ -15,33 +15,29 @@ const CategoryCatalog = () => {
     </Container>
   );
 };
-// VARIABLES STYLED COMPONENTS
+// SCC ========== VARIABLES STYLED COMPONENTS ========== //
+const fs_12 = (props) => props.theme.font_size.fs_12;
 const clr_white = (props) => props.theme.colors.clr_white;
 const clr_grey = '#8b8b8b';
-const fs_12 = (props) => props.theme.font_size.fs_12;
-// STYLED COMPONENTS
+const primary_lh = (props) => props.theme.line_height.primary;
+// SCC ========== STYLED COMPONENTS ========== //
 const Container = styled.section`
   ${(props) => props.theme.mixins.container};
   padding: 40px 0 90px 0;
 `;
 const Header = styled.header`
-  ${(props) =>
-    props.theme.mixins.flex({
-      ai: 'center',
-      gap: 'clamp(3rem, calc(2.4rem + 3vw), 6rem)',
-    })};
+  display: flex;
+  align-items: center;
+  gap: clamp(3rem, calc(2.4rem + 3vw), 6rem);
   margin-bottom: 20px;
   @media (max-width: 376px) {
-    ${(props) =>
-      props.theme.mixins.flex({
-        ai: 'center',
-        jc: 'center',
-        gap: 'clamp(3rem, calc(2.4rem + 3vw), 6rem)',
-      })}
+    justify-content: center;
   }
 `;
 const Button = styled(Link)`
-  ${(props) => props.theme.mixins.flex({ ai: 'center', jc: 'center' })};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   width: 120px;
   height: 30px;
@@ -51,7 +47,7 @@ const Button = styled(Link)`
   color: ${clr_grey};
   font-size: ${fs_12};
   font-weight: 700;
-  line-height: ${(props) => props.theme.line_height.primary};
+  line-height: ${primary_lh};
   letter-spacing: 0.36px;
 
   box-shadow: 0 0 40px 40px ${clr_white} inset, 0 0 0 0 ${clr_grey};

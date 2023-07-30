@@ -24,21 +24,24 @@ const NavMenu = () => {
   );
 };
 
-// VARIABLES STYLED COMPONENTS
+// SCC ========== VARIABLES STYLED COMPONENTS ========== //
+const fs_16 = (props) => props.theme.font_size.fs_16;
+const clr_accent = (props) => props.theme.colors.clr_accent;
 const clr_black = (props) => props.theme.colors.clr_black;
 const clr_white = (props) => props.theme.colors.clr_white;
-const clr_accent = (props) => props.theme.colors.clr_accent;
-const fs_16 = (props) => props.theme.font_size.fs_16;
-
-// STYLED COMPONENTS
+const primary_lh = (props) => props.theme.line_height.primary;
+// SCC ========== STYLED COMPONENTS ========== //
 const Nav = styled.nav`
-  ${(props) => props.theme.mixins.flex({ ai: 'center', jc: 'space-between' })};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 330px;
   background-color: ${clr_white};
   & * {
     color: ${clr_black};
     font-size: ${fs_16};
     font-weight: 500;
+    line-height: ${primary_lh};
     transition: all 1.5s ease;
 
     &:hover {

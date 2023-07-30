@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategories } from '../../store/slice/categorySlice';
 import CategoryCard from './CategoryCard';
-import Loading from '../ui/Loading/Loading';
+import Loading from '../ui/Loading';
 import { NotFoundPage } from '../../pages';
 
 const CategoryContaner = ({ className, showCount }) => {
@@ -32,22 +32,19 @@ const CategoryContaner = ({ className, showCount }) => {
   );
 };
 
-// VARIABLES STYLED COMPONENTS
-// STYLED COMPONENTS
+// SCC ========== VARIABLES STYLED COMPONENTS ========== //
+// SCC ========== STYLED COMPONENTS ========== //
 const Categories = styled.section`
-  ${(props) =>
-    props.theme.mixins.grid({
-      width: 'clamp(10rem, calc(8rem + 10vw), 20rem)',
-      ji: 'center',
-      gap: '30px',
-    })};
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    clamp(10rem, calc(8rem + 10vw), 20rem)
+  );
+  justify-items: center;
+  gap: 30px;
+
   @media (max-width: 376px) {
-    ${(props) =>
-      props.theme.mixins.grid({
-        ji: 'center',
-        jc: 'center',
-        gap: '30px',
-      })}
+    justify-content: center;
   }
 `;
 export default CategoryContaner;

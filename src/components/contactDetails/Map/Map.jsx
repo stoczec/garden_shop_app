@@ -1,16 +1,23 @@
 import React from 'react';
-import './map.module.scss';
+import styled from 'styled-components';
 import { MAPURL } from '../../../assets/constants/URL';
 
 const Map = () => {
   return (
-    <iframe
+    <MapContainer
       title="Map"
       src={MAPURL}
       allowFullScreen=""
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
-    ></iframe>
+    ></MapContainer>
   );
 };
+// SCC ========== VARIABLES STYLED COMPONENTS ========== //
+// SCC ========== STYLED COMPONENTS ========== //
+const MapContainer = styled.iframe`
+  width: 100%;
+  height: 450px;
+  border: none;
+`;
 export default Map;

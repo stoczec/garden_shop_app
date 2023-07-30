@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { font_assent_url } from './fonts';
 import { theme } from './theme';
 
 const GlobalStyle = createGlobalStyle`

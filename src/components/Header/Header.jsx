@@ -24,22 +24,22 @@ const Header = () => {
   );
 };
 
-// VARIABLES STYLED COMPONENTS
+// SCC ========== VARIABLES STYLED COMPONENTS ========== //
+const fs_16 = (props) => props.theme.font_size.fs_16;
 const clr_white = (props) => props.theme.colors.clr_white;
 const clr_accent = (props) => props.theme.colors.clr_accent;
-const fs_16 = (props) => props.theme.font_size.fs_16;
-// STYLED COMPONENTS
+// SCC ========== STYLED COMPONENTS ========== //
 const Head = styled.header`
-  ${(props) => props.theme.mixins.flex({ ai: 'center', jc: 'space-between' })};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   ${(props) => props.theme.mixins.container};
 `;
 const LogoContainer = styled.div`
-  ${(props) =>
-    props.theme.mixins.flex({
-      ai: 'center',
-      jc: 'space-between',
-      gap: 'clamp(1rem, calc(-0.07rem + 5.37vw), 3.75rem)',
-    })};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(1.88rem, calc(1.5rem + 1.88vw), 3.75rem);
 `;
 const LogoLink = styled(Link)`
   transition: all 350ms ease-in-out;
@@ -66,15 +66,13 @@ const CategoriesLink = styled(Link)`
   }
 `;
 const NavMenuContainer = styled.div`
-  ${(props) =>
-    props.theme.mixins.flex({
-      jc: 'space-between',
-      gap: 'clamp(1rem, calc(-2.8rem + 19.02vw), 10.75rem)',
-    })};
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(1rem, calc(-2.8rem + 19.02vw), 10.75rem);
 `;
 const CartLink = styled(Link)`
-  ${(props) => props.theme.mixins.flex({ ai: 'center' })};
-
+  display: flex;
+  align-items: center;
   transition: all 250ms ease-in-out;
 
   &:hover {

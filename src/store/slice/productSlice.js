@@ -16,6 +16,8 @@ export const fetchProducts = createAsyncThunk(
         throw new Error(`Error ${response.status}. ${response.statusText}`);
       }
       const data = await response.json();
+      console.log(data);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

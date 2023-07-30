@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
-// VARIABLES STYLED COMPONENTS
-// STYLED COMPONENTS
+// SCC ========== VARIABLES STYLED COMPONENTS ========== //
+// SCC ========== STYLED COMPONENTS ========== //
 const Title = styled.h2`
   /* ${(props) => props.theme.mixins.container}; */
   color: ${(props) => props.theme.colors.clr_black};
