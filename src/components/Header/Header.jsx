@@ -30,6 +30,7 @@ const clr_white = (props) => props.theme.colors.clr_white;
 const clr_accent = (props) => props.theme.colors.clr_accent;
 // SCC ========== STYLED COMPONENTS ========== //
 const Head = styled.header`
+  padding: 20px 0 80px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;

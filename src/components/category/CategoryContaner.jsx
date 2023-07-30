@@ -41,7 +41,12 @@ const Categories = styled.section`
     clamp(10rem, calc(8rem + 10vw), 20rem)
   );
   justify-items: center;
+  justify-content: space-between;
   gap: 30px;
+
+  @media (max-width: 1074px) {
+    justify-content: space-around;
+  }
 
   @media (max-width: 376px) {
     justify-content: center;

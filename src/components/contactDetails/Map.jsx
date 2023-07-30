@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MAPURL } from '../../../assets/constants/URL';
+import { MAPURL } from '../../assets/constants/URL';
 
 const Map = () => {
   return (

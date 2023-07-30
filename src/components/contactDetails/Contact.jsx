@@ -1,8 +1,8 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import SocialLinks from '../SocialLinks/SocialLinks';
-import contacts_data from '../../../data/contacts';
-import Title from '../../reusable/Title';
+import SocialLinks from './SocialLinks';
+import contacts_data from '../../data/contacts';
+import Title from '../reusable/Title';
 
 const Contact = () => {
   return (
@@ -26,7 +26,6 @@ const ContactContainer = styled.article`
     width: 100%;
     align-items: center;
   }
-  
 `;
 const CustomTitle = styled(Title)`
   letter-spacing: normal;

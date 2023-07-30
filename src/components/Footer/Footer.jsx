@@ -1,8 +1,8 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import Map from '../contactDetails/Map/Map';
-import Contact from '../contactDetails/Contact/Contact';
-import Adress from '../contactDetails/Adress/Adress';
+import Map from '../contactDetails/Map';
+import Contact from '../contactDetails/Contact';
+import Adress from '../contactDetails/Adress';
 
 const Footer = () => {
   return (
