@@ -11,7 +11,7 @@ export const font_size = {
   fs_40: 'clamp(1.44rem, calc(1.23rem + 1.06vw), 2.5rem)',
   fs_50: 'clamp(1.81rem, calc(1.55rem + 1.31vw), 3.13rem)',
   fs_63: 'clamp(2.25rem, calc(1.91rem + 1.69vw), 3.94rem)',
-  fs_70: 'clamp(2.56rem, calc(2.2rem + 1.81vw), 4.38rem)',
+  fs_70: 'clamp(2rem, calc(1.7rem + 1.81vw), 4.38rem)',
   fs_80: 'clamp(2.88rem, calc(2.45rem + 2.13vw), 5rem)',
   fs_90: 'clamp(3.25rem, calc(2.78rem + 2.38vw), 5.63rem)',
 };

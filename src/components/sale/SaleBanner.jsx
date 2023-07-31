@@ -23,6 +23,8 @@ const fs_24 = (props) => props.theme.font_size.fs_24;
 const fs_63 = (props) => props.theme.font_size.fs_63;
 const fs_80 = (props) => props.theme.font_size.fs_80;
 const clr_white = (props) => props.theme.colors.clr_white;
+const clr_sale = (props) => props.theme.colors.clr_sale;
+const clr_button = '#2d2d2d';
 const primary_lh = (props) => props.theme.line_height.primary;
 // SCC ========== STYLED COMPONENTS ========== //
 const Banner = styled.section`
@@ -70,10 +72,18 @@ const Button = styled(Link)`
   background: ${clr_white};
   padding: 25px 50px;
 
-  color: #2d2d2d;
+  color: ${clr_button};
   font-size: ${fs_24};
   font-weight: 700;
   line-height: ${primary_lh};
+
+  box-shadow: 0 0 40px 40px ${clr_white} inset, 0 0 0 0 ${clr_sale};
+  transition: all 350ms ease-in-out;
+  &:hover {
+    color: ${clr_button};
+    background-color: ${clr_white};
+    box-shadow: 0 0 10px 0 ${clr_sale} inset, 0 0 10px 4px ${clr_sale};
+  }
 `;
 const Image = styled.img`
   width: clamp(18.75rem, calc(10rem + 30.36vw), 40rem);
