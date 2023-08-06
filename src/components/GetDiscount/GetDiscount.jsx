@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import gnome from '../../assets/images/gnome.png';
+import gnome from '../../assets/images/banner_bg1.png';
 import Title from '../reusable/Title';
 
 const GetDiscount = () => {
@@ -34,7 +34,7 @@ const Wrapper = styled.section`
 `;
 const Container = styled.div`
   ${(props) => props.theme.mixins.container}
-  padding: 30px 225px 30px 60px;
+  padding: 0 225px 0 60px;
 
   display: flex;
   align-items: center;
@@ -72,6 +72,7 @@ const Input = styled.input`
   height: clamp(2.81rem, calc(2.44rem + 1.88vw), 4.69rem);
   border-radius: 25.147px;
   padding-left: 50px;
+  border: none;
 
   color: #6c6c6c;
   font-size: ${(props) => props.theme.font_size.fs_18};

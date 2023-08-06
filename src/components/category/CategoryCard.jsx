@@ -28,9 +28,12 @@ const Image = styled.img`
   height: clamp(10rem, calc(8rem + 10vw), 20rem);
   object-fit: cover;
   cursor: pointer;
-  transition: filter 0.2s ease-in-out;
+  transition: all 0.35s ease-in-out;
+  filter: brightness(60%);
   &:hover {
-    filter: brightness(60%);
+    filter: brightness(100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.15);
   }
 
   @media (max-width: 376px) {
