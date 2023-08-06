@@ -1,64 +1,47 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
-import sale_banner from '../../assets/images/sale_banner.png';
+import banner_bg from '../../assets/images/banner_bg.png';
 import Title from '../reusable/Title';
 
 const SaleBanner = () => {
   return (
     <Banner>
       <Container>
-        <Content>
-          <MainTitle>Sale</MainTitle>
-          <CustomTitle>New season</CustomTitle>
-          <Button to="/sales">Sale</Button>
-        </Content>
-        <Image src={sale_banner} alt="Sale banner" />
+        <MainTitle>Sale</MainTitle>
+        <CustomTitle>New season</CustomTitle>
+        <Button to="/sales">Sale</Button>
       </Container>
     </Banner>
   );
 };
 // SCC ========== VARIABLES STYLED COMPONENTS ========== //
-const fs_24 = (props) => props.theme.font_size.fs_24;
-const fs_63 = (props) => props.theme.font_size.fs_63;
-const fs_80 = (props) => props.theme.font_size.fs_80;
 const clr_white = (props) => props.theme.colors.clr_white;
-const clr_sale = (props) => props.theme.colors.clr_sale;
-const clr_button = '#2d2d2d';
-const primary_lh = (props) => props.theme.line_height.primary;
+const clr_accent = (props) => props.theme.colors.clr_accent;
 // SCC ========== STYLED COMPONENTS ========== //
 const Banner = styled.section`
-  background-color: #a1e2eb;
+  background: url(${banner_bg}) no-repeat 100% 100% / contain, #a1e2eb;
+  /* background-size: contain; */
 `;
 const Container = styled.div`
   ${(props) => props.theme.mixins.container};
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  @media (max-width: 830px) {
-    justify-content: center;
-  }
-`;
-const Content = styled.article`
-  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding-top: clamp(5rem, calc(4.11rem + 4.46vw), 8.13rem);
-  padding-bottom: clamp(5.63rem, calc(4.73rem + 4.46vw), 8.75rem);
-  @media (max-width: 830px) {
-    flex-direction: column;
-  }
+  align-items: start;
+  padding-top: clamp(3.75rem, calc(2.88rem + 4.38vw), 8.13rem);
+  padding-bottom: clamp(3.75rem, calc(2.75rem + 5vw), 8.75rem);
 `;
+
 const MainTitle = styled.h1`
   color: ${clr_white};
-  font-size: ${fs_80};
+  font-size: ${(props) => props.theme.font_size.fs_80};
   font-weight: 700;
-  line-height: ${primary_lh};
+  line-height: ${(props) => props.theme.line_height.primary};
 `;
 const CustomTitle = styled(Title)`
   color: ${clr_white};
-  font-size: ${fs_63};
+  font-size: ${(props) => props.theme.font_size.fs_63};
   letter-spacing: normal;
   margin-bottom: 60px;
   text-align: center;
@@ -67,30 +50,22 @@ const Button = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(7.19rem, calc(6.47rem + 3.57vw), 9.69rem);
   border-radius: 13px;
   background: ${clr_white};
-  padding: 25px 50px;
+  padding: clamp(0.75rem, calc(0.59rem + 0.81vw), 1.56rem)
+    clamp(1.56rem, calc(1.25rem + 1.56vw), 3.13rem);
 
-  color: ${clr_button};
-  font-size: ${fs_24};
+  color: #2d2d2d;
+  font-size: ${(props) => props.theme.font_size.fs_24};
   font-weight: 700;
-  line-height: ${primary_lh};
+  line-height: ${(props) => props.theme.line_height.primary};
 
-  box-shadow: 0 0 40px 40px ${clr_white} inset, 0 0 0 0 ${clr_sale};
+  box-shadow: 0 0 40px 40px ${clr_white} inset, 0 0 0 0 ${clr_accent};
   transition: all 350ms ease-in-out;
   &:hover {
-    color: ${clr_button};
+    color: ${clr_accent};
     background-color: ${clr_white};
-    box-shadow: 0 0 10px 0 ${clr_sale} inset, 0 0 10px 4px ${clr_sale};
-  }
-`;
-const Image = styled.img`
-  width: clamp(18.75rem, calc(10rem + 30.36vw), 40rem);
-  height: 600px;
-  object-fit: contain;
-  @media (max-width: 830px) {
-    display: none;
+    box-shadow: 0 0 10px 0 ${clr_accent} inset, 0 0 10px 4px ${clr_accent};
   }
 `;
 

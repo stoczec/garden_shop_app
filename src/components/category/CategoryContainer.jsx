@@ -7,7 +7,7 @@ import CategoryCard from './CategoryCard';
 import Loading from '../ui/Loading';
 import { NotFoundPage } from '../../pages';
 
-const CategoryContaner = ({ className, showCount }) => {
+const CategoryContainer = ({ showCount }) => {
   const dispatch = useDispatch();
   const { categories, loading, error } = useSelector(
     (state) => state.categories
@@ -21,18 +21,23 @@ const CategoryContaner = ({ className, showCount }) => {
   if (error) {
     return <NotFoundPage textError={error} />;
   }
+  console.log('hfhwegf');
   // Для отрисовки нужного количества элементов
   const visibleCategories = categories.slice(0, showCount);
   return (
     <Categories>
       {visibleCategories.map((category) => (
-        <CategoryCard key={category.id} {...category} />
+        <CategoryCard
+          key={category.id}
+          {...category}
+          category={category.title}
+          id={category.id}
+        />
       ))}
     </Categories>
   );
 };
 
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
 // SCC ========== STYLED COMPONENTS ========== //
 const Categories = styled.section`
   display: grid;
@@ -52,4 +57,4 @@ const Categories = styled.section`
     justify-content: center;
   }
 `;
-export default CategoryContaner;
+export default CategoryContainer;

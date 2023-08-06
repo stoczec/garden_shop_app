@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
-import CategoryContaner from './CategoryContaner';
+import CategoryContaner from './CategoryContainer';
 import Title from '../reusable/Title';
 
 const CategoryCatalog = () => {
@@ -16,10 +16,8 @@ const CategoryCatalog = () => {
   );
 };
 // SCC ========== VARIABLES STYLED COMPONENTS ========== //
-const fs_12 = (props) => props.theme.font_size.fs_12;
 const clr_white = (props) => props.theme.colors.clr_white;
 const clr_grey = '#8b8b8b';
-const primary_lh = (props) => props.theme.line_height.primary;
 // SCC ========== STYLED COMPONENTS ========== //
 const Container = styled.section`
   ${(props) => props.theme.mixins.container};
@@ -45,9 +43,9 @@ const Button = styled(Link)`
   border: 1px solid ${clr_grey};
 
   color: ${clr_grey};
-  font-size: ${fs_12};
+  font-size: ${(props) => props.theme.font_size.fs_12};
   font-weight: 700;
-  line-height: ${primary_lh};
+  line-height: ${(props) => props.theme.line_height.primary};
   letter-spacing: 0.36px;
 
   box-shadow: 0 0 40px 40px ${clr_white} inset, 0 0 0 0 ${clr_grey};

@@ -23,29 +23,22 @@ const NavMenu = () => {
     </>
   );
 };
-
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
-const fs_16 = (props) => props.theme.font_size.fs_16;
-const clr_accent = (props) => props.theme.colors.clr_accent;
-const clr_black = (props) => props.theme.colors.clr_black;
-const clr_white = (props) => props.theme.colors.clr_white;
-const primary_lh = (props) => props.theme.line_height.primary;
 // SCC ========== STYLED COMPONENTS ========== //
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 330px;
-  background-color: ${clr_white};
+  background-color: ${(props) => props.theme.colors.clr_white};
   & * {
-    color: ${clr_black};
-    font-size: ${fs_16};
+    color: ${(props) => props.theme.colors.clr_black};
+    font-size: ${(props) => props.theme.font_size.fs_16};
     font-weight: 500;
-    line-height: ${primary_lh};
+    line-height: ${(props) => props.theme.line_height.primary};
     transition: all 1.5s ease;
 
     &:hover {
-      text-shadow: 5px 5px 5px ${clr_black};
+      text-shadow: 5px 5px 5px ${(props) => props.theme.colors.clr_black};
       transition: all 0.5s ease;
     }
   }
@@ -68,12 +61,12 @@ const Nav = styled.nav`
       height: 30px;
       transition: height 1.5s cubic-bezier(0.22, 0.61, 0.36, 1),
         background-color 1.5s ease;
-      background-color: ${clr_accent};
+      background-color: ${(props) => props.theme.colors.clr_accent};
       border-radius: 10px;
       padding: 0 5px;
 
       & > a {
-        font-size: ${fs_16};
+        font-size: ${(props) => props.theme.font_size.fs_16};
         transition: font-size 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
           color 1.5s ease, text-shadow 1.5s ease, background-color 1.5s ease;
       }

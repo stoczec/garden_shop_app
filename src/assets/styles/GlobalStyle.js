@@ -18,6 +18,7 @@ body {
   font-size: 16px;
   color: ${theme.colors.clr_black};
   background-color: ${theme.colors.clr_white};
+  scroll-behavior: smooth;
 }
 
   body {

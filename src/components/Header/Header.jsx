@@ -25,8 +25,6 @@ const Header = () => {
 };
 
 // SCC ========== VARIABLES STYLED COMPONENTS ========== //
-const fs_16 = (props) => props.theme.font_size.fs_16;
-const clr_white = (props) => props.theme.colors.clr_white;
 const clr_accent = (props) => props.theme.colors.clr_accent;
 // SCC ========== STYLED COMPONENTS ========== //
 const Head = styled.header`
@@ -49,10 +47,10 @@ const LogoLink = styled(Link)`
   }
 `;
 const CategoriesLink = styled(Link)`
-  color: ${clr_white};
+  color: ${(props) => props.theme.colors.clr_white};
   background-color: ${clr_accent};
   font-weight: 700;
-  font-size: ${fs_16};
+  font-size: ${(props) => props.theme.font_size.fs_16};
   padding-block: clamp(0.44rem, calc(0.29rem + 0.71vw), 0.94rem);
   padding-inline: clamp(0.94rem, calc(0.67rem + 1.34vw), 1.88rem);
   border-radius: 5px;
@@ -62,7 +60,7 @@ const CategoriesLink = styled(Link)`
   transition: all 350ms ease-in-out;
   &:hover {
     color: ${clr_accent};
-    background-color: ${clr_white};
+    background-color: ${(props) => props.theme.colors.clr_white};
     box-shadow: 0 0 10px 0 ${clr_accent} inset, 0 0 10px 4px ${clr_accent};
   }
 `;

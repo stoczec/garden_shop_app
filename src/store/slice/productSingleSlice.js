@@ -7,11 +7,11 @@ const initialState = {
   error: '',
 };
 
-export const fetchProducts = createAsyncThunk(
-  'products/fetchProducts',
-  async function (_, { rejectWithValue }) {
+export const fetchSingleProduct = createAsyncThunk(
+  'product/fetchSingleProduct',
+  async function (id, { rejectWithValue }) {
     try {
-      const response = await fetch(`${BASEURL}/products/all`);
+      const response = await fetch(`${BASEURL}/products/${id}`);
       if (!response.ok) {
         throw new Error(`Error ${response.status}. ${response.statusText}`);
       }
@@ -24,26 +24,26 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
-export const productSlice = createSlice({
-  name: 'products',
+export const productSingleSlice = createSlice({
+  name: 'product',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProducts.pending, (state) => {
+      .addCase(fetchSingleProduct.pending, (state) => {
         state.loading = true; // change loading on true
         state.error = ''; // reset error
       })
-      .addCase(fetchProducts.fulfilled, (state, action) => {
+      .addCase(fetchSingleProduct.fulfilled, (state, action) => {
         state.loading = false; // change loading on false
         state.products = action.payload;
       })
-      .addCase(fetchProducts.rejected, (state, action) => {
+      .addCase(fetchSingleProduct.rejected, (state, action) => {
         state.loading = false; // change loading on false
         state.error = action.payload;
       });
   },
 });
 
-// export const {} = productSlice.actions;
-export default productSlice.reducer;
+// export const {} = productSingleSlice.actions;
+export default productSingleSlice.reducer;

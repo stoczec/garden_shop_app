@@ -2,10 +2,9 @@
 2. Установка библиотек:
    npm i react-router-dom
    npm i @reduxjs/toolkit react-redux
-   npm install styled-components
-   npm install react-icons --save
-   npm install hamburger-react
-   npm i sass
+   npm i styled-components
+   npm i react-icons --save
+   npm i hamburger-react
 3. Создаем pages. Кроме создания самих страниц, создаем в папке pages, index.js - из которого и будем экспортировать страницы.
    Импортируем в routes.js, а из него экспортируем массив routes, который содержит атрибуты компонента.
 4. Импортируем routes в App.js.

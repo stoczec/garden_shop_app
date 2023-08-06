@@ -1,12 +1,12 @@
 import React from 'react';
-import ProductContainer from '../../components/product/ProductContainer';
-import Title from '../../components/reusable/Title';
+import ProductContainer from '../components/product/ProductContainer';
+import Title from '../components/reusable/Title';
 import { styled } from 'styled-components';
 
 const AllProductsPage = () => {
   return (
     <Container>
-      <Title>{'All products'}</Title>
+      <Title>All products</Title>
       <ProductContainer />
     </Container>
   );
@@ -16,6 +16,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: clamp(2.5rem, calc(2rem + 2.5vw), 5rem);
-  padding: 80px 0 50px 0;
+  padding-bottom: 30px;
 `;
 export default AllProductsPage;

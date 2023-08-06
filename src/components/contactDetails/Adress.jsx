@@ -20,12 +20,6 @@ const Adress = () => {
     </AdressContainer>
   );
 };
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
-const fs_18 = (props) => props.theme.font_size.fs_18;
-const fs_24 = (props) => props.theme.font_size.fs_24;
-const fs_40 = (props) => props.theme.font_size.fs_40;
-const clr_black = (props) => props.theme.colors.clr_black;
-const primary_lh = (props) => props.theme.line_height.primary;
 // SCC ========== STYLED COMPONENTS ========== //
 const AdressContainer = styled.article`
   width: 50%;
@@ -45,22 +39,22 @@ const CustomTitle = styled(Title)`
   margin-bottom: clamp(0.94rem, calc(0.76rem + 0.89vw), 1.56rem);
 `;
 const AdressLink = styled.a`
-  color: ${clr_black};
-  font-size: ${fs_40};
+  color: ${(props) => props.theme.colors.clr_black};
+  font-size: ${(props) => props.theme.font_size.fs_40};
   text-decoration-line: underline;
   margin-bottom: clamp(0.63rem, calc(0.45rem + 0.89vw), 1.25rem);
-  line-height: ${primary_lh};
+  line-height: ${(props) => props.theme.line_height.primary};
   transition: all 0.5s ease;
   &:hover {
     transform: scale(1.03);
   }
 `;
 const SubTitle = styled.h6`
-  font-size: ${fs_18};
+  font-size: ${(props) => props.theme.font_size.fs_18};
   font-weight: 500;
   margin-bottom: 2px;
 `;
 const Span = styled.span`
-  font-size: ${fs_24};
+  font-size: ${(props) => props.theme.font_size.fs_24};
 `;
 export default Adress;

@@ -13,7 +13,6 @@ const Map = () => {
     ></MapContainer>
   );
 };
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
 // SCC ========== STYLED COMPONENTS ========== //
 const MapContainer = styled.iframe`
   width: 100%;

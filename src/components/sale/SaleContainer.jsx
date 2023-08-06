@@ -3,11 +3,11 @@ import { styled } from 'styled-components';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../store/slice/productSlice';
-import ProductCard from './ProductCard';
+import ProductCard from '../product/ProductCard';
 import Loading from '../ui/Loading';
 import { NotFoundPage } from '../../pages';
 
-const ProductContainer = ({ id }) => {
+const SaleContainer = ({ showCount }) => {
   const dispatch = useDispatch();
 
   const { products, loading, error } = useSelector((state) => state.products);
@@ -15,7 +15,6 @@ const ProductContainer = ({ id }) => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-  console.log(products);
 
   if (loading) {
     return <Loading />;
@@ -23,15 +22,16 @@ const ProductContainer = ({ id }) => {
   if (error) {
     return <NotFoundPage textError={error} />;
   }
+  const filtredDiscountProduct = products.filter(
+    (product) => product.discont_price
+  );
+  const visibleSaleProduct = filtredDiscountProduct.slice(0, showCount);
+
   return (
     <Container>
-      {!id
-        ? products.map((product) => (
-            <ProductCard key={product.id} {...product} />
-          ))
-        : products
-            .filter((product) => product.categoryId == id)
-            .map((product) => <ProductCard key={product.id} {...product} />)}
+      {visibleSaleProduct.map((product) => (
+        <ProductCard key={product.id} {...product} />
+      ))}
     </Container>
   );
 };
@@ -48,4 +48,4 @@ const Container = styled.section`
     justify-content: space-around;
   }
 `;
-export default ProductContainer;
+export default SaleContainer;

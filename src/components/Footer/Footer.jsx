@@ -15,12 +15,10 @@ const Footer = () => {
     </FooterContainer>
   );
 };
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
-const clr_black = (props) => props.theme.colors.clr_black;
 // SCC ========== STYLED COMPONENTS ========== //
 const FooterContainer = styled.footer`
   ${(props) => props.theme.mixins.container}
-  color: ${clr_black};
+  color: ${(props) => props.theme.colors.clr_black};
   display: flex;
   flex-direction: column;
   justify-content: center;

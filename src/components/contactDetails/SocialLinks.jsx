@@ -16,9 +16,6 @@ const SocialLinks = () => {
     </Container>
   );
 };
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
-const fs_15 = (props) => props.theme.font_size.fs_15;
-const clr_black = (props) => props.theme.colors.clr_black;
 // SCC ========== STYLED COMPONENTS ========== //
 const Container = styled.article`
   display: flex;
@@ -33,8 +30,8 @@ const Link = styled.a`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: ${clr_black};
-  font-size: ${fs_15};
+  color: ${(props) => props.theme.colors.clr_black};
+  font-size: ${(props) => props.theme.font_size.fs_15};
   &:hover ${Logo} {
     transform: scale(1.2);
   }

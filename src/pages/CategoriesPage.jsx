@@ -1,6 +1,6 @@
 import React from 'react';
-import CategoryContaner from '../../components/category/CategoryContaner';
-import Title from '../../components/reusable/Title';
+import CategoryContaner from '../components/category/CategoryContainer';
+import Title from '../components/reusable/Title';
 import { styled } from 'styled-components';
 
 const CategoriesPage = () => {
