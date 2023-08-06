@@ -10,7 +10,7 @@ const ProductCard = ({ id, image, title, price, discont_price }) => {
       <Link to={`/products/${id}`}>
         <AddToCart to={'/cart'}>Add to cart</AddToCart>
         <Image src={`${BASEURL}${image}`} alt={title} />
-        <PricesContainer $exist_discont_price={discont_price}>
+        <ContainerPrices $exist_discont_price={discont_price}>
           <DiscountPrice>
             {discont_price ? `${discont_price}` : ''}
             {discont_price && <CurrencySymbol>{CURRENCY}</CurrencySymbol>}
@@ -22,7 +22,7 @@ const ProductCard = ({ id, image, title, price, discont_price }) => {
             </CurrencySymbol>
           </Price>
           <Discount>{discont_price ? `-${discount}%` : ''}</Discount>
-        </PricesContainer>
+        </ContainerPrices>
         <Title>{title}</Title>
       </Link>
     </Card>
@@ -137,7 +137,6 @@ const AddToCart = styled(Link)`
   transform: translateX(-50%);
 
   color: ${(props) => props.theme.colors.clr_accent};
-  font-family: Montserrat;
   font-size: ${(props) => props.theme.font_size.fs_18};
   line-height: ${(props) => props.theme.line_height.primary};
   text-align: center;
@@ -170,7 +169,7 @@ const Card = styled.article`
     box-shadow: 0 5px 10px ${(props) => props.theme.colors.clr_black};
   }
 `;
-const PricesContainer = styled.div`
+const ContainerPrices = styled.div`
   width: 100%;
   padding: 0 20px;
   display: flex;
@@ -219,5 +218,15 @@ const Title = styled.h6`
     font-size: 16px;
   }
 `;
-
+export {
+  Discount,
+  Image,
+  AddToCart,
+  Card,
+  ContainerPrices,
+  DiscountPrice,
+  Price,
+  CurrencySymbol,
+  Title,
+};
 export default ProductCard;

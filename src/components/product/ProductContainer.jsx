@@ -15,7 +15,6 @@ const ProductContainer = ({ id }) => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-  console.log(products);
 
   if (loading) {
     return <Loading />;
