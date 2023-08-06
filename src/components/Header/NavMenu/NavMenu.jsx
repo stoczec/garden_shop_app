@@ -38,7 +38,7 @@ const Nav = styled.nav`
     transition: all 1.5s ease;
 
     &:hover {
-      text-shadow: 5px 5px 5px ${(props) => props.theme.colors.clr_black};
+      text-shadow: 5px 5px 5px grey;
       transition: all 0.5s ease;
     }
   }

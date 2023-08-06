@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 const ProductCard = ({ id, image, title, price, discont_price }) => {
   const discount = Math.round(((price - discont_price) / price) * 100);
   return (
-    <Link to={`/products/${id}`}>
-      <Card>
+    <Card>
+      <Link to={`/products/${id}`}>
         <AddToCart to={'/cart'}>Add to cart</AddToCart>
         <Image src={`${BASEURL}${image}`} alt={title} />
         <PricesContainer $exist_discont_price={discont_price}>
@@ -24,8 +24,8 @@ const ProductCard = ({ id, image, title, price, discont_price }) => {
           <Discount>{discont_price ? `-${discount}%` : ''}</Discount>
         </PricesContainer>
         <Title>{title}</Title>
-      </Card>
-    </Link>
+      </Link>
+    </Card>
   );
 };
 
@@ -133,6 +133,8 @@ const AddToCart = styled(Link)`
 
   position: absolute;
   top: 200px;
+  left: 50%; /* Сдвигаем элемент на половину его ширины влево */
+  transform: translateX(-50%);
 
   color: ${(props) => props.theme.colors.clr_accent};
   font-family: Montserrat;
@@ -217,4 +219,5 @@ const Title = styled.h6`
     font-size: 16px;
   }
 `;
+
 export default ProductCard;

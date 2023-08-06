@@ -3,7 +3,7 @@ import { BASEURL } from '../../assets/constants/URL';
 
 const initialState = {
   loading: false,
-  products: [],
+  product: [],
   error: '',
 };
 
@@ -16,7 +16,6 @@ export const fetchSingleProduct = createAsyncThunk(
         throw new Error(`Error ${response.status}. ${response.statusText}`);
       }
       const data = await response.json();
-
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -36,7 +35,7 @@ export const productSingleSlice = createSlice({
       })
       .addCase(fetchSingleProduct.fulfilled, (state, action) => {
         state.loading = false; // change loading on false
-        state.products = action.payload;
+        state.product = action.payload;
       })
       .addCase(fetchSingleProduct.rejected, (state, action) => {
         state.loading = false; // change loading on false
