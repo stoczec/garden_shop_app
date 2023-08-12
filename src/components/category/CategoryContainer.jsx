@@ -21,18 +21,12 @@ const CategoryContainer = ({ showCount }) => {
   if (error) {
     return <NotFoundPage textError={error} />;
   }
-  console.log('hfhwegf');
   // Для отрисовки нужного количества элементов
   const visibleCategories = categories.slice(0, showCount);
   return (
     <Categories>
       {visibleCategories.map((category) => (
-        <CategoryCard
-          key={category.id}
-          {...category}
-          category={category.title}
-          id={category.id}
-        />
+        <CategoryCard key={category.id} {...category} id={category.id} />
       ))}
     </Categories>
   );

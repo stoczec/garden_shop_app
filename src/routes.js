@@ -16,7 +16,7 @@ export const routes = [
   { path: 'sales', name: 'AllSalesPage', element: AllSalesPage },
   { path: 'categories', name: 'CategoriesPage', element: CategoriesPage },
   {
-    path: '/categories/:category/:id',
+    path: '/categories/:id',
     name: 'ProductsByCategoriesPage',
     element: ProductsByCategoriesPage,
   },

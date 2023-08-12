@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { styled } from 'styled-components';
 import Loading from '../ui/Loading';
 import { NotFoundPage } from '../../pages';
 import ProductSingleCard from './ProductSingleCard';
@@ -18,7 +17,6 @@ const ProductSingleContainer = ({ id }) => {
   if (error) {
     return <NotFoundPage textError={error} />;
   }
-  console.log(product);
   return (
     <div>
       {product.map((el) => (
@@ -29,9 +27,9 @@ const ProductSingleContainer = ({ id }) => {
 };
 
 // SCC ========== VARIABLES STYLED COMPONENTS ========== //
-const fs_80 = (props) => props.theme.font_size.fs_80;
-const clr_white = (props) => props.theme.colors.clr_white;
-const primary_lh = (props) => props.theme.line_height.primary;
+// const fs_80 = (props) => props.theme.font_size.fs_80;
+// const clr_white = (props) => props.theme.colors.clr_white;
+// const primary_lh = (props) => props.theme.line_height.primary;
 // SCC ========== STYLED COMPONENTS ========== //
 // const STYLED_COMPONENTS=styled.TAG``
 export default ProductSingleContainer;

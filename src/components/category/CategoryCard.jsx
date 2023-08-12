@@ -4,11 +4,11 @@ import { BASEURL } from '../../assets/constants/URL';
 import { styled } from 'styled-components';
 import Title from '../reusable/Title';
 
-const CategoryCard = ({ image, title, category, id }) => {
+const CategoryCard = ({ image, title, id }) => {
   return (
-    <Link to={`/categories/${category}/${id}`}>
+    <Link to={`/categories/${id}`}>
       <Card>
-        <Image src={`${BASEURL}${image}`} alt="" />
+        <Image src={`${BASEURL}${image}`} alt={title} />
         <CustomTitle>{title}</CustomTitle>
       </Card>
     </Link>
@@ -22,7 +22,6 @@ const Card = styled.article`
   align-items: center;
   gap: 20px;
 `;
-
 const Image = styled.img`
   width: clamp(10rem, calc(8rem + 10vw), 20rem);
   height: clamp(10rem, calc(8rem + 10vw), 20rem);
@@ -35,6 +34,7 @@ const Image = styled.img`
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.15);
   }
+  border-radius: 5px;
 
   @media (max-width: 376px) {
     width: 280px;
@@ -50,5 +50,4 @@ const CustomTitle = styled(Title)`
   letter-spacing: 0.54px;
   cursor: pointer;
 `;
-
 export default CategoryCard;
