@@ -2,13 +2,24 @@ import React, { useState } from 'react';
 import { styled, keyframes } from 'styled-components';
 import { BASEURL, CURRENCY } from '../../assets/constants/URL';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { add_to_cart } from '../../store/slice/cartSlice';
 
 const ProductCard = ({ id, image, title, price, discont_price }) => {
   const discount = Math.round(((price - discont_price) / price) * 100);
+  const dispatch = useDispatch();
+
   return (
     <Card>
       <Link to={`/products/${id}`}>
-        <AddToCart to={'/cart'}>Add to cart</AddToCart>
+        <AddToCart
+          to={'/cart'}
+          onClick={() =>
+            dispatch(add_to_cart({ id, image, title, discont_price, price }))
+          }
+        >
+          Add to cart
+        </AddToCart>
         <Image src={`${BASEURL}${image}`} alt={title} />
         <ContainerPrices $exist_discont_price={discont_price}>
           <DiscountPrice>

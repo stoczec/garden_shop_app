@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import NavMenu from './NavMenu/NavMenu';
 import logo from '../../assets/images/logo.png';
 import cartIcon from '../../assets/images/cart.png';
+import { TbGardenCart } from 'react-icons/tb';
 
 const Header = () => {
   return (
@@ -17,7 +18,7 @@ const Header = () => {
       <NavMenuContainer>
         <NavMenu />
         <CartLink to="/cart">
-          <img src={cartIcon} alt="Cart Icon" />
+          <CartLogo />
         </CartLink>
       </NavMenuContainer>
     </Head>
@@ -77,5 +78,8 @@ const CartLink = styled(Link)`
   &:hover {
     filter: invert(75%);
   }
+`;
+const CartLogo = styled(TbGardenCart)`
+  font-size: 3em;
 `;
 export default Header;

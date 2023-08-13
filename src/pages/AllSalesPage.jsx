@@ -11,6 +11,8 @@ const AllSalesPage = () => {
     </Container>
   );
 };
+// SCC ========== STYLED COMPONENTS ========== //
+
 const Container = styled.section`
   ${(props) => props.theme.mixins.container}
   padding-bottom: 30px;

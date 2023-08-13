@@ -27,6 +27,8 @@ body {
 
   a {
     text-decoration: none;
+  color: ${theme.colors.clr_black};
+
   }
 
   ul, ol, li {
