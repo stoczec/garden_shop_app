@@ -8,18 +8,15 @@ import { add_to_cart } from '../../store/slice/cartSlice';
 const ProductCard = ({ id, image, title, price, discont_price }) => {
   const discount = Math.round(((price - discont_price) / price) * 100);
   const dispatch = useDispatch();
+  const handleAddToCart = (event) => {
+    event.preventDefault(); // Предотвращение стандартного перехода
+    dispatch(add_to_cart({ id, image, title, discont_price, price }));
+  };
 
   return (
     <Card>
       <Link to={`/products/${id}`}>
-        <AddToCart
-          to={'/cart'}
-          onClick={() =>
-            dispatch(add_to_cart({ id, image, title, discont_price, price }))
-          }
-        >
-          Add to cart
-        </AddToCart>
+        <AddToCart onClick={handleAddToCart}>Add to cart</AddToCart>
         <Image src={`${BASEURL}${image}`} alt={title} />
         <ContainerPrices $exist_discont_price={discont_price}>
           <DiscountPrice>
@@ -135,12 +132,13 @@ const Image = styled.img`
   margin-bottom: 20px;
   border-radius: 15px;
 `;
-const AddToCart = styled(Link)`
+const AddToCart = styled.button`
   border-radius: 21px;
   border: 2px solid ${(props) => props.theme.colors.clr_accent};
   background: #f1fff1;
   padding: 25px;
   width: 80%;
+  cursor: pointer;
 
   position: absolute;
   top: 200px;

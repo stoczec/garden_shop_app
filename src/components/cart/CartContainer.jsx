@@ -4,12 +4,10 @@ import CartItem from './CartItem';
 import { useDispatch, useSelector } from 'react-redux';
 
 const CartCOntainer = () => {
-  const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cart.cart);
-  console.log(cartState);
   return (
     <div>
-      {cartState.map((el) => (
+      {cartState.map((el, index) => (
         <CartItem key={el.id} {...el} />
       ))}
     </div>
