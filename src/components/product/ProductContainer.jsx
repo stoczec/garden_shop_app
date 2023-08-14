@@ -5,9 +5,11 @@ import ProductCard from './ProductCard';
 const ProductContainer = ({ products_data }) => {
   return (
     <Container>
-      {products_data.map((product) => (
-        <ProductCard key={product.id} {...product} />
-      ))}
+      {products_data
+        .filter((el) => el.visible)
+        .map((product) => (
+          <ProductCard key={product.id} {...product} />
+        ))}
     </Container>
   );
 };

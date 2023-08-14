@@ -16,7 +16,7 @@ const CartPage = ({ id }) => {
   const totalSumState = useSelector((state) => state.cart.total_sum).toFixed(2);
   return (
     <Container>
-      <Title>Cart</Title>
+      <Title>Shopping cart</Title>
       <ContainerContent>
         <ContainerLeftSide>
           <ContainerPath>
@@ -25,7 +25,7 @@ const CartPage = ({ id }) => {
             </Path>
             <CartOff onClick={() => dispatch(delete_all_products(id))} />
             <BackLink to={'/products'}>
-              Back to shop <ArrowForwardStyled />
+              Back to store <ArrowForwardStyled />
               <ArrowForwardStyled />
               <ArrowForwardStyled />
             </BackLink>

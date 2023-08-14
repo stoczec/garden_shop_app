@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductsByCategory } from '../store/slice/productsByCategorySlice';
 import Loading from '../components/ui/Loading';
 import NotFoundPage from './NotFoundPage';
+import FiltersContainer from '../components/filters/FiltersContainer';
 
 const ProductsByCategoriesPage = () => {
   const { id } = useParams();
@@ -14,6 +15,7 @@ const ProductsByCategoriesPage = () => {
   const { category, productsByCategory, loading, error } = useSelector(
     (state) => state.productsByCategory
   );
+  console.log(productsByCategory);
   useEffect(() => {
     dispatch(fetchProductsByCategory(id));
   }, [id]);
@@ -26,6 +28,7 @@ const ProductsByCategoriesPage = () => {
   return (
     <Container>
       <CustomTitle>{category.title}</CustomTitle>
+      <FiltersContainer />
       <ProductContainer products_data={productsByCategory} />
     </Container>
   );

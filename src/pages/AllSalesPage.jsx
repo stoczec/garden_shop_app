@@ -2,11 +2,13 @@ import React from 'react';
 import SaleContainer from '../components/sale/SaleContainer';
 import { styled } from 'styled-components';
 import Title from '../components/reusable/Title';
+import FiltersContainer from '../components/filters/FiltersContainer';
 
 const AllSalesPage = () => {
   return (
     <Container>
       <CustomTitle>Products with sale</CustomTitle>
+      <FiltersContainer />
       <SaleContainer />
     </Container>
   );

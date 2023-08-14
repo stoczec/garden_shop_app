@@ -13,7 +13,7 @@ const OrderDetails = () => {
     <Container>
       <Title>Order Details</Title>
       <ContainerSum>
-        <Sum>Sum</Sum>
+        <Sum>Total</Sum>
         <TotalSumState>
           {totalSumState}
           <CurrencySymbol>{CURRENCY}</CurrencySymbol>

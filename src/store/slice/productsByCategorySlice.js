@@ -17,6 +17,7 @@ export const fetchProductsByCategory = createAsyncThunk(
         throw new Error(`Error ${response.status}. ${response.statusText}`);
       }
       const data = await response.json();
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -37,7 +38,11 @@ export const productsByCategorySlice = createSlice({
       .addCase(fetchProductsByCategory.fulfilled, (state, action) => {
         state.loading = false; // change loading on false
         state.category = action.payload.category;
-        state.productsByCategory = action.payload.data;
+        // state.productsByCategory = action.payload.data;
+        state.productsByCategory = action.payload.data.map((product) => ({
+          ...product,
+          visible: true,
+        }));
       })
       .addCase(fetchProductsByCategory.rejected, (state, action) => {
         state.loading = false; // change loading on false

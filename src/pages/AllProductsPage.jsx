@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../store/slice/productSlice';
 import Loading from '../components/ui/Loading';
 import NotFoundPage from './NotFoundPage';
+import FiltersContainer from '../components/filters/FiltersContainer';
 
 const AllProductsPage = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,6 @@ const AllProductsPage = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-
   if (loading) {
     return <Loading />;
   }
@@ -24,6 +24,7 @@ const AllProductsPage = () => {
   return (
     <Container>
       <Title>All products</Title>
+      <FiltersContainer />
       <ProductContainer products_data={products} />
     </Container>
   );
