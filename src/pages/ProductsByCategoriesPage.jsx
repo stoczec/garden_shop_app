@@ -21,7 +21,7 @@ const ProductsByCategoriesPage = () => {
   );
   useEffect(() => {
     dispatch(fetchProductsByCategory(id));
-  }, [id]);
+  }, [id, dispatch]);
   if (loading) {
     return <Loading />;
   }

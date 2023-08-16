@@ -3,10 +3,12 @@ import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 import NavMenu from './NavMenu/NavMenu';
 import logo from '../../assets/images/logo.png';
-import cartIcon from '../../assets/images/cart.png';
 import { TbGardenCart } from 'react-icons/tb';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const countState = useSelector((state) => state.cart.total_count);
+
   return (
     <Head>
       <LogoContainer>
@@ -19,6 +21,7 @@ const Header = () => {
         <NavMenu />
         <CartLink to="/cart">
           <CartLogo />
+          <ContainerCountState>{countState}</ContainerCountState>
         </CartLink>
       </NavMenuContainer>
     </Head>
@@ -81,5 +84,16 @@ const CartLink = styled(Link)`
 `;
 const CartLogo = styled(TbGardenCart)`
   font-size: 3em;
+`;
+
+const ContainerCountState = styled.span`
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: ${(props) => props.theme.colors.clr_white};
+  background-color: ${clr_accent};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export default Header;

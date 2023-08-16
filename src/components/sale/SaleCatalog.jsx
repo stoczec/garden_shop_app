@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { styled } from 'styled-components';
 import Title from '../reusable/Title';
 import SaleContainer from './SaleContainer';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProductsWithSaleAsync } from '../../store/slice/productWithSale';
 
 const SaleCatalog = () => {
+  const dispatch = useDispatch();
+
+  const { productsWithSale } = useSelector((state) => state.productsWithSale);
+  useEffect(() => {
+    dispatch(fetchProductsWithSaleAsync());
+  }, [dispatch]);
   return (
     <Catalog>
       <CustomTitle>Sale</CustomTitle>
-      <SaleContainer showCount={4} />
+      <SaleContainer products_data={productsWithSale} showCount={4} />
     </Catalog>
   );
 };
