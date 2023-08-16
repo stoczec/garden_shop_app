@@ -8,7 +8,6 @@ const initialState = {
 
 const checkProduct = (cart, payload) => {
   const productInCart = cart.find((el) => el.id === payload.id);
-  console.log(productInCart);
   if (!productInCart) {
     return [...cart, { ...payload, count: 1 }];
   } else {

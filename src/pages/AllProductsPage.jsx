@@ -3,7 +3,11 @@ import ProductContainer from '../components/product/ProductContainer';
 import Title from '../components/reusable/Title';
 import { styled } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../store/slice/productSlice';
+import {
+  fetchProducts,
+  sort_price_products,
+  sort_products,
+} from '../store/slice/productSlice';
 import Loading from '../components/ui/Loading';
 import NotFoundPage from './NotFoundPage';
 import FiltersContainer from '../components/filters/FiltersContainer';
@@ -24,7 +28,10 @@ const AllProductsPage = () => {
   return (
     <Container>
       <Title>All products</Title>
-      <FiltersContainer />
+      <FiltersContainer
+        filter_select={sort_products}
+        filter_form={sort_price_products}
+      />
       <ProductContainer products_data={products} />
     </Container>
   );

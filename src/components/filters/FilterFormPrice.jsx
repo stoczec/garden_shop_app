@@ -1,9 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { styled } from 'styled-components';
-import { sort_price_products } from '../../store/slice/productSlice';
 
-const FilterFormPrice = () => {
+const FilterFormPrice = ({ filter_form }) => {
   const dispatch = useDispatch();
 
   const filter_price = (event) => {
@@ -11,7 +10,7 @@ const FilterFormPrice = () => {
     const { min, max } = event.target;
     const min_value = +min.value || 0;
     const max_value = +max.value || Infinity;
-    dispatch(sort_price_products({ min_value, max_value }));
+    dispatch(filter_form({ min_value, max_value }));
   };
   return (
     <Form onSubmit={filter_price}>

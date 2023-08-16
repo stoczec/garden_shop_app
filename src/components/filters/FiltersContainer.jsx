@@ -3,11 +3,11 @@ import { styled } from 'styled-components';
 import FilterSelect from './FilterSelect';
 import FilterFormPrice from './FilterFormPrice';
 
-const FiltersContainer = () => {
+const FiltersContainer = ({ filter_select, filter_form }) => {
   return (
     <Container>
-      <FilterFormPrice />
-      <FilterSelect />
+      <FilterFormPrice filter_form={filter_form} />
+      <FilterSelect filter_select={filter_select} />
     </Container>
   );
 };

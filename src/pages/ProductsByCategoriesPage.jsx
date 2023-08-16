@@ -4,7 +4,11 @@ import { styled } from 'styled-components';
 import ProductContainer from '../components/product/ProductContainer';
 import Title from '../components/reusable/Title';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProductsByCategory } from '../store/slice/productsByCategorySlice';
+import {
+  fetchProductsByCategory,
+  sort_price_products_by_category,
+  sort_product_by_category,
+} from '../store/slice/productsByCategorySlice';
 import Loading from '../components/ui/Loading';
 import NotFoundPage from './NotFoundPage';
 import FiltersContainer from '../components/filters/FiltersContainer';
@@ -15,7 +19,6 @@ const ProductsByCategoriesPage = () => {
   const { category, productsByCategory, loading, error } = useSelector(
     (state) => state.productsByCategory
   );
-  console.log(productsByCategory);
   useEffect(() => {
     dispatch(fetchProductsByCategory(id));
   }, [id]);
@@ -28,7 +31,10 @@ const ProductsByCategoriesPage = () => {
   return (
     <Container>
       <CustomTitle>{category.title}</CustomTitle>
-      <FiltersContainer />
+      <FiltersContainer
+        filter_select={sort_product_by_category}
+        filter_form={sort_price_products_by_category}
+      />
       <ProductContainer products_data={productsByCategory} />
     </Container>
   );

@@ -13,8 +13,12 @@ import {
   CurrencySymbol,
   Title,
 } from './ProductCard';
+import { Link } from 'react-router-dom';
+import { add_to_cart } from '../../store/slice/cartSlice';
+import { useDispatch } from 'react-redux';
 
 const ProductSingleCard = ({
+  id,
   image,
   title,
   price,
@@ -22,7 +26,11 @@ const ProductSingleCard = ({
   description,
 }) => {
   const discount = Math.round(((price - discont_price) / price) * 100);
-
+  const dispatch = useDispatch();
+  const handleAddToCart = (event) => {
+    event.preventDefault(); // Предотвращение стандартного перехода
+    dispatch(add_to_cart({ id, image, title, discont_price, price }));
+  };
   return (
     <SingleCard>
       <SingleTitle>{title}</SingleTitle>
@@ -48,7 +56,9 @@ const ProductSingleCard = ({
               {discont_price && <PercentageSpan>%</PercentageSpan>}
             </SingleDiscount>
           </SingleContainerPrices>
-          <SingleAddToCart to={'/cart'}>Add to cart</SingleAddToCart>
+          <SingleAddToCart onClick={handleAddToCart}>
+            Add to cart
+          </SingleAddToCart>
           <SingleContainerDescription>
             <TitleDescrption>Description</TitleDescrption>
             <Description>{description}</Description>

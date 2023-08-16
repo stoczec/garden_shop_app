@@ -1,37 +1,17 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../store/slice/productSlice';
 import ProductCard from '../product/ProductCard';
-import Loading from '../ui/Loading';
-import { NotFoundPage } from '../../pages';
 
-const SaleContainer = ({ showCount }) => {
-  const dispatch = useDispatch();
-
-  const { products, loading, error } = useSelector((state) => state.products);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
-  if (loading) {
-    return <Loading />;
-  }
-  if (error) {
-    return <NotFoundPage textError={error} />;
-  }
-  const filtredDiscountProduct = products.filter(
-    (product) => product.discont_price
-  );
-  const visibleSaleProduct = filtredDiscountProduct.slice(0, showCount);
+const SaleContainer = ({ showCount, products_data }) => {
+  const visibleSaleProduct = products_data.slice(0, showCount);
 
   return (
     <Container>
-      {visibleSaleProduct.map((product) => (
-        <ProductCard key={product.id} {...product} />
-      ))}
+      {visibleSaleProduct
+        .filter((el) => el.visible)
+        .map((product) => (
+          <ProductCard key={product.id} {...product} />
+        ))}
     </Container>
   );
 };
