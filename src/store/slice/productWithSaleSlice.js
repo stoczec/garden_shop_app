@@ -5,6 +5,8 @@ const initialState = {
   loading: false,
   productsWithSale: [],
   error: '',
+  minValue: 0,
+  maxValue: 0,
 };
 
 export const fetchProductsWithSaleAsync = createAsyncThunk(
@@ -48,11 +50,22 @@ export const productsWithSaleSlice = createSlice({
     },
     filterByPrice(state, action) {
       const { min_value, max_value } = action.payload;
+      state.minValue = min_value;
+      state.maxValue = max_value;
+
       state.productsWithSale = state.productsWithSale.map((el) => {
-        if (el.discont_price >= min_value && el.discont_price <= max_value) {
-          el.visible = true;
+        if (el.discont_price) {
+          if (el.discont_price >= min_value && el.discont_price <= max_value) {
+            el.visible = true;
+          } else {
+            el.visible = false;
+          }
         } else {
-          el.visible = false;
+          if (el.price >= min_value && el.price <= max_value) {
+            el.visible = true;
+          } else {
+            el.visible = false;
+          }
         }
         return el;
       });
@@ -72,6 +85,13 @@ export const productsWithSaleSlice = createSlice({
             ...product,
             visible: true,
           }));
+        // max price for Input of FilterInputPrice
+        const maxPrice = Math.max(
+          ...action.payload.map((product) =>
+            product.discont_price ? product.discont_price : product.price
+          )
+        );
+        state.maxValue = maxPrice;
       })
       .addCase(fetchProductsWithSaleAsync.rejected, (state, action) => {
         state.loading = false; // change loading on false

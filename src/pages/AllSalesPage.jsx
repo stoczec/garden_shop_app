@@ -8,14 +8,14 @@ import {
   fetchProductsWithSaleAsync,
   sortBy,
   filterByPrice,
-} from '../store/slice/productWithSale';
+} from '../store/slice/productWithSaleSlice';
 import Loading from '../components/ui/Loading';
 import NotFoundPage from './NotFoundPage';
 
 const AllSalesPage = () => {
   const dispatch = useDispatch();
 
-  const { productsWithSale, loading, error } = useSelector(
+  const { productsWithSale, loading, error, maxValue } = useSelector(
     (state) => state.productsWithSale
   );
   useEffect(() => {
@@ -30,7 +30,12 @@ const AllSalesPage = () => {
   return (
     <Container>
       <CustomTitle>Products with sale</CustomTitle>
-      <FiltersContainer filter_select={sortBy} filter_form={filterByPrice} />
+      <FiltersContainer
+        filter_select={sortBy}
+        filter_form={filterByPrice}
+        maxValue={maxValue}
+        not_filter_checkbox
+      />
       <SaleContainer products_data={productsWithSale} />
     </Container>
   );

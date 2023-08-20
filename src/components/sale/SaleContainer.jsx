@@ -4,7 +4,6 @@ import ProductCard from '../product/ProductCard';
 
 const SaleContainer = ({ showCount, products_data }) => {
   const visibleSaleProduct = products_data.slice(0, showCount);
-  console.log(products_data);
 
   return (
     <Container>

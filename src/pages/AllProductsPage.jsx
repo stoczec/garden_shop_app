@@ -5,8 +5,9 @@ import { styled } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchProducts,
-  sort_price_products,
-  sort_products,
+  sortBy,
+  filterByPrice,
+  checkByDiscount,
 } from '../store/slice/productSlice';
 import Loading from '../components/ui/Loading';
 import NotFoundPage from './NotFoundPage';
@@ -15,7 +16,9 @@ import FiltersContainer from '../components/filters/FiltersContainer';
 const AllProductsPage = () => {
   const dispatch = useDispatch();
 
-  const { products, loading, error } = useSelector((state) => state.products);
+  const { products, loading, error, maxValue } = useSelector(
+    (state) => state.products
+  );
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -29,8 +32,10 @@ const AllProductsPage = () => {
     <Container>
       <Title>All products</Title>
       <FiltersContainer
-        filter_select={sort_products}
-        filter_form={sort_price_products}
+        filter_select={sortBy}
+        filter_form={filterByPrice}
+        filter_checkbox={checkByDiscount}
+        maxValue={maxValue}
       />
       <ProductContainer products_data={products} />
     </Container>

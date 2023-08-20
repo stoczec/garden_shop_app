@@ -6,8 +6,9 @@ import Title from '../components/reusable/Title';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchProductsByCategory,
-  sort_price_products_by_category,
-  sort_product_by_category,
+  sortBy,
+  filterByPrice,
+  checkByDiscount,
 } from '../store/slice/productsByCategorySlice';
 import Loading from '../components/ui/Loading';
 import NotFoundPage from './NotFoundPage';
@@ -16,9 +17,8 @@ import FiltersContainer from '../components/filters/FiltersContainer';
 const ProductsByCategoriesPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { category, productsByCategory, loading, error } = useSelector(
-    (state) => state.productsByCategory
-  );
+  const { category, productsByCategory, loading, error, maxValue } =
+    useSelector((state) => state.productsByCategory);
   useEffect(() => {
     dispatch(fetchProductsByCategory(id));
   }, [id, dispatch]);
@@ -32,8 +32,10 @@ const ProductsByCategoriesPage = () => {
     <Container>
       <CustomTitle>{category.title}</CustomTitle>
       <FiltersContainer
-        filter_select={sort_product_by_category}
-        filter_form={sort_price_products_by_category}
+        filter_select={sortBy}
+        filter_form={filterByPrice}
+        filter_checkbox={checkByDiscount}
+        maxValue={maxValue}
       />
       <ProductContainer products_data={productsByCategory} />
     </Container>

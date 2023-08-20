@@ -5,6 +5,7 @@
    npm i styled-components
    npm i react-icons --save
    npm i hamburger-react
+   npm i @react-spectrum/slider
 3. Создаем pages. Кроме создания самих страниц, создаем в папке pages, index.js - из которого и будем экспортировать страницы.
    Импортируем в routes.js, а из него экспортируем массив routes, который содержит атрибуты компонента.
 4. Импортируем routes в App.js.

@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import Title from '../reusable/Title';
 import SaleContainer from './SaleContainer';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProductsWithSaleAsync } from '../../store/slice/productWithSale';
+import { fetchProductsWithSaleAsync } from '../../store/slice/productWithSaleSlice';
 
 const SaleCatalog = () => {
   const dispatch = useDispatch();

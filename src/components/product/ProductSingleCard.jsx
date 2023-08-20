@@ -13,7 +13,6 @@ import {
   CurrencySymbol,
   Title,
 } from './ProductCard';
-import { Link } from 'react-router-dom';
 import { add_to_cart } from '../../store/slice/cartSlice';
 import { useDispatch } from 'react-redux';
 

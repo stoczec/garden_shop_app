@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Header from '../Header/Header';
 import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../Footer/Footer';
-import FiltersContainer from '../filters/FiltersContainer';
+import { FloatButton } from 'antd';
 
 const Layout = () => {
   const { pathname } = useLocation(); // текущий URL
@@ -15,6 +15,7 @@ const Layout = () => {
       <Header />
       <Outlet />
       <Footer />
+      <FloatButton.BackTop />
     </>
   );
 };

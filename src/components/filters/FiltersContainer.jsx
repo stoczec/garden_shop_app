@@ -1,12 +1,22 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import FilterSelect from './FilterSelect';
-import FilterFormPrice from './FilterFormPrice';
+import FilterInputPrice from './FilterInputPrice';
+import FilterCheckbox from './FilterCheckbox';
 
-const FiltersContainer = ({ filter_select, filter_form }) => {
+const FiltersContainer = ({
+  filter_select,
+  filter_form,
+  filter_checkbox,
+  maxValue,
+  not_filter_checkbox,
+}) => {
   return (
     <Container>
-      <FilterFormPrice filter_form={filter_form} />
+      <FilterInputPrice filter_form={filter_form} maxValue={maxValue} />
+      {!not_filter_checkbox && (
+        <FilterCheckbox filter_checkbox={filter_checkbox} />
+      )}
       <FilterSelect filter_select={filter_select} />
     </Container>
   );
