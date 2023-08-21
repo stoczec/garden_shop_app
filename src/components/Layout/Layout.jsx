@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Header from '../Header/Header';
 import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../Footer/Footer';
-import { FloatButton } from 'antd';
+import { Divider, FloatButton } from 'antd';
 
 const Layout = () => {
   const { pathname } = useLocation(); // текущий URL
@@ -13,7 +13,9 @@ const Layout = () => {
   return (
     <>
       <Header />
+      {pathname !== '/' && <Divider style={{ margin: '40px 0' }} />}
       <Outlet />
+      {pathname !== '/' && <Divider style={{ margin: '40px 0' }} />}
       <Footer />
       <FloatButton.BackTop />
     </>

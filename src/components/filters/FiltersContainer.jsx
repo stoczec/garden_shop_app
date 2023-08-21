@@ -29,7 +29,11 @@ const FiltersContainer = ({
 // SCC ========== STYLED COMPONENTS ========== //
 const Container = styled.section`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 65px;
+  @media (max-width: 880px) {
+    flex-direction: column;
+    gap: 30px;
+  }
 `;
 export default FiltersContainer;

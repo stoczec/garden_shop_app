@@ -31,7 +31,7 @@ const FilterInputPrice = ({ filter_form, maxValue }) => {
   return (
     <Container>
       <Title>Price Range</Title>
-      <p>Use slider or min and max price</p>
+      <Text>Use slider or min and max price</Text>
       <ContainerInputs>
         <span>Min</span>
         <CustomInputNumber
@@ -71,7 +71,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 `;
 
 const Title = styled.span`
@@ -99,5 +99,8 @@ const CustomInputNumber = styled(InputNumber)`
     border-color: ${(props) => props.theme.colors.clr_accent};
   }
 `;
-
+const Text = styled.p`
+  font-size: ${(props) => props.theme.font_size.fs_12};
+  color: #8b8b8b;
+`;
 export default FilterInputPrice;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import NavMenu from './NavMenu/NavMenu';
 import logo from '../../assets/images/logo.png';
 import { TbGardenCart } from 'react-icons/tb';
@@ -8,9 +8,10 @@ import { useSelector } from 'react-redux';
 
 const Header = () => {
   const countState = useSelector((state) => state.cart.total_count);
+  const { pathname } = useLocation(); // текущий URL
 
   return (
-    <Head>
+    <Head pathname={pathname}>
       <LogoContainer>
         <LogoLink to="/">
           <img src={logo} alt="Logo" />
@@ -32,7 +33,8 @@ const Header = () => {
 const clr_accent = (props) => props.theme.colors.clr_accent;
 // SCC ========== STYLED COMPONENTS ========== //
 const Head = styled.header`
-  padding: 20px 0 80px 0;
+  padding-top: 20px;
+  padding-bottom: ${(props) => (props.pathname === '/' ? '80px' : '0')};
   display: flex;
   justify-content: space-between;
   align-items: center;

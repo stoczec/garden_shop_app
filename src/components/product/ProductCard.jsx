@@ -4,6 +4,8 @@ import { BASEURL, CURRENCY } from '../../assets/constants/URL';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { add_to_cart } from '../../store/slice/cartSlice';
+import { Image } from 'antd';
+import { TbGardenCart } from 'react-icons/tb';
 
 const ProductCard = ({ id, image, title, price, discont_price }) => {
   const discount = Math.round(((price - discont_price) / price) * 100);
@@ -12,12 +14,13 @@ const ProductCard = ({ id, image, title, price, discont_price }) => {
     event.preventDefault(); // Предотвращение стандартного перехода
     dispatch(add_to_cart({ id, image, title, discont_price, price }));
   };
-
   return (
     <Card>
+      <CustomImage src={`${BASEURL}${image}`} alt={title} width={`100%`} />
       <Link to={`/products/${id}`}>
-        <AddToCart onClick={handleAddToCart}>Add to cart</AddToCart>
-        <Image src={`${BASEURL}${image}`} alt={title} />
+        <AddToCart onClick={handleAddToCart}>
+          <CartLogo /> Add to cart
+        </AddToCart>
         <ContainerPrices $exist_discont_price={discont_price}>
           <DiscountPrice>
             {discont_price ? `${discont_price}` : ''}
@@ -125,28 +128,35 @@ const Discount = styled.p`
     font-size: 20px;
   }
 `;
-const Image = styled.img`
-  width: 100%;
-  height: 280px;
-  object-fit: contain;
-  margin-bottom: 20px;
-  border-radius: 15px;
+const CustomImage = styled(Image)`
+  border-bottom: 1px solid rgba(5, 5, 5, 0.06);
+  border-block-start: 1px solid rgba(5, 5, 5, 0.06);
+  &.ant-image-img {
+    width: 100%;
+    height: clamp(12.5rem, calc(11rem + 7.5vw), 20rem);
+    object-fit: contain;
+  }
 `;
 const AddToCart = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   border-radius: 21px;
   border: 2px solid ${(props) => props.theme.colors.clr_accent};
   background: #f1fff1;
-  padding: 25px;
-  width: 80%;
+  padding: 5px;
+  width: 70%;
   cursor: pointer;
 
   position: absolute;
-  top: 200px;
+  z-index: 100;
+  top: clamp(9.38rem, calc(8.75rem + 3.13vw), 12.5rem);
   left: 50%; /* Сдвигаем элемент на половину его ширины влево */
   transform: translateX(-50%);
 
   color: ${(props) => props.theme.colors.clr_accent};
-  font-size: ${(props) => props.theme.font_size.fs_18};
+  font-size: ${(props) => props.theme.font_size.fs_24};
   line-height: ${(props) => props.theme.line_height.primary};
   text-align: center;
 
@@ -154,13 +164,18 @@ const AddToCart = styled.button`
   opacity: 0;
   transition: opacity 0.3s ease;
 `;
+const CartLogo = styled(TbGardenCart)`
+  font-size: 2em;
+`;
 const Card = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 15px;
+  justify-content: flex-start;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   padding-bottom: 10px;
-  padding: 10px 0;
+  padding-bottom: 10px;
   cursor: pointer;
   box-shadow: ${box_shadow};
   transition: box-shadow 0.1s ease-in-out;
@@ -180,7 +195,7 @@ const Card = styled.article`
 `;
 const ContainerPrices = styled.div`
   width: 100%;
-  padding: 0 20px;
+  padding: 20px 0;
   display: flex;
   justify-content: ${(props) =>
     props.$exist_discont_price ? 'space-between' : 'start'};

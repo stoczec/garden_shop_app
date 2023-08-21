@@ -12,15 +12,15 @@ const FilterSelect = ({ filter_select }) => {
   };
   return (
     <Container>
-      <label>
-        <span>Sorted: </span>
+      <Lable>
+        <span>Sorted</span>
         <CustomSelect defaultValue="default" onChange={handleSort}>
           <Option value="default">By Featured</Option>
           <Option value="title">By title: A-Z</Option>
           <Option value="price_asc">By price: Low high</Option>
           <Option value="price_desc">By price: High low</Option>
         </CustomSelect>
-      </label>
+      </Lable>
     </Container>
   );
 };
@@ -33,6 +33,11 @@ const FilterSelect = ({ filter_select }) => {
 const Container = styled.div`
   /* margin: 50px auto; */
   display: flex;
+`;
+const Lable = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 40px;
 `;
 const CustomSelect = styled(Select)`
   width: 200px;
