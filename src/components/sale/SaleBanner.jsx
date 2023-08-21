@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 import banner_bg from '../../assets/images/banner_bg.png';
-import Title from '../reusable/Title';
+import Title from '../../assets/reusableStyledComponents/Title';
 
 const SaleBanner = () => {
   return (

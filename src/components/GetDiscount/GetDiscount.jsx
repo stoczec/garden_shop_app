@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import gnome from '../../assets/images/banner_bg1.png';
-import Title from '../reusable/Title';
+import Title from '../../assets/reusableStyledComponents/Title';
 
 const GetDiscount = () => {
   return (

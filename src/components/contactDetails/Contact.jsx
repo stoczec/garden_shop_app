@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import SocialLinks from './SocialLinks';
 import contacts_data from '../../data/contacts';
-import Title from '../reusable/Title';
+import Title from '../../assets/reusableStyledComponents/Title';
 
 const Contact = () => {
   return (

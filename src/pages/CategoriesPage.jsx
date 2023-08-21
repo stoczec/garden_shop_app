@@ -1,11 +1,13 @@
 import React from 'react';
 import CategoryContaner from '../components/category/CategoryContainer';
-import Title from '../components/reusable/Title';
+import Title from '../assets/reusableStyledComponents/Title';
 import { styled } from 'styled-components';
+import BreadCrumbs from '../components/reusableComponents/BreadCrumbs';
 
 const CategoriesPage = () => {
   return (
     <Container>
+      <BreadCrumbs secondTitle={'Categories'} />
       <Title>{'Categories'}</Title>
       <CategoryContaner />
     </Container>

@@ -1,13 +1,19 @@
 import React, { useEffect } from 'react';
 import { styled } from 'styled-components';
-import Title from '../reusable/Title';
+import Title from '../../assets/reusableStyledComponents/Title';
 import SaleContainer from './SaleContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductsWithSaleAsync } from '../../store/slice/productWithSaleSlice';
 
 const SaleCatalog = () => {
   const dispatch = useDispatch();
-
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   const { productsWithSale } = useSelector((state) => state.productsWithSale);
   useEffect(() => {
     dispatch(fetchProductsWithSaleAsync());

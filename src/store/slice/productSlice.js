@@ -8,6 +8,7 @@ const initialState = {
   isChecked: false,
   minValue: 0,
   maxValue: 0,
+  titleBreadCrumbs: [],
 };
 
 export const fetchProducts = createAsyncThunk(
@@ -121,6 +122,11 @@ export const productSlice = createSlice({
           ...product,
           visible: true,
         }));
+        state.titleBreadCrumbs = action.payload.map((product) => ({
+          id: product.id,
+          title: product.title,
+        }));
+        console.log(state.titleBreadCrumbs);
         // max price for Input of FilterInputPrice
         const maxPrice = Math.max(
           ...action.payload.map((product) =>

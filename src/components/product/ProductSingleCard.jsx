@@ -1,10 +1,11 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { BASEURL, CURRENCY } from '../../assets/constants/URL';
-import TitleRE from '../reusable/Title';
+import TitleRE from '../../assets/reusableStyledComponents/Title';
+
 import {
   Discount,
-  Image,
+  CustomImage,
   AddToCart,
   Card,
   ContainerPrices,
@@ -127,10 +128,12 @@ const SingleContainer = styled.div`
 const SingleContainerImage = styled.div`
   padding: 0 60px;
 `;
-const SingleImage = styled(Image)`
-  width: 710px;
-  height: 710px;
-  margin-bottom: 0;
+const SingleImage = styled(CustomImage)`
+  &.ant-image-img {
+    width: 710px;
+    height: 710px;
+    margin-bottom: 0;
+  }
 `;
 const SingleContainerPricesButtonDescription = styled.div`
   display: flex;

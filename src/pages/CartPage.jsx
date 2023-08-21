@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import Title from '../components/reusable/Title';
+import Title from '../assets/reusableStyledComponents/Title';
 import { Link } from 'react-router-dom';
 import { IoIosArrowForward } from 'react-icons/io';
 import { TbGardenCartOff } from 'react-icons/tb';
@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { delete_all_products } from '../store/slice/cartSlice';
 import { CURRENCY } from '../assets/constants/URL';
 import OrderDetails from '../components/cart/OrderDetails';
+import BreadCrumbs from '../components/reusableComponents/BreadCrumbs';
 
 const CartPage = ({ id }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const CartPage = ({ id }) => {
   const totalSumState = useSelector((state) => state.cart.total_sum).toFixed(2);
   return (
     <Container>
+      <BreadCrumbs secondTitle={'Shopping Cart'} />
       <Title>Shopping cart</Title>
       <ContainerContent>
         <ContainerLeftSide>

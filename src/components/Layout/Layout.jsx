@@ -15,7 +15,7 @@ const Layout = () => {
       <Header />
       {pathname !== '/' && <Divider style={{ margin: '40px 0' }} />}
       <Outlet />
-      {pathname !== '/' && <Divider style={{ margin: '40px 0' }} />}
+      <Divider style={{ margin: '40px 0' }} />
       <Footer />
       <FloatButton.BackTop />
     </>

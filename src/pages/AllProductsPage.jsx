@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ProductContainer from '../components/product/ProductContainer';
-import Title from '../components/reusable/Title';
+import Title from '../assets/reusableStyledComponents/Title';
 import { styled } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -12,6 +12,7 @@ import {
 import Loading from '../components/ui/Loading';
 import NotFoundPage from './NotFoundPage';
 import FiltersContainer from '../components/filters/FiltersContainer';
+import BreadCrumbs from '../components/reusableComponents/BreadCrumbs';
 
 const AllProductsPage = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,8 @@ const AllProductsPage = () => {
   }
   return (
     <Container>
+      <BreadCrumbs secondTitle={'All Products'} />
+
       <Title>All products</Title>
       <FiltersContainer
         filter_select={sortBy}
@@ -48,4 +51,5 @@ const Container = styled.div`
   gap: clamp(2.5rem, calc(2rem + 2.5vw), 5rem);
   padding-bottom: 30px;
 `;
+
 export default AllProductsPage;

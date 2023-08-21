@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 import CategoryContaner from './CategoryContainer';
-import Title from '../reusable/Title';
+import Title from '../../assets/reusableStyledComponents/Title';
 
 const CategoryCatalog = () => {
   return (

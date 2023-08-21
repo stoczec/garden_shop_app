@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import contacts_data from '../../data/contacts';
-import Title from '../reusable/Title';
+import Title from '../../assets/reusableStyledComponents/Title';
 
 const Adress = () => {
   const { country, city, post, street } = contacts_data;

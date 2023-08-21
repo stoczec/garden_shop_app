@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { styled, keyframes } from 'styled-components';
 import { BASEURL, CURRENCY } from '../../assets/constants/URL';
 import { Link } from 'react-router-dom';
@@ -190,7 +190,7 @@ const Title = styled.h6`
 `;
 export {
   Discount,
-  Image,
+  CustomImage,
   AddToCart,
   Card,
   ContainerPrices,
