@@ -51,69 +51,17 @@ const box_shadow = `
 0 -6px 20px rgba(255, 255, 255, 0.5)`;
 // SCC ========== STYLED COMPONENTS ========== //
 const Shake = keyframes`
-  0% {
-    transform: translateX(0) scale(0);
+  0%, 100% {
+    transform: translateX(0);
   }
-  5% {
-    transform: translateX(-1px) rotate(-360deg) scale(0.09);
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-1px);
   }
-  10% {
-    transform: translateX(1px) rotate(360deg) scale(0.18);
+
+  20%, 40%, 60%, 80% {
+    transform: translateX(1px);
   }
-  15% {
-    transform: translateX(-1px) rotate(-360deg) scale(0.27);
-  }
-  20% {
-    transform: translateX(1px) rotate(360deg) scale(0.36);
-  }
-  25% {
-    transform: translateX(-1px) rotate(-360deg) scale(0.45);
-  }
-  30% {
-    transform: translateX(1px) rotate(360deg) scale(0.54);
-  }
-  35% {
-    transform: translateX(-1px) rotate(-360deg) scale(0.63);
-  }
-  40% {
-    transform: translateX(1px) rotate(360deg) scale(0.72);
-  }
-  45% {
-    transform: translateX(-1px) rotate(-360deg) scale(0.81);
-  }
-  50% {
-    transform: translateX(1px) rotate(360deg) scale(0.9);
-  }
-  55% {
-    transform: translateX(-1px) rotate(-360deg) scale(0.99);
-  }
-  60% {
-    transform: translateX(1px) rotate(360deg) scale(1.08);
-  }
-  65% {
-    transform: translateX(-1px) rotate(-360deg) scale(1.17);
-  }
-  70% {
-    transform: translateX(1px) rotate(360deg) scale(1.26);
-  }
-  75% {
-    transform: translateX(-1px) rotate(-36deg) scale(1.35);
-  }
-  80% {
-    transform: translateX(1px) rotate(36deg) scale(1.44);
-  }
-  85% {
-    transform: translateX(-1px) rotate(-36deg) scale(1.45);
-  }
-  90% {
-    transform: translateX(1px) rotate(36deg) scale(1.47);
-  }
-  95% {
-    transform: translateX(-1px) rotate(-36deg) scale(1.49);
-  }
-  100% {
-    transform: translateX(0) scale(1.5);
-  }
+  
 `;
 const Discount = styled.p`
   color: ${(props) => props.theme.colors.clr_sale};
@@ -174,8 +122,7 @@ const Card = styled.article`
   justify-content: flex-start;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  padding-bottom: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   cursor: pointer;
   box-shadow: ${box_shadow};
   transition: box-shadow 0.1s ease-in-out;
@@ -183,8 +130,7 @@ const Card = styled.article`
 
   &:hover {
     ${Discount} {
-      filter: contrast(200%);
-      animation: ${Shake} 1.5s forwards;
+      animation: ${Shake} 1.5s infinite;
     }
     ${AddToCart} {
       visibility: visible;
@@ -194,8 +140,8 @@ const Card = styled.article`
   }
 `;
 const ContainerPrices = styled.div`
-  width: 100%;
-  padding: 20px 0;
+  width: clamp(12.5rem, calc(11rem + 7.5vw), 20rem);
+  padding: 20px 10px;
   display: flex;
   justify-content: ${(props) =>
     props.$exist_discont_price ? 'space-between' : 'start'};
