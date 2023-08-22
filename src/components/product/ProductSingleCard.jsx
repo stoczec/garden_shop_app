@@ -10,8 +10,6 @@ import {
   Card,
   ContainerPrices,
   DiscountPrice,
-  Price,
-  CurrencySymbol,
   Title,
 } from './ProductCard';
 import { add_to_cart } from '../../store/slice/cartSlice';
@@ -32,7 +30,7 @@ const ProductSingleCard = ({
     dispatch(add_to_cart({ id, image, title, discont_price, price }));
   };
   return (
-    <SingleCard>
+    <_Card>
       <SingleTitle>{title}</SingleTitle>
 
       <SingleContainer>
@@ -45,12 +43,10 @@ const ProductSingleCard = ({
               {discont_price ? `${discont_price}` : ''}
               {discont_price && <CurrencySymbol>{CURRENCY}</CurrencySymbol>}
             </SingleDiscountPrice>
-            <Price $exist_discont_price={discont_price}>
+            <_Price>
               {`${price}`}
-              <CurrencySymbol $exist_discont_price={discont_price}>
-                {CURRENCY}
-              </CurrencySymbol>
-            </Price>
+              <CurrencySymbol>{CURRENCY}</CurrencySymbol>
+            </_Price>
             <SingleDiscount>
               {discont_price ? `-${discount}` : ''}
               {discont_price && <PercentageSpan>%</PercentageSpan>}
@@ -65,12 +61,13 @@ const ProductSingleCard = ({
           </SingleContainerDescription>
         </SingleContainerPricesButtonDescription>
       </SingleContainer>
-    </SingleCard>
+    </_Card>
   );
 };
 
 // SCC ========== VARIABLES STYLED COMPONENTS ========== //
 const clr_white = (props) => props.theme.colors.clr_white;
+const clr_black = (props) => props.theme.colors.clr_black;
 const clr_accent = (props) => props.theme.colors.clr_accent;
 
 // SCC ========== STYLED COMPONENTS ========== //
@@ -96,11 +93,9 @@ const SingleAddToCart = styled(AddToCart)`
     box-shadow: 0 0 10px 0 ${clr_accent} inset, 0 0 10px 4px ${clr_accent};
   }
 `;
-const SingleCard = styled(Card)`
+const _Card = styled(Card)`
   padding: 60px 0 190px 0;
   box-shadow: none;
-  display: flex;
-  flex-direction: column;
   align-items: start;
   gap: 30px;
   &:hover {
@@ -124,15 +119,15 @@ const SingleTitle = styled(Title)`
 `;
 const SingleContainer = styled.div`
   display: flex;
+  gap: clamp(1.88rem, calc(1.5rem + 1.88vw), 3.75rem);
 `;
 const SingleContainerImage = styled.div`
-  padding: 0 60px;
+  /* padding: 0 60px; */
 `;
 const SingleImage = styled(CustomImage)`
   &.ant-image-img {
-    width: 710px;
-    height: 710px;
-    margin-bottom: 0;
+    width: clamp(17.5rem, calc(12.13rem + 26.88vw), 44.38rem);
+    height: clamp(17.5rem, calc(12.13rem + 26.88vw), 44.38rem);
   }
 `;
 const SingleContainerPricesButtonDescription = styled.div`
@@ -140,7 +135,7 @@ const SingleContainerPricesButtonDescription = styled.div`
   flex-direction: column;
 `;
 const SingleContainerPrices = styled(ContainerPrices)`
-  padding-top: 64px;
+  padding-top: clamp(1.88rem, calc(1.45rem + 2.13vw), 4rem);
   align-items: baseline;
   margin-bottom: 40px;
 `;
@@ -149,8 +144,19 @@ const SingleDiscountPrice = styled(DiscountPrice)`
   font-style: normal;
   letter-spacing: 2.1px;
 `;
+const _Price = styled.p`
+  font-size: ${(props) => props.theme.font_size.fs_70};
+  line-height: ${(props) => props.theme.line_height.primary};
+  letter-spacing: 2.1px;
+`;
+const CurrencySymbol = styled.span`
+  color: ${(props) => (props.$exist_discont_price ? '#8b8b8b' : clr_black)};
+  font-size: ${(props) => props.theme.font_size.fs_20};
+  line-height: ${(props) => props.theme.line_height.primary};
+  letter-spacing: 0.6px;
+`;
 const SingleDiscount = styled(Discount)`
-  font-size: ${(props) => props.theme.font_size.fs_28};
+  font-size: 28px;
   letter-spacing: 0.84px;
 `;
 const PercentageSpan = styled.span`
@@ -162,7 +168,6 @@ const SingleContainerDescription = styled.div`
   flex-direction: column;
   gap: 15px;
 `;
-
 const TitleDescrption = styled(TitleRE)`
   font-size: ${(props) => props.theme.font_size.fs_20};
   font-weight: 600;

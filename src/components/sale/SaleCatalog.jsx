@@ -7,13 +7,6 @@ import { fetchProductsWithSaleAsync } from '../../store/slice/productWithSaleSli
 
 const SaleCatalog = () => {
   const dispatch = useDispatch();
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
   const { productsWithSale } = useSelector((state) => state.productsWithSale);
   useEffect(() => {
     dispatch(fetchProductsWithSaleAsync());

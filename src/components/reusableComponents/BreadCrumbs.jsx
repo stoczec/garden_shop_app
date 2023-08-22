@@ -1,7 +1,7 @@
 import React from 'react';
 // import { styled } from 'styled-components';
 import { HomeOutlined } from '@ant-design/icons';
-import { Breadcrumb, Divider } from 'antd';
+import { Breadcrumb } from 'antd';
 import { Link } from 'react-router-dom';
 
 const BreadCrumbs = ({ secondLink, secondTitle, thirdTitle }) => {

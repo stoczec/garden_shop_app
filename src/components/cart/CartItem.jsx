@@ -66,10 +66,8 @@ const CartItem = ({ id, image, title, discont_price, price, count }) => {
 
 // SCC ========== VARIABLES STYLED COMPONENTS ========== //
 const fs_20 = (props) => props.theme.font_size.fs_20;
-const fs_30 = (props) => props.theme.font_size.fs_30;
 const fs_40 = (props) => props.theme.font_size.fs_40;
 const clr_black = (props) => props.theme.colors.clr_black;
-const primary_lh = (props) => props.theme.line_height.primary;
 // SCC ========== STYLED COMPONENTS ========== //
 const Card = styled.article`
   padding: 40px 0;

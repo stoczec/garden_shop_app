@@ -8,7 +8,7 @@ import BreadCrumbs from '../components/reusableComponents/BreadCrumbs';
 const ProductPage = () => {
   const { id } = useParams();
   const { titleBreadCrumbs } = useSelector((state) => state.products); // массив с title товаров
-  const title = titleBreadCrumbs.find((el) => el.id == id)?.title; // находим конкретный title
+  const title = titleBreadCrumbs.find((el) => +el.id === +id)?.title; // находим конкретный title
 
   return (
     <Container>
