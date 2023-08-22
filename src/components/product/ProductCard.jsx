@@ -186,15 +186,5 @@ const Title = styled.h6`
     font-size: 16px;
   }
 `;
-export {
-  Discount,
-  CustomImage,
-  AddToCart,
-  Card,
-  ContainerPrices,
-  DiscountPrice,
-  Price,
-  CurrencySymbol,
-  Title,
-};
+
 export default ProductCard;
