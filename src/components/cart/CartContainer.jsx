@@ -3,7 +3,7 @@ import React from 'react';
 import CartItem from './CartItem';
 import { useSelector } from 'react-redux';
 
-const CartCOntainer = () => {
+const CartContainer = () => {
   const cartState = useSelector((state) => state.cart.cart);
   return (
     <div>
@@ -16,4 +16,4 @@ const CartCOntainer = () => {
 
 // SCC ========== VARIABLES STYLED COMPONENTS ========== //
 // SCC ========== STYLED COMPONENTS ========== //
-export default CartCOntainer;
+export default CartContainer;

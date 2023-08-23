@@ -18,13 +18,11 @@ const CartPage = ({ id }) => {
   return (
     <Container>
       <BreadCrumbs secondTitle={'Shopping Cart'} />
-      <Title>Shopping cart</Title>
+
       <ContainerContent>
         <ContainerLeftSide>
+          <Title>Shopping cart</Title>
           <ContainerPath>
-            <Path>
-              <Link to={'/'}>Main</Link> / <Link to={'/cart'}>Cart</Link>
-            </Path>
             <CartOff onClick={() => dispatch(delete_all_products(id))} />
             <BackLink to={'/products'}>
               Back to store <ArrowForwardStyled />
@@ -61,11 +59,17 @@ const Container = styled.section`
 const ContainerContent = styled.div`
   display: flex;
   gap: 50px;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
 `;
 const ContainerLeftSide = styled.div`
-  width: 60%;
+  width: 58%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 `;
 const ContainerProducts = styled.div`
   /* width: 50%; */
@@ -76,11 +80,6 @@ const ContainerPath = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-const Path = styled.p`
-  font-size: ${(props) => props.theme.font_size.fs_16};
-  font-weight: 500;
-  line-height: ${(props) => props.theme.font_size.primary};
-`;
 const ArrowForwardStyled = styled(IoIosArrowForward)`
   transition: color 0.3s ease;
 `;
@@ -90,13 +89,13 @@ const BackLink = styled(Link)`
   line-height: ${(props) => props.theme.font_size.primary};
   display: flex;
   align-items: center;
+  gap: 5px;
   &:hover {
     ${ArrowForwardStyled} {
       color: ${(props) => props.theme.colors.clr_accent};
     }
   }
 `;
-
 const Products = styled.div`
   /* width: 50%; */
 `;
@@ -109,4 +108,5 @@ const Subtotall = styled.p`
   padding: 25px 0;
   text-align: end;
 `;
+
 export default CartPage;

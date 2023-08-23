@@ -28,7 +28,11 @@ export const cartSlice = createSlice({
         0
       );
       state.total_sum = updatedCart.reduce(
-        (total, product) => total + product.price * product.count,
+        (total, product) =>
+          total +
+          (product.discont_price
+            ? product.discont_price * product.count
+            : product.price * product.count),
         0
       );
     },
@@ -37,7 +41,9 @@ export const cartSlice = createSlice({
       if (product) {
         product.count++;
         state.total_count++;
-        state.total_sum += product.price;
+        state.total_sum += product.discont_price
+          ? product.discont_price
+          : product.price;
       }
     },
     decrement_count(state, action) {
@@ -46,11 +52,15 @@ export const cartSlice = createSlice({
         if (product.count === 1) {
           state.cart = state.cart.filter((el) => el.id !== action.payload);
           state.total_count--;
-          state.total_sum -= product.price;
+          state.total_sum -= product.discont_price
+            ? product.discont_price
+            : product.price;
         } else {
           product.count--;
           state.total_count--;
-          state.total_sum -= product.price;
+          state.total_sum -= product.discont_price
+            ? product.discont_price
+            : product.price;
         }
       }
     },
@@ -59,7 +69,9 @@ export const cartSlice = createSlice({
       if (product) {
         state.cart = state.cart.filter((el) => el.id !== action.payload);
         state.total_count -= product.count;
-        state.total_sum -= product.price * product.count;
+        state.total_sum -= product.discont_price
+          ? product.discont_price * product.count
+          : product.price * product.count;
       }
     },
     delete_all_products(state, action) {

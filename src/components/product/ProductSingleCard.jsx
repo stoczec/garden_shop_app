@@ -57,7 +57,6 @@ const ProductSingleCard = ({
 // SCC ========== VARIABLES STYLED COMPONENTS ========== //
 const fs_36 = (props) => props.theme.font_size.fs_36;
 const fs_70 = (props) => props.theme.font_size.fs_70;
-const clr_white = (props) => props.theme.colors.clr_white;
 const clr_black = (props) => props.theme.colors.clr_black;
 const clr_accent = (props) => props.theme.colors.clr_accent;
 
@@ -177,7 +176,7 @@ const AddToCart = styled.button`
   margin-bottom: 66px;
   border-radius: 10px;
   background: ${clr_accent};
-  color: ${clr_white};
+  color: ${(props) => props.theme.colors.clr_white};
   font-size: ${(props) => props.theme.font_size.fs_28};
   font-weight: 700;
   cursor: pointer;
@@ -186,7 +185,7 @@ const AddToCart = styled.button`
   transition: all 350ms ease-in-out;
   &:hover {
     color: ${clr_accent};
-    background-color: ${clr_white};
+    background-color: ${(props) => props.theme.colors.clr_white};
     box-shadow: 0 0 10px 0 ${clr_accent} inset, 0 0 10px 4px ${clr_accent};
   }
 `;

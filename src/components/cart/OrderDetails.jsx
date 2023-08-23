@@ -40,21 +40,40 @@ const clr_accent = (props) => props.theme.colors.clr_accent;
 // const primary_lh = (props) => props.theme.line_height.primary;
 // SCC ========== STYLED COMPONENTS ========== //
 const Container = styled.article`
+  /* width: 500px; */
   height: 394px;
   padding: 25px;
   border-radius: 21px;
   border: 2px solid ${(props) => props.theme.colors.clr_black};
+  margin-top: 129px;
+  @media (max-width: 1000px) {
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
 `;
 const Title = styled.h3`
   font-size: ${(props) => props.theme.font_size.fs_28};
   line-height: ${(props) => props.theme.line_height.primary};
   letter-spacing: 0.84px;
   margin-bottom: 42px;
+  @media (max-width: 1000px) {
+    font-size: 28px;
+    grid-column: span 2;
+    grid-row: span 2;
+    text-align: center;
+  }
 `;
 const ContainerSum = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
+  @media (max-width: 1000px) {
+    justify-content: space-evenly;
+    align-items: center;
+  }
 `;
 const Sum = styled.span`
   font-size: ${(props) => props.theme.font_size.fs_24};
