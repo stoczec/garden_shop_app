@@ -3,13 +3,13 @@ import { styled } from 'styled-components';
 import Title from '../assets/reusableStyledComponents/Title';
 import { Link } from 'react-router-dom';
 import { IoIosArrowForward } from 'react-icons/io';
-import { TbGardenCartOff } from 'react-icons/tb';
 import CartContainer from '../components/cart/CartContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import { delete_all_products } from '../store/slice/cartSlice';
 import { CURRENCY } from '../assets/constants/URL';
 import OrderDetails from '../components/cart/OrderDetails';
 import BreadCrumbs from '../components/reusableComponents/BreadCrumbs';
+import { Button } from 'antd';
 
 const CartPage = ({ id }) => {
   const dispatch = useDispatch();
@@ -23,7 +23,12 @@ const CartPage = ({ id }) => {
         <ContainerLeftSide>
           <Title>Shopping cart</Title>
           <ContainerPath>
-            <CartOff onClick={() => dispatch(delete_all_products(id))} />
+            <CustomButton
+              danger
+              onClick={() => dispatch(delete_all_products(id))}
+            >
+              Clear Cart
+            </CustomButton>
             <BackLink to={'/products'}>
               Back to store <ArrowForwardStyled />
               <ArrowForwardStyled />
@@ -80,8 +85,14 @@ const ContainerPath = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+const CustomButton = styled(Button)`
+  &.ant-btn {
+    font-family: inherit;
+    font-weight: inherit;
+  }
+`;
 const ArrowForwardStyled = styled(IoIosArrowForward)`
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 `;
 const BackLink = styled(Link)`
   font-size: ${(props) => props.theme.font_size.fs_20};
@@ -93,15 +104,12 @@ const BackLink = styled(Link)`
   &:hover {
     ${ArrowForwardStyled} {
       color: ${(props) => props.theme.colors.clr_accent};
+      transform: rotateY(180deg);
     }
   }
 `;
 const Products = styled.div`
   /* width: 50%; */
-`;
-const CartOff = styled(TbGardenCartOff)`
-  cursor: pointer;
-  font-size: 2em;
 `;
 const Subtotall = styled.p`
   border-top: 1px solid #a7a7a7;

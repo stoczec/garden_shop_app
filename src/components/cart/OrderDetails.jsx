@@ -13,7 +13,7 @@ const OrderDetails = () => {
     <Container>
       <Title>Order Details</Title>
       <ContainerSum>
-        <Sum>Total</Sum>
+        <SubTitle>Total</SubTitle>
         <TotalSumState>
           {totalSumState}
           <CurrencySymbol>{CURRENCY}</CurrencySymbol>
@@ -53,6 +53,13 @@ const Container = styled.article`
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 10px;
   }
+  @media (max-width: 660px) {
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 50px;
+  }
 `;
 const Title = styled.h3`
   font-size: ${(props) => props.theme.font_size.fs_28};
@@ -64,6 +71,11 @@ const Title = styled.h3`
     grid-column: span 2;
     grid-row: span 2;
     text-align: center;
+    border-bottom: 1px solid #000;
+  }
+  @media (max-width: 660px) {
+    margin-bottom: 0;
+    padding-bottom: 10px;
   }
 `;
 const ContainerSum = styled.div`
@@ -71,26 +83,42 @@ const ContainerSum = styled.div`
   justify-content: space-between;
   margin-bottom: 50px;
   @media (max-width: 1000px) {
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 0;
+  }
+  @media (max-width: 660px) {
+    flex-direction: row;
+    align-items: baseline;
   }
 `;
-const Sum = styled.span`
+const SubTitle = styled.span`
   font-size: ${(props) => props.theme.font_size.fs_24};
   font-weight: 500;
   line-height: ${(props) => props.theme.line_height.primary};
   letter-spacing: 0.72px;
+  @media (max-width: 1000px) {
+    font-size: ${(props) => props.theme.font_size.fs_40};
+    font-weight: 600;
+  }
 `;
 const TotalSumState = styled.span`
   font-size: ${(props) => props.theme.font_size.fs_30};
   line-height: ${(props) => props.theme.line_height.primary};
   letter-spacing: 0.96px;
+  @media (max-width: 1000px) {
+    font-size: ${(props) => props.theme.font_size.fs_70};
+  }
 `;
 const CurrencySymbol = styled.span`
   font-size: ${(props) => props.theme.font_size.fs_12};
   font-weight: 500;
   line-height: ${(props) => props.theme.line_height.primary};
   letter-spacing: 0.3px;
+  @media (max-width: 1000px) {
+    font-size: ${(props) => props.theme.font_size.fs_36};
+  }
 `;
 const Form = styled.form`
   display: flex;
@@ -111,6 +139,9 @@ const Input = styled.input`
   font-weight: 500;
   line-height: ${(props) => props.theme.line_height.primary};
   letter-spacing: 0.54px;
+  @media (max-width: 660px) {
+    width: 100%;
+  }
 `;
 const Button = styled.button`
   width: clamp(17.5rem, calc(15.09rem + 12.06vw), 29.56rem);
@@ -131,6 +162,9 @@ const Button = styled.button`
     color: ${clr_accent};
     background-color: ${(props) => props.theme.colors.clr_white};
     box-shadow: 0 0 10px 0 ${clr_accent} inset, 0 0 10px 4px ${clr_accent};
+  }
+  @media (max-width: 660px) {
+    width: 100%;
   }
 `;
 export default OrderDetails;

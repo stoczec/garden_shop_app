@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { add_to_cart } from '../../store/slice/cartSlice';
 import { Image } from 'antd';
-import { TbGardenCart } from 'react-icons/tb';
 
 const ProductCard = ({ id, image, title, price, discont_price }) => {
   const discount = Math.round(((price - discont_price) / price) * 100);
@@ -18,9 +17,7 @@ const ProductCard = ({ id, image, title, price, discont_price }) => {
     <Card>
       <CustomImage src={`${BASEURL}${image}`} alt={title} width={`100%`} />
       <Link to={`/products/${id}`}>
-        <AddToCart onClick={handleAddToCart}>
-          <CartLogo /> Add to cart
-        </AddToCart>
+        <AddToCart onClick={handleAddToCart}>Add to cart</AddToCart>
         <ContainerPrices $exist_discont_price={discont_price}>
           <DiscountPrice>
             {discont_price ? `${discont_price}` : ''}
@@ -84,14 +81,10 @@ const CustomImage = styled(Image)`
   }
 `;
 const AddToCart = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
   border-radius: 21px;
   border: 2px solid ${(props) => props.theme.colors.clr_accent};
   background: #f1fff1;
-  padding: 5px;
+  padding: 15px 0;
   width: 70%;
   cursor: pointer;
 
@@ -109,9 +102,6 @@ const AddToCart = styled.button`
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease;
-`;
-const CartLogo = styled(TbGardenCart)`
-  font-size: 2em;
 `;
 const Card = styled.article`
   display: flex;
