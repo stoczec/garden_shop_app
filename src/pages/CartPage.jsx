@@ -1,24 +1,28 @@
 import React from 'react';
-import { styled } from 'styled-components';
-import Title from '../assets/reusableStyledComponents/Title';
-import { Link } from 'react-router-dom';
-import { IoIosArrowForward } from 'react-icons/io';
-import CartContainer from '../components/cart/CartContainer';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { styled } from 'styled-components';
+// IMP ========== REQUEST ========== //
 import { delete_all_products } from '../store/slice/cartSlice';
-import { CURRENCY } from '../assets/constants/URL';
-import OrderDetails from '../components/cart/OrderDetails';
+// IMP ========== COMPONENTS ========== //
+import PageContainer from '../components/reusableComponents/PageContainer';
 import BreadCrumbs from '../components/reusableComponents/BreadCrumbs';
+import Title from '../assets/reusableStyledComponents/Title';
+import CartContainer from '../components/cart/CartContainer';
+import OrderDetails from '../components/cart/OrderDetails';
+// IMP ========== COMPONENTS FROM LIBRARIES ========== //
+import { IoIosArrowForward } from 'react-icons/io';
 import { Button } from 'antd';
+// IMP ========== OTHERS ========== //
+import { CURRENCY } from '../assets/constants/URL';
 
 const CartPage = ({ id }) => {
   const dispatch = useDispatch();
   const countState = useSelector((state) => state.cart.total_count);
   const totalSumState = useSelector((state) => state.cart.total_sum).toFixed(2);
   return (
-    <Container>
+    <PageContainer>
       <BreadCrumbs secondTitle={'Shopping Cart'} />
-
       <ContainerContent>
         <ContainerLeftSide>
           <Title>Shopping cart</Title>
@@ -52,15 +56,11 @@ const CartPage = ({ id }) => {
         </ContainerLeftSide>
         <OrderDetails />
       </ContainerContent>
-    </Container>
+    </PageContainer>
   );
 };
 // SCC ========== STYLED COMPONENTS ========== //
 
-const Container = styled.section`
-  ${(props) => props.theme.mixins.container}
-  padding-bottom: 30px;
-`;
 const ContainerContent = styled.div`
   display: flex;
   gap: 50px;

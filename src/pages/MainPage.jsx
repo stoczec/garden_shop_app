@@ -1,4 +1,5 @@
 import React from 'react';
+// IMP ========== COMPONENTS ========== //
 import SaleBanner from '../components/sale/SaleBanner';
 import CategoryCatalog from '../components/category/CategoryCatalog';
 import GetDiscount from '../components/GetDiscount/GetDiscount';
