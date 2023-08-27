@@ -64,10 +64,11 @@ const ContainerProduct = styled.div`
     auto-fit,
     clamp(12.5rem, calc(11rem + 7.5vw), 20rem)
   );
-  justify-content: space-between;
+  justify-content: center;
   row-gap: 45px;
+  column-gap: clamp(1.25rem, calc(0.73rem + 1.74vw), 2.81rem);
   @media (max-width: 957px) {
-    justify-content: space-around;
+    /* justify-content: space-around; */
   }
 `;
 const ContainerPagination = styled.div`

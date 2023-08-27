@@ -11,6 +11,7 @@ import {
   delete_from_cart,
   increment_count,
 } from '../../store/slice/cartSlice';
+import Counter from '../reusableComponents/Counter';
 
 const CartItem = ({ id, image, title, discont_price, price, count }) => {
   const dispatch = useDispatch();
@@ -20,7 +21,8 @@ const CartItem = ({ id, image, title, discont_price, price, count }) => {
       <Image src={`${BASEURL}${image}`} alt={title} />
       <ContainerTitleAndCount>
         <Title>{title}</Title>
-        <ContainerCount>
+        <Counter id={id} count={count} />
+        {/* <ContainerCount>
           <Minus
             onClick={() => {
               dispatch(decrement_count(id));
@@ -33,7 +35,7 @@ const CartItem = ({ id, image, title, discont_price, price, count }) => {
               dispatch(increment_count(id));
             }}
           />
-        </ContainerCount>
+        </ContainerCount> */}
       </ContainerTitleAndCount>
       <ContainerPrices>
         <ContainerCardPrices $exist_discont_price={discont_price}>

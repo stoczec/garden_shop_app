@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { styled, keyframes } from 'styled-components';
 // IMP ========== REQUEST ========== //
 import { add_to_cart } from '../../store/slice/cartSlice';
@@ -8,19 +8,35 @@ import { add_to_cart } from '../../store/slice/cartSlice';
 import { Image } from 'antd';
 // IMP ========== OTHERS ========== //
 import { BASEURL, CURRENCY } from '../../assets/constants/URL';
+import Counter from '../reusableComponents/Counter';
 
 const ProductCard = ({ id, image, title, price, discont_price }) => {
+  const { cart } = useSelector((state) => state.cart);
+  const addedToCart = cart.some((item) => item.id === id);
+  const cartItem = cart.find((item) => item.id === id); // находим в массиве товар по id
+  const count = cartItem && cartItem.count ? cartItem.count : 0; // проверяем, если у него свойство count
   const discount = Math.round(((price - discont_price) / price) * 100);
+
   const dispatch = useDispatch();
   const handleAddToCart = (event) => {
     event.preventDefault(); // Предотвращение стандартного перехода
     dispatch(add_to_cart({ id, image, title, discont_price, price }));
   };
+  const style = {
+    position: 'absolute',
+    zIndex: '100',
+    left: '50%' /* Сдвигаем элемент на половину его ширины влево */,
+    transform: 'translateX(-50%)',
+    backgroundColor: 'rgba(241, 255, 241, 0.8)',
+  };
   return (
     <Card>
       <CustomImage src={`${BASEURL}${image}`} alt={title} width={`100%`} />
+      {addedToCart && <Counter id={id} count={count} style={style} />}
       <Link to={`/products/${id}`}>
-        <AddToCart onClick={handleAddToCart}>Add to cart</AddToCart>
+        <AddToCart onClick={handleAddToCart} $addedToCart={addedToCart}>
+          {addedToCart ? 'Added' : 'Add to cart'}
+        </AddToCart>
         <ContainerPrices $exist_discont_price={discont_price}>
           <DiscountPrice>
             {discont_price ? `${discont_price}` : ''}
@@ -85,7 +101,10 @@ const CustomImage = styled(Image)`
 `;
 const AddToCart = styled.button`
   border-radius: 21px;
-  border: 2px solid ${(props) => props.theme.colors.clr_accent};
+  border: ${(props) =>
+    props.$addedToCart
+      ? `2px solid #ff4d4f`
+      : `2px solid ${props.theme.colors.clr_accent}`};
   background-color: rgba(241, 255, 241, 0.8);
   padding: 15px 0;
   width: 70%;
@@ -93,28 +112,40 @@ const AddToCart = styled.button`
 
   position: absolute;
   z-index: 100;
-  top: clamp(9.38rem, calc(8.75rem + 3.13vw), 12.5rem);
+  top: clamp(6.25rem, calc(5.75rem + 2.5vw), 8.75rem);
   left: 50%; /* Сдвигаем элемент на половину его ширины влево */
   transform: translateX(-50%);
 
-  color: ${(props) => props.theme.colors.clr_accent};
+  color: ${(props) =>
+    props.$addedToCart ? `#ff4d4f` : `${props.theme.colors.clr_accent}`};
   font-size: ${(props) => props.theme.font_size.fs_24};
   line-height: ${(props) => props.theme.line_height.primary};
   text-align: center;
 
-  visibility: hidden;
-  opacity: 0;
+  /* visibility: ${(props) => (props.$addedToCart ? 'visible' : 'hidden')}; */
+  opacity: ${(props) => (props.$addedToCart ? 1 : 0)};
   transition: opacity 0.3s ease;
 
   --c: ${(props) => props.theme.colors.clr_white};
-  background: linear-gradient(
+  background: ${(props) =>
+    props.$addedToCart
+      ? `linear-gradient(
+        90deg,
+        #0000 33%,
+        rgba(255, 77, 79, 0.8) 50%,
+        #0000 67%
+      )
+      var(--_p, 100%) / 300% no-repeat,
+    var(--c)`
+      : `
+  linear-gradient(
         90deg,
         #0000 33%,
         rgba(51, 153, 51, 0.8) 50%,
         #0000 67%
       )
       var(--_p, 100%) / 300% no-repeat,
-    var(--c);
+    var(--c)`};
   text-shadow: calc(var(--_i, -1) * 0.08em) -0.01em 0 var(--c),
     calc(var(--_i, -1) * -0.08em) 0.01em 2px #0004;
   outline-offset: 0.1em;
@@ -129,7 +160,10 @@ const AddToCart = styled.button`
   &:active {
     text-shadow: none;
     color: var(--c);
-    box-shadow: inset 0 0 9e9Q ${(props) => props.theme.colors.clr_accent};
+    box-shadow: ${(props) =>
+      props.$addedToCart
+        ? `inset 0 0 9e9Q  #ff4d4f`
+        : `inset 0 0 9e9Q ${props.theme.colors.clr_accent}`};
     transition: 0s;
   }
 `;
@@ -151,7 +185,7 @@ const Card = styled.article`
       animation: ${Shake} 1.5s infinite;
     }
     ${AddToCart} {
-      visibility: visible;
+      /* visibility: visible; */
       opacity: 1;
     }
     box-shadow: 0 5px 10px ${(props) => props.theme.colors.clr_black};

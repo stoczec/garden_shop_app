@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { styled } from 'styled-components';
 // IMP ========== REQUEST ========== //
 import { add_to_cart } from '../../store/slice/cartSlice';
@@ -7,6 +7,7 @@ import { add_to_cart } from '../../store/slice/cartSlice';
 import { BASEURL, CURRENCY } from '../../assets/constants/URL';
 // IMP ========== OTHERS ========== //
 import { Image } from 'antd';
+import Counter from '../reusableComponents/Counter';
 
 const ProductSingleCard = ({
   id,
@@ -16,6 +17,10 @@ const ProductSingleCard = ({
   discont_price,
   description,
 }) => {
+  const { cart } = useSelector((state) => state.cart); // массив с товарами в корзине
+  const addedToCart = cart.some((item) => item.id === id); // находим в массиве товар по id
+  const cartItem = cart.find((item) => item.id === id); // находим в массиве товар по id
+  const count = cartItem && cartItem.count ? cartItem.count : 0; // проверяем, если у него свойство count
   const discount = Math.round(((price - discont_price) / price) * 100);
   const dispatch = useDispatch();
   const handleAddToCart = (event) => {
@@ -45,7 +50,10 @@ const ProductSingleCard = ({
               {discont_price && <PercentageSpan>%</PercentageSpan>}
             </Discount>
           </ContainerPrices>
-          <AddToCart onClick={handleAddToCart}>Add to cart</AddToCart>
+          <AddToCart onClick={handleAddToCart} $addedToCart={addedToCart}>
+            {addedToCart ? 'Added' : 'Add to cart'}
+          </AddToCart>
+          {addedToCart && <Counter id={id} count={count} />}
           <ContainerDescription>
             <TitleDescrption>Description</TitleDescrption>
             <Description>{description}</Description>
@@ -156,6 +164,7 @@ const ContainerDescription = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-top: 20px;
 `;
 const TitleDescrption = styled.h4`
   font-size: ${(props) => props.theme.font_size.fs_28};
@@ -176,19 +185,58 @@ const AddToCart = styled.button`
   padding: clamp(0.75rem, calc(0.3rem + 2.24vw), 1.56rem)
     clamp(2.5rem, calc(0.78rem + 8.62vw), 5.63rem);
   margin-bottom: 66px;
+  border: ${(props) =>
+    props.$addedToCart
+      ? `2px solid #ff4d4f`
+      : `2px solid ${props.theme.colors.clr_accent}`};
   border-radius: 10px;
-  background: ${clr_accent};
-  color: ${(props) => props.theme.colors.clr_white};
+  background: ${(props) =>
+    props.$addedToCart ? '#ff4d4f' : `${props.theme.colors.clr_accent}`};
+  color: ${(props) =>
+    props.$addedToCart ? `#ff4d4f` : `${props.theme.colors.clr_accent}`};
   font-size: ${(props) => props.theme.font_size.fs_28};
   font-weight: 700;
   cursor: pointer;
 
-  box-shadow: 0 0 40px 40px ${clr_accent} inset, 0 0 0 0 ${clr_accent};
-  transition: all 350ms ease-in-out;
-  &:hover {
-    color: ${clr_accent};
-    background-color: ${(props) => props.theme.colors.clr_white};
-    box-shadow: 0 0 10px 0 ${clr_accent} inset, 0 0 10px 4px ${clr_accent};
+  --c: ${(props) => props.theme.colors.clr_white};
+  background: ${(props) =>
+    props.$addedToCart
+      ? `linear-gradient(
+        90deg,
+        #0000 33%,
+        rgba(255, 77, 79, 0.8) 50%,
+        #0000 67%
+      )
+      var(--_p, 100%) / 300% no-repeat,
+    var(--c)`
+      : `
+  linear-gradient(
+        90deg,
+        #0000 33%,
+        rgba(51, 153, 51, 0.8) 50%,
+        #0000 67%
+      )
+      var(--_p, 100%) / 300% no-repeat,
+    var(--c)`};
+  text-shadow: calc(var(--_i, -1) * 0.08em) -0.01em 0 var(--c),
+    calc(var(--_i, -1) * -0.08em) 0.01em 2px #0004;
+  outline-offset: 0.1em;
+  transition: 0.7s;
+
+  &:hover,
+  &:focus-visible {
+    --_p: 0%;
+    --_i: 1;
+  }
+
+  &:active {
+    text-shadow: none;
+    color: var(--c);
+    box-shadow: ${(props) =>
+      props.$addedToCart
+        ? `inset 0 0 9e9Q  #ff4d4f`
+        : `inset 0 0 9e9Q ${props.theme.colors.clr_accent}`};
+    transition: 0s;
   }
 `;
 export default ProductSingleCard;
