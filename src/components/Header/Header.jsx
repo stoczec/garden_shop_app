@@ -5,6 +5,7 @@ import NavMenu from './NavMenu/NavMenu';
 import logo from '../../assets/images/logo.png';
 import { TbGardenCart } from 'react-icons/tb';
 import { useSelector } from 'react-redux';
+import BurgerMenu from './BurgerMenu';
 
 const Header = () => {
   const countState = useSelector((state) => state.cart.total_count);
@@ -24,6 +25,7 @@ const Header = () => {
           <CartLogo />
           <ContainerCountState>{countState}</ContainerCountState>
         </CartLink>
+        <BurgerMenu />
       </NavMenuContainer>
     </Head>
   );
@@ -33,18 +35,19 @@ const Header = () => {
 const clr_accent = (props) => props.theme.colors.clr_accent;
 // SCC ========== STYLED COMPONENTS ========== //
 const Head = styled.header`
+  ${(props) => props.theme.mixins.container};
   padding-top: 20px;
   padding-bottom: ${(props) => (props.pathname === '/' ? '80px' : '0')};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${(props) => props.theme.mixins.container};
+  transition: all 0.5s ease;
 `;
 const LogoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: clamp(1.88rem, calc(1.5rem + 1.88vw), 3.75rem);
+  gap: clamp(0.5rem, calc(0.8rem + 1vw), 3.75rem);
 `;
 const LogoLink = styled(Link)`
   transition: all 350ms ease-in-out;
@@ -87,7 +90,6 @@ const CartLink = styled(Link)`
 const CartLogo = styled(TbGardenCart)`
   font-size: 3em;
 `;
-
 const ContainerCountState = styled.span`
   width: 32px;
   height: 32px;

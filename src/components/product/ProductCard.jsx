@@ -1,10 +1,13 @@
 import React from 'react';
-import { styled, keyframes } from 'styled-components';
-import { BASEURL, CURRENCY } from '../../assets/constants/URL';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { styled, keyframes } from 'styled-components';
+// IMP ========== REQUEST ========== //
 import { add_to_cart } from '../../store/slice/cartSlice';
+// IMP ========== COMPONENTS FROM LIBRARIES ========== //
 import { Image } from 'antd';
+// IMP ========== OTHERS ========== //
+import { BASEURL, CURRENCY } from '../../assets/constants/URL';
 
 const ProductCard = ({ id, image, title, price, discont_price }) => {
   const discount = Math.round(((price - discont_price) / price) * 100);
@@ -83,7 +86,7 @@ const CustomImage = styled(Image)`
 const AddToCart = styled.button`
   border-radius: 21px;
   border: 2px solid ${(props) => props.theme.colors.clr_accent};
-  background: #f1fff1;
+  background-color: rgba(241, 255, 241, 0.8);
   padding: 15px 0;
   width: 70%;
   cursor: pointer;
@@ -102,6 +105,33 @@ const AddToCart = styled.button`
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease;
+
+  --c: ${(props) => props.theme.colors.clr_white};
+  background: linear-gradient(
+        90deg,
+        #0000 33%,
+        rgba(51, 153, 51, 0.8) 50%,
+        #0000 67%
+      )
+      var(--_p, 100%) / 300% no-repeat,
+    var(--c);
+  text-shadow: calc(var(--_i, -1) * 0.08em) -0.01em 0 var(--c),
+    calc(var(--_i, -1) * -0.08em) 0.01em 2px #0004;
+  outline-offset: 0.1em;
+  transition: 0.7s;
+
+  &:hover,
+  &:focus-visible {
+    --_p: 0%;
+    --_i: 1;
+  }
+
+  &:active {
+    text-shadow: none;
+    color: var(--c);
+    box-shadow: inset 0 0 9e9Q ${(props) => props.theme.colors.clr_accent};
+    transition: 0s;
+  }
 `;
 const Card = styled.article`
   display: flex;

@@ -2,29 +2,32 @@ import React, { useState } from 'react';
 import { css, styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Hamburger from 'hamburger-react';
+import BurgerMenu from '../BurgerMenu';
 
 const NavMenu = () => {
-  const [isActive, setIsActive] = useState(false);
+  // const [isActive, setIsActive] = useState(false);
 
-  const showNavMenu = () => {
-    setIsActive((prev) => !prev);
-  };
+  // const showNavMenu = () => {
+  //   setIsActive((prev) => !prev);
+  // };
 
   return (
     <>
-      <Nav $isActive={isActive.toString()}>
+      <Nav>
         <Link to="/">Main Page</Link>
         <Link to="/products">All products</Link>
         <Link to="/sales">All sales</Link>
       </Nav>
-      <Burger onClick={showNavMenu}>
+      {/* <Burger onClick={showNavMenu} $isOpen={isActive}>
         <Hamburger />
-      </Burger>
+        <BurgerMenu isActive={isActive} />
+      </Burger> */}
     </>
   );
 };
 // SCC ========== STYLED COMPONENTS ========== //
 const Nav = styled.nav`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,7 +46,8 @@ const Nav = styled.nav`
     }
   }
   @media (max-width: 900px) {
-    justify-content: space-evenly;
+    display: none;
+    /* justify-content: space-evenly;
     position: absolute;
     top: 110px;
     left: 0;
@@ -53,9 +57,9 @@ const Nav = styled.nav`
     & * {
       font-size: 0;
       transition: font-size 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    }
+    } */
   }
-  ${(props) =>
+  /* ${(props) =>
     props.$isActive === 'true' &&
     css`
       height: 30px;
@@ -70,13 +74,17 @@ const Nav = styled.nav`
         transition: font-size 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
           color 1.5s ease, text-shadow 1.5s ease, background-color 1.5s ease;
       }
-    `}
+    `} */
 `;
-const Burger = styled.div`
-  display: none;
-  @media (max-width: 900px) {
-    display: block;
-  }
-`;
+// const Burger = styled.div`
+//   display: none;
+//   @media (max-width: 900px) {
+//     display: block;
+//     position: ${(props) => (props.$isOpen ? 'fixed' : 'relative')};
+//     right: ${(props) => (props.$isOpen ? '50vw' : '0')};
+//     z-index: 1000;
+//     top: ${(props) => (props.$isOpen ? '10vh' : '0')};
+//   }
+// `;
 
 export default NavMenu;

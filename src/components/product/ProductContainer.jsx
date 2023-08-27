@@ -1,5 +1,4 @@
 import React from 'react';
-// import { styled } from 'styled-components';
 import ItemContainer from '../reusableComponents/ItemContainer';
 
 const ProductContainer = ({ products_data }) => {
@@ -12,7 +11,5 @@ const ProductContainer = ({ products_data }) => {
     </>
   );
 };
-
-// SCC ========== STYLED COMPONENTS ========== //
 
 export default ProductContainer;

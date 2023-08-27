@@ -1,10 +1,12 @@
 import React from 'react';
-import { styled } from 'styled-components';
-import { BASEURL, CURRENCY } from '../../assets/constants/URL';
-import { Image } from 'antd';
-
-import { add_to_cart } from '../../store/slice/cartSlice';
 import { useDispatch } from 'react-redux';
+import { styled } from 'styled-components';
+// IMP ========== REQUEST ========== //
+import { add_to_cart } from '../../store/slice/cartSlice';
+// IMP ========== COMPONENTS FROM LIBRARIES ========== //
+import { BASEURL, CURRENCY } from '../../assets/constants/URL';
+// IMP ========== OTHERS ========== //
+import { Image } from 'antd';
 
 const ProductSingleCard = ({
   id,

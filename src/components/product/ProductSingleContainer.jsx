@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// IMP ========== REQUEST ========== //
+import { fetchSingleProduct } from '../../store/slice/productSingleSlice';
+// IMP ========== COMPONENTS FROM LIBRARIES ========== //
 import Loading from '../ui/Loading';
 import { NotFoundPage } from '../../pages';
 import ProductSingleCard from './ProductSingleCard';
-import { fetchSingleProduct } from '../../store/slice/productSingleSlice';
 
 const ProductSingleContainer = ({ id }) => {
   const dispatch = useDispatch();
@@ -26,6 +28,4 @@ const ProductSingleContainer = ({ id }) => {
   );
 };
 
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
-// SCC ========== STYLED COMPONENTS ========== //
 export default ProductSingleContainer;
