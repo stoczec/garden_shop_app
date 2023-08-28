@@ -126,7 +126,6 @@ export const productSlice = createSlice({
           id: product.id,
           title: product.title,
         }));
-        console.log(state.titleBreadCrumbs);
         // max price for Input of FilterInputPrice
         const maxPrice = Math.max(
           ...action.payload.map((product) =>

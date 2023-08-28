@@ -130,7 +130,6 @@ export const productsByCategorySlice = createSlice({
           )
         );
         state.maxValue = maxPrice;
-        console.log(state.maxValue);
       })
       .addCase(fetchProductsByCategory.rejected, (state, action) => {
         state.loading = false; // change loading on false

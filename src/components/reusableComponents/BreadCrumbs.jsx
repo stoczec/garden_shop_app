@@ -1,32 +1,36 @@
 import React from 'react';
-// import { styled } from 'styled-components';
 import { HomeOutlined } from '@ant-design/icons';
 import { Breadcrumb } from 'antd';
 import { Link } from 'react-router-dom';
 
 const BreadCrumbs = ({ secondLink, secondTitle, thirdTitle }) => {
-  return (
-    <>
-      <Breadcrumb style={{ fontSize: '24px' }}>
-        <Breadcrumb.Item>
-          <Link to="/">
-            <HomeOutlined style={{ fontSize: '24px' }} />
-          </Link>
-        </Breadcrumb.Item>
-        {secondLink ? (
-          <Breadcrumb.Item>
-            <Link to={secondLink}>{secondTitle}</Link>
-          </Breadcrumb.Item>
-        ) : (
-          <Breadcrumb.Item>{secondTitle}</Breadcrumb.Item>
-        )}
+  const items = [
+    {
+      title: (
+        <Link to="/" style={{ height: 0 }}>
+          <HomeOutlined style={{ fontSize: '24px' }} />
+        </Link>
+      ),
+    },
+    secondLink
+      ? {
+          title: (
+            <Link to={secondLink} style={{ height: 0 }}>
+              {secondTitle}
+            </Link>
+          ),
+        }
+      : { title: secondTitle },
+    thirdTitle ? { title: thirdTitle } : { title: '' },
+  ];
 
-        {thirdTitle && <Breadcrumb.Item>{thirdTitle}</Breadcrumb.Item>}
-      </Breadcrumb>
-    </>
+  return (
+    <Breadcrumb Breadcrumb style={{ fontSize: '24px' }}>
+      {items.map((item, index) => (
+        <Breadcrumb.Item key={index}>{item.title}</Breadcrumb.Item>
+      ))}
+    </Breadcrumb>
   );
 };
 
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
-// SCC ========== STYLED COMPONENTS ========== //
 export default BreadCrumbs;
