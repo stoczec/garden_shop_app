@@ -1,20 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
-import gnome from '../../assets/images/banner_bg1.png';
+import image from '../../assets/images/banner_bg1.png';
 import Title from '../../assets/reusableStyledComponents/Title';
+import { useForm } from 'react-hook-form';
 
 const GetDiscount = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({ mode: 'onBlur' });
+  const telRegister = register('tel', {
+    required: '*Phone number input is required',
+    pattern: {
+      value: /^\+49\d{11}$/,
+      message: '*Phone number value does not correspond the required format',
+    },
+  });
+  const submit = (data) => {
+    console.log(data);
+    reset();
+  };
   return (
     <Wrapper>
       <Container>
-        <Image src={gnome} alt="Gnome" />
+        <Image src={image} alt="Image" />
         <article>
           <CustomTitle>
             <span>5% off </span>
             <p>on the first order</p>
           </CustomTitle>
-          <Form>
-            <Input type="tel" required pattern="\+49\d{10}" placeholder="+49" />
+          <Form onSubmit={handleSubmit(submit)}>
+            <Input type="tel" placeholder={'+49'} name="tel" {...telRegister} />
+            {errors.tel && <Error>{errors.tel.message}</Error>}
             <Button>Get a discount</Button>
           </Form>
         </article>
@@ -78,6 +97,11 @@ const Input = styled.input`
   font-size: ${(props) => props.theme.font_size.fs_18};
   line-height: ${(props) => props.theme.line_height.secondary};
   letter-spacing: 0.54px;
+`;
+const Error = styled.p`
+  color: red;
+  font-size: 12px;
+  text-align: end;
 `;
 const Button = styled.button`
   width: clamp(17.5rem, calc(15.09rem + 12.06vw), 29.56rem);
