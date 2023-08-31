@@ -3,8 +3,11 @@ import styled from 'styled-components';
 import image from '../../assets/images/banner_bg1.png';
 import Title from '../../assets/reusableStyledComponents/Title';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { sendPhoneNumber } from '../../store/post/sendPhoneNumber';
 
 const GetDiscount = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -19,7 +22,7 @@ const GetDiscount = () => {
     },
   });
   const submit = (data) => {
-    console.log(data);
+    dispatch(sendPhoneNumber(data.tel));
     reset();
   };
   return (
@@ -97,10 +100,19 @@ const Input = styled.input`
   font-size: ${(props) => props.theme.font_size.fs_18};
   line-height: ${(props) => props.theme.line_height.secondary};
   letter-spacing: 0.54px;
+
+  outline: none;
+  &:focus {
+    border: 1px solid transparent;
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+    box-shadow: inset 0 3px 2px rgba(0, 0, 0, 0.39), 0 -1px 1px #fff,
+      0 1px 0 #fff;
+  }
 `;
 const Error = styled.p`
-  color: red;
-  font-size: 12px;
+  color: #ff4d4f;
+  font-size: 14px;
   text-align: end;
 `;
 const Button = styled.button`

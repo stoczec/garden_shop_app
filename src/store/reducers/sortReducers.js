@@ -1,4 +1,4 @@
-export const sortProductReducer = (state, action) => {
+const sortProductReducer = (state, action) => {
   if (action.payload === 'title') {
     state.products.sort((a, b) => a.title.localeCompare(b.title));
   } else if (action.payload === 'price_asc') {
@@ -18,7 +18,7 @@ export const sortProductReducer = (state, action) => {
   }
 };
 
-export const sortPriceProductsReducer = (state, action) => {
+const sortPriceProductsReducer = (state, action) => {
   const { min_value, max_value } = action.payload;
 
   state.products = state.products.map((el) => {

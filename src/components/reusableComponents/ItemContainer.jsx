@@ -62,14 +62,11 @@ const ContainerProduct = styled.div`
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    clamp(12.5rem, calc(11rem + 7.5vw), 20rem)
+    clamp(12.5rem, calc(11rem + 7vw), 20rem)
   );
-  justify-content: center;
+  justify-content: space-evenly;
   row-gap: 45px;
   column-gap: clamp(1.25rem, calc(0.73rem + 1.74vw), 2.81rem);
-  @media (max-width: 957px) {
-    /* justify-content: space-around; */
-  }
 `;
 const ContainerPagination = styled.div`
   display: flex;

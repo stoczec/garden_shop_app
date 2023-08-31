@@ -95,7 +95,7 @@ const Discount = styled.p`
 const CustomImage = styled(Image)`
   &.ant-image-img {
     width: 100%;
-    height: clamp(12.5rem, calc(11rem + 7.5vw), 20rem);
+    height: clamp(12.5rem, calc(11rem + 7vw), 20rem);
     object-fit: contain;
   }
 `;
@@ -193,7 +193,7 @@ const Card = styled.article`
 `;
 const ContainerPrices = styled.div`
   width: clamp(12.5rem, calc(11rem + 7.5vw), 20rem);
-  padding: 20px 10px;
+  padding: 20px 15px;
   display: flex;
   justify-content: ${(props) =>
     props.$exist_discont_price ? 'space-between' : 'start'};
