@@ -12,7 +12,7 @@ const Header = () => {
   const { pathname } = useLocation(); // текущий URL
 
   return (
-    <Head pathname={pathname}>
+    <Head $pathname={pathname}>
       <LogoContainer>
         <LogoLink to="/">
           <img src={logo} alt="Logo" />
@@ -37,7 +37,7 @@ const clr_accent = (props) => props.theme.colors.clr_accent;
 const Head = styled.header`
   ${(props) => props.theme.mixins.container};
   padding-top: 20px;
-  padding-bottom: ${(props) => (props.pathname === '/' ? '80px' : '0')};
+  padding-bottom: ${(props) => (props.$pathname === '/' ? '80px' : '0')};
   display: flex;
   justify-content: space-between;
   align-items: center;

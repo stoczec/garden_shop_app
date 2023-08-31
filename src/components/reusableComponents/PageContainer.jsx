@@ -14,4 +14,4 @@ const Container = styled.section`
   gap: clamp(2.5rem, calc(2rem + 2.5vw), 5rem);
   padding-bottom: 30px;
 `;
-export default Container;
+export default PageContainer;

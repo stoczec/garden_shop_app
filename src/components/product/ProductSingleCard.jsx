@@ -68,8 +68,6 @@ const ProductSingleCard = ({
 const fs_36 = (props) => props.theme.font_size.fs_36;
 const fs_70 = (props) => props.theme.font_size.fs_70;
 const clr_black = (props) => props.theme.colors.clr_black;
-const clr_accent = (props) => props.theme.colors.clr_accent;
-
 // SCC ========== STYLED COMPONENTS ========== //
 const Container = styled.article`
   display: flex;

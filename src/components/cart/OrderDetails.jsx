@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { styled } from 'styled-components';
 import { CURRENCY } from '../../assets/constants/URL';
+import FormPost from '../reusableComponents/FormPost';
 
 const OrderDetails = () => {
-  const [phoneNumber, setPhoneNumber] = useState('+49');
   const totalSumState = useSelector((state) => state.cart.total_sum).toFixed(2);
-  const handlePhoneNumberChange = (event) => {
-    setPhoneNumber(event.target.value);
-  };
+
   return (
     <Container>
       <Title>Order Details</Title>
@@ -19,29 +17,13 @@ const OrderDetails = () => {
           <CurrencySymbol>{CURRENCY}</CurrencySymbol>
         </TotalSumState>
       </ContainerSum>
-      <Form>
-        <Input
-          type="tel"
-          required
-          pattern="\+49\d{10}"
-          placeholder="+49"
-          value={phoneNumber}
-          onChange={handlePhoneNumberChange}
-        />
-        <Button>Order</Button>
-      </Form>
+      <FormPost style_props={'cart'} title={'Order'} />
     </Container>
   );
 };
-
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
-// const fs_80 = (props) => props.theme.font_size.fs_80;
-const clr_accent = (props) => props.theme.colors.clr_accent;
-// const primary_lh = (props) => props.theme.line_height.primary;
 // SCC ========== STYLED COMPONENTS ========== //
 const Container = styled.article`
-  /* width: 500px; */
-  height: 394px;
+  height: 440px;
   padding: 25px;
   border-radius: 21px;
   border: 2px solid ${(props) => props.theme.colors.clr_black};
@@ -54,7 +36,7 @@ const Container = styled.article`
     grid-gap: 10px;
   }
   @media (max-width: 660px) {
-    height: 330px;
+    height: 370px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -71,11 +53,12 @@ const Title = styled.h3`
     grid-column: span 2;
     grid-row: span 2;
     text-align: center;
-    border-bottom: 1px solid #000;
+    border-bottom: none;
   }
   @media (max-width: 660px) {
     margin-bottom: 0;
     padding-bottom: 10px;
+    border-bottom: 1px solid #000;
   }
 `;
 const ContainerSum = styled.div`
@@ -118,53 +101,6 @@ const CurrencySymbol = styled.span`
   letter-spacing: 0.3px;
   @media (max-width: 1000px) {
     font-size: ${(props) => props.theme.font_size.fs_36};
-  }
-`;
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  gap: 25px;
-`;
-const Input = styled.input`
-  width: clamp(17.5rem, calc(15.09rem + 12.06vw), 29.56rem);
-  height: clamp(2.81rem, calc(2.44rem + 1.88vw), 4.69rem);
-  border-radius: 20px;
-  border: 1px solid ${(props) => props.theme.colors.clr_black};
-  padding-left: 25px;
-
-  color: #929292;
-  font-size: ${(props) => props.theme.font_size.fs_18};
-  font-weight: 500;
-  line-height: ${(props) => props.theme.line_height.primary};
-  letter-spacing: 0.54px;
-  @media (max-width: 660px) {
-    width: 100%;
-  }
-`;
-const Button = styled.button`
-  width: clamp(17.5rem, calc(15.09rem + 12.06vw), 29.56rem);
-  height: clamp(2.81rem, calc(2.44rem + 1.88vw), 4.69rem);
-  border-radius: 25.147px;
-  border: 2.395px solid ${(props) => props.theme.colors.clr_white};
-  background-color: ${clr_accent};
-  color: ${(props) => props.theme.colors.clr_white};
-  font-size: ${(props) => props.theme.font_size.fs_28};
-  font-weight: 700;
-  line-height: ${(props) => props.theme.line_height.secondary};
-  letter-spacing: 0.862px;
-  cursor: pointer;
-
-  box-shadow: 0 0 40px 40px transparent inset, 0 0 0 0 ${clr_accent};
-  transition: all 350ms ease-in-out;
-  &:hover {
-    color: ${clr_accent};
-    background-color: ${(props) => props.theme.colors.clr_white};
-    box-shadow: 0 0 10px 0 ${clr_accent} inset, 0 0 10px 4px ${clr_accent};
-  }
-  @media (max-width: 660px) {
-    width: 100%;
   }
 `;
 export default OrderDetails;

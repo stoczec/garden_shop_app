@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { styled } from 'styled-components';
 import { sendPhoneNumber } from '../../store/post/sendPhoneNumber';
 
-const Form = () => {
+const FormPost = ({ style_props, title }) => {
   const dispatch = useDispatch();
   const {
     register,
@@ -27,14 +27,21 @@ const Form = () => {
   };
   return (
     <Form onSubmit={handleSubmit(submit)}>
-      <Input type="tel" placeholder={'+49'} name="tel" {...telRegister} />
+      <Input
+        $style_props={style_props}
+        type="tel"
+        placeholder={'+49'}
+        name="tel"
+        {...telRegister}
+      />
       {errors.tel && <Error>{errors.tel.message}</Error>}
-      <Button>Get a discount</Button>
+      <Button $style_props={style_props}>{title}</Button>
     </Form>
   );
 };
 
 // SCC ========== VARIABLES STYLED COMPONENTS ========== //
+const clr_accent = (props) => props.theme.colors.clr_accent;
 
 // SCC ========== STYLED COMPONENTS ========== //
 const Form = styled.form`
@@ -49,8 +56,10 @@ const Input = styled.input`
   height: clamp(2.81rem, calc(2.44rem + 1.88vw), 4.69rem);
   border-radius: 25.147px;
   padding-left: 50px;
-  border: none;
-
+  border: ${(props) =>
+    props.$style_props === 'cart'
+      ? `1px solid ${props.theme.colors.clr_black}`
+      : 'none'};
   color: #6c6c6c;
   font-size: ${(props) => props.theme.font_size.fs_18};
   line-height: ${(props) => props.theme.line_height.secondary};
@@ -64,6 +73,9 @@ const Input = styled.input`
     box-shadow: inset 0 3px 2px rgba(0, 0, 0, 0.39), 0 -1px 1px #fff,
       0 1px 0 #fff;
   }
+  @media (max-width: 660px) {
+    width: ${(props) => (props.$style_props === 'cart' ? '100%' : '')};
+  }
 `;
 const Error = styled.p`
   color: #ff4d4f;
@@ -75,7 +87,8 @@ const Button = styled.button`
   height: clamp(2.81rem, calc(2.44rem + 1.88vw), 4.69rem);
   border-radius: 25.147px;
   border: 2.395px solid ${(props) => props.theme.colors.clr_white};
-  background-color: transparent;
+  background-color: ${(props) =>
+    props.$style_props === 'cart' ? clr_accent : 'transparent'};
   color: ${(props) => props.theme.colors.clr_white};
   font-size: ${(props) => props.theme.font_size.fs_28};
   font-weight: 700;
@@ -90,5 +103,8 @@ const Button = styled.button`
     background-color: ${(props) => props.theme.colors.clr_white};
     box-shadow: 0 0 10px 0 ${clr_accent} inset, 0 0 10px 4px ${clr_accent};
   }
+  @media (max-width: 660px) {
+    width: ${(props) => (props.$style_props === 'cart' ? '100%' : '')};
+  }
 `;
-export default Form;
+export default FormPost;

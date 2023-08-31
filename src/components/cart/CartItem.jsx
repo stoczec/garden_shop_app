@@ -6,11 +6,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { GrFormClose } from 'react-icons/gr';
 
 import { useDispatch } from 'react-redux';
-import {
-  decrement_count,
-  delete_from_cart,
-  increment_count,
-} from '../../store/slice/cartSlice';
+import { delete_from_cart } from '../../store/slice/cartSlice';
 import Counter from '../reusableComponents/Counter';
 
 const CartItem = ({ id, image, title, discont_price, price, count }) => {
@@ -22,20 +18,6 @@ const CartItem = ({ id, image, title, discont_price, price, count }) => {
       <ContainerTitleAndCount>
         <Title>{title}</Title>
         <Counter id={id} count={count} />
-        {/* <ContainerCount>
-          <Minus
-            onClick={() => {
-              dispatch(decrement_count(id));
-            }}
-          />
-          <Count>{count}</Count>
-
-          <Plus
-            onClick={() => {
-              dispatch(increment_count(id));
-            }}
-          />
-        </ContainerCount> */}
       </ContainerTitleAndCount>
       <ContainerPrices>
         <ContainerCardPrices $exist_discont_price={discont_price}>

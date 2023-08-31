@@ -6,7 +6,7 @@ export const sendPhoneNumber = createAsyncThunk(
   'form/sendPhoneNumber',
   async (phone) => {
     try {
-      const response = await axios.post(`${BASEURL}/sale/sendd`, { phone });
+      const response = await axios.post(`${BASEURL}/sale/send`, { phone });
       console.log(response.config.data);
       alert('You got a 5% discount!');
     } catch (error) {

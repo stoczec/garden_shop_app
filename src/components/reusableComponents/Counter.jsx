@@ -2,11 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { BiMinus } from 'react-icons/bi';
 import { AiOutlinePlus } from 'react-icons/ai';
-import {
-  decrement_count,
-  delete_from_cart,
-  increment_count,
-} from '../../store/slice/cartSlice';
+import { decrement_count, increment_count } from '../../store/slice/cartSlice';
 import { useDispatch } from 'react-redux';
 
 const Counter = ({ id, count, style }) => {
@@ -29,10 +25,6 @@ const Counter = ({ id, count, style }) => {
   );
 };
 
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
-// const fs_80 = (props) => props.theme.font_size.fs_80;
-// const clr_white = (props) => props.theme.colors.clr_white;
-// const primary_lh = (props) => props.theme.line_height.primary;
 // SCC ========== STYLED COMPONENTS ========== //
 const ContainerCount = styled.div`
   width: 140px;

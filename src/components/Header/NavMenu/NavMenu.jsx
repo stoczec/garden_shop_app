@@ -5,12 +5,6 @@ import Hamburger from 'hamburger-react';
 import BurgerMenu from '../BurgerMenu';
 
 const NavMenu = () => {
-  // const [isActive, setIsActive] = useState(false);
-
-  // const showNavMenu = () => {
-  //   setIsActive((prev) => !prev);
-  // };
-
   return (
     <>
       <Nav>
@@ -18,10 +12,6 @@ const NavMenu = () => {
         <Link to="/products">All products</Link>
         <Link to="/sales">All sales</Link>
       </Nav>
-      {/* <Burger onClick={showNavMenu} $isOpen={isActive}>
-        <Hamburger />
-        <BurgerMenu isActive={isActive} />
-      </Burger> */}
     </>
   );
 };
@@ -76,15 +66,5 @@ const Nav = styled.nav`
       }
     `} */
 `;
-// const Burger = styled.div`
-//   display: none;
-//   @media (max-width: 900px) {
-//     display: block;
-//     position: ${(props) => (props.$isOpen ? 'fixed' : 'relative')};
-//     right: ${(props) => (props.$isOpen ? '50vw' : '0')};
-//     z-index: 1000;
-//     top: ${(props) => (props.$isOpen ? '10vh' : '0')};
-//   }
-// `;
 
 export default NavMenu;
