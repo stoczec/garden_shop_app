@@ -23,7 +23,9 @@ const Header = () => {
         <NavMenu />
         <CartLink to="/cart">
           <CartLogo />
-          <ContainerCountState>{countState}</ContainerCountState>
+          {countState > 0 && (
+            <ContainerCountState>{countState}</ContainerCountState>
+          )}
         </CartLink>
         <BurgerMenu />
       </NavMenuContainer>
@@ -84,7 +86,7 @@ const CartLink = styled(Link)`
   transition: all 250ms ease-in-out;
 
   &:hover {
-    filter: invert(75%);
+    filter: invert(50%);
   }
   @media (max-width: 380px) {
     display: none;
@@ -94,11 +96,8 @@ const CartLogo = styled(TbGardenCart)`
   font-size: 3em;
 `;
 const ContainerCountState = styled.span`
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  color: ${(props) => props.theme.colors.clr_white};
-  background-color: ${clr_accent};
+  font-size: ${(state) => state.theme.font_size.fs_30};
+  color: ${clr_accent};
   display: flex;
   justify-content: center;
   align-items: center;
