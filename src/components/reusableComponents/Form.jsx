@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import image from '../../assets/images/banner_bg1.png';
-import Title from '../../assets/reusableStyledComponents/Title';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { styled } from 'styled-components';
 import { sendPhoneNumber } from '../../store/post/sendPhoneNumber';
 
-const GetDiscount = () => {
+const Form = () => {
   const dispatch = useDispatch();
   const {
     register,
@@ -28,62 +26,17 @@ const GetDiscount = () => {
     reset();
   };
   return (
-    <Wrapper>
-      <Container>
-        <Image src={image} alt="Image" />
-        <article>
-          <CustomTitle>
-            <span>5% off </span>
-            <p>on the first order</p>
-          </CustomTitle>
-          <Form onSubmit={handleSubmit(submit)}>
-            <Input type="tel" placeholder={'+49'} name="tel" {...telRegister} />
-            {errors.tel && <Error>{errors.tel.message}</Error>}
-            <Button>Get a discount</Button>
-          </Form>
-        </article>
-      </Container>
-    </Wrapper>
+    <Form onSubmit={handleSubmit(submit)}>
+      <Input type="tel" placeholder={'+49'} name="tel" {...telRegister} />
+      {errors.tel && <Error>{errors.tel.message}</Error>}
+      <Button>Get a discount</Button>
+    </Form>
   );
 };
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
-const clr_accent = (props) => props.theme.colors.clr_accent;
-// SCC ========== STYLED COMPONENTS ========== //
-const Wrapper = styled.section`
-  background: linear-gradient(223deg, #393 0%, #006300 100%);
-  @media (max-width: 1100px) {
-    display: flex;
-    justify-content: center;
-  }
-`;
-const Container = styled.div`
-  ${(props) => props.theme.mixins.container}
-  padding: 0 225px 0 60px;
 
-  display: flex;
-  align-items: center;
-  gap: clamp(3.13rem, calc(1.25rem + 9.38vw), 12.5rem);
-  @media (max-width: 1100px) {
-    padding: 30px 0;
-    justify-content: center;
-  }
-`;
-const Image = styled.img`
-  @media (max-width: 1100px) {
-    display: none;
-  }
-`;
-const CustomTitle = styled(Title)`
-  color: ${(props) => props.theme.colors.clr_white};
-  font-size: ${(props) => props.theme.font_size.fs_50};
-  line-height: ${(props) => props.theme.line_height.secondary};
-  letter-spacing: 1.5px;
-  margin-bottom: 45px;
-  span {
-    font-size: ${(props) => props.theme.font_size.fs_90};
-    letter-spacing: 2.7px;
-  }
-`;
+// SCC ========== VARIABLES STYLED COMPONENTS ========== //
+
+// SCC ========== STYLED COMPONENTS ========== //
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -138,5 +91,4 @@ const Button = styled.button`
     box-shadow: 0 0 10px 0 ${clr_accent} inset, 0 0 10px 4px ${clr_accent};
   }
 `;
-
-export default GetDiscount;
+export default Form;

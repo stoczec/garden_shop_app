@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 // IMP ========== REQUEST ========== //
 import { delete_all_products } from '../store/slice/cartSlice';
 // IMP ========== COMPONENTS ========== //
