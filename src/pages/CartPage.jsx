@@ -29,7 +29,7 @@ const CartPage = ({ id }) => {
           <ContainerPath>
             <CustomButton
               danger
-              onClick={() => dispatch(delete_all_products(id))}
+              onClick={() => dispatch(delete_all_products())}
             >
               Clear Cart
             </CustomButton>

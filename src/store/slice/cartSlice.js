@@ -74,7 +74,7 @@ export const cartSlice = createSlice({
           : product.price * product.count;
       }
     },
-    delete_all_products(state, action) {
+    delete_all_products(state) {
       state.cart = [];
       state.total_count = 0;
       state.total_sum = 0;

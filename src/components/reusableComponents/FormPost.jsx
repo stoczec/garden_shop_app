@@ -3,8 +3,10 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { styled } from 'styled-components';
 import { sendPhoneNumber } from '../../store/post/sendPhoneNumber';
+import { sendOrder } from '../../store/post/sendOrder';
+import { delete_all_products } from '../../store/slice/cartSlice';
 
-const FormPost = ({ style_props, title }) => {
+const FormPost = ({ style_props, title, order }) => {
   const dispatch = useDispatch();
   const {
     register,
@@ -21,7 +23,19 @@ const FormPost = ({ style_props, title }) => {
   });
 
   const submit = (data) => {
-    dispatch(sendPhoneNumber(data.tel));
+    const orderData = order ? [...order] : []; // true - разворачиваем элементы в массиве, иначе []
+    if (order && orderData.length === 0) {
+      alert('Please add products to your order before submitting.');
+    } else if (order && orderData.length > 0) {
+      dispatch(sendOrder({ phone: data.tel, order: orderData }));
+      dispatch(delete_all_products());
+    } else {
+      dispatch(sendPhoneNumber(data.tel));
+    }
+    // order
+    //   ? dispatch(sendOrder({ phone: data.tel, order: orderData })) &&
+    //     dispatch(delete_all_products())
+    //   : dispatch(sendPhoneNumber(data.tel));
 
     reset();
   };

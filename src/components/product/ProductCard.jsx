@@ -193,7 +193,7 @@ const Card = styled.article`
 `;
 const ContainerPrices = styled.div`
   width: clamp(12.5rem, calc(11rem + 7.5vw), 20rem);
-  padding: 20px 15px;
+  padding: 20px;
   display: flex;
   justify-content: ${(props) =>
     props.$exist_discont_price ? 'space-between' : 'start'};
@@ -231,7 +231,7 @@ const CurrencySymbol = styled.span`
   }
 `;
 const Title = styled.h6`
-  padding: 0 10px;
+  padding: 0 20px;
   color: #3a3a3a;
   font-size: ${(props) => props.theme.font_size.fs_16};
   font-weight: 500;

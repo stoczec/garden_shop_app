@@ -6,6 +6,8 @@ import FormPost from '../reusableComponents/FormPost';
 
 const OrderDetails = () => {
   const totalSumState = useSelector((state) => state.cart.total_sum).toFixed(2);
+  const cart = useSelector((state) => state.cart.cart);
+  console.log(cart);
 
   return (
     <Container>
@@ -17,7 +19,7 @@ const OrderDetails = () => {
           <CurrencySymbol>{CURRENCY}</CurrencySymbol>
         </TotalSumState>
       </ContainerSum>
-      <FormPost style_props={'cart'} title={'Order'} />
+      <FormPost style_props={'cart'} title={'Order'} order={cart} />
     </Container>
   );
 };
