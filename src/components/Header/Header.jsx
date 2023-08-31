@@ -86,6 +86,9 @@ const CartLink = styled(Link)`
   &:hover {
     filter: invert(75%);
   }
+  @media (max-width: 380px) {
+    display: none;
+  }
 `;
 const CartLogo = styled(TbGardenCart)`
   font-size: 3em;

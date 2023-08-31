@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { css, styled } from 'styled-components';
 import { Link } from 'react-router-dom';
-import Hamburger from 'hamburger-react';
-import BurgerMenu from '../BurgerMenu';
 
 const NavMenu = () => {
   return (

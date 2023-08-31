@@ -30,6 +30,9 @@ const BurgerMenu = () => {
         <Link to="/sales" onClick={closeMenu}>
           All sales
         </Link>
+        <Link to="/cart" onClick={closeMenu}>
+          Shopping cart
+        </Link>
         <SocialLinks margin={isActive} />
       </BurgerNav>
       <Burger onClick={toggleMenu} $isOpen={isHamburgerActive}>
@@ -39,12 +42,13 @@ const BurgerMenu = () => {
   );
 };
 const Container = styled.div`
-  background-color: rgba(0, 0, 0, 0.7);
   display: none;
   @media (max-width: 900px) {
     display: block;
+    background-color: ${(props) =>
+      props.$isOpen ? 'rgba(0, 0, 0, 0.7)' : 'none'};
     width: ${(props) => (props.$isOpen ? '100vw' : 'auto')};
-    height: ${(props) => (props.$isOpen ? '100vh' : 0)};
+    height: ${(props) => (props.$isOpen ? '100vh' : '')};
     position: ${(props) => (props.$isOpen ? 'fixed' : 'relative')};
     z-index: ${(props) => (props.$isOpen ? '1000' : '0')};
     top: 0;
@@ -66,7 +70,7 @@ const BurgerNav = styled.nav`
 
   opacity: ${(props) => (props.$isOpen ? 1 : 0)};
   visibility: ${(props) => (props.$isOpen ? 'visible' : 'hidden')};
-  transition: opacity 0.5s ease, visibility 0.5s ease; /* анимация */
+  transition: visibility 1s ease; /* анимация */
 
   & > *:not(:first-child, :last-child) {
     padding: 15px;
