@@ -24,6 +24,9 @@ const BurgerMenu = () => {
         <Link to="/" onClick={closeMenu}>
           Main Page
         </Link>
+        <Link to="/categories" onClick={closeMenu}>
+          All categories
+        </Link>
         <Link to="/products" onClick={closeMenu}>
           All products
         </Link>
@@ -43,7 +46,7 @@ const BurgerMenu = () => {
 };
 const Container = styled.div`
   display: none;
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     display: block;
     background-color: ${(props) =>
       props.$isOpen ? 'rgba(0, 0, 0, 0.7)' : 'none'};
@@ -101,7 +104,7 @@ const Title = styled.p`
 `;
 const Burger = styled.div`
   display: none;
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     color: ${(props) => (props.$isOpen ? '#ffff' : 'inherit')};
     display: block;
     position: ${(props) => (props.$isOpen ? 'fixed' : 'relative')};

@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import NavMenu from './NavMenu/NavMenu';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo.gif';
 import { TbGardenCart } from 'react-icons/tb';
 import { useSelector } from 'react-redux';
 import BurgerMenu from './BurgerMenu';
@@ -17,7 +17,6 @@ const Header = () => {
         <LogoLink to="/">
           <img src={logo} alt="Logo" />
         </LogoLink>
-        <CategoriesLink to="/categories">Catalog</CategoriesLink>
       </LogoContainer>
       <NavMenuContainer>
         <NavMenu />
@@ -57,24 +56,6 @@ const LogoLink = styled(Link)`
     filter: contrast(200%);
   }
 `;
-const CategoriesLink = styled(Link)`
-  color: ${(props) => props.theme.colors.clr_white};
-  background-color: ${clr_accent};
-  font-weight: 700;
-  font-size: ${(props) => props.theme.font_size.fs_16};
-  padding-block: clamp(0.44rem, calc(0.29rem + 0.71vw), 0.94rem);
-  padding-inline: clamp(0.94rem, calc(0.67rem + 1.34vw), 1.88rem);
-  border-radius: 5px;
-  border: 2px solid ${clr_accent};
-
-  box-shadow: 0 0 40px 40px ${clr_accent} inset, 0 0 0 0 ${clr_accent};
-  transition: all 350ms ease-in-out;
-  &:hover {
-    color: ${clr_accent};
-    background-color: ${(props) => props.theme.colors.clr_white};
-    box-shadow: 0 0 10px 0 ${clr_accent} inset, 0 0 10px 4px ${clr_accent};
-  }
-`;
 const NavMenuContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -88,7 +69,7 @@ const CartLink = styled(Link)`
   &:hover {
     filter: invert(50%);
   }
-  @media (max-width: 380px) {
+  @media (max-width: 450px) {
     display: none;
   }
 `;
