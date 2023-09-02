@@ -25,16 +25,16 @@ const BurgerMenu = () => {
           Main Page
         </Link>
         <Link to="/categories" onClick={closeMenu}>
-          All categories
+          All Categories
         </Link>
         <Link to="/products" onClick={closeMenu}>
-          All products
+          All Products
         </Link>
         <Link to="/sales" onClick={closeMenu}>
-          All sales
+          Special Offers
         </Link>
         <Link to="/cart" onClick={closeMenu}>
-          Shopping cart
+          Shopping Cart
         </Link>
         <SocialLinks margin={isActive} />
       </BurgerNav>

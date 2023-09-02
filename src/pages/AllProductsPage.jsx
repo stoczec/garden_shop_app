@@ -33,7 +33,7 @@ const AllProductsPage = () => {
   return (
     <PageContainer>
       <BreadCrumbs secondTitle={'All Products'} />
-      <Title>All products</Title>
+      <Title>All Products</Title>
       <FiltersContainer
         filter_select={sortBy}
         filter_form={filterByPrice}

@@ -31,8 +31,8 @@ const AllSalesPage = () => {
   }
   return (
     <PageContainer>
-      <BreadCrumbs secondTitle={'All Sales'} />
-      <Title>Products with sale</Title>
+      <BreadCrumbs secondTitle={'Special Offers'} />
+      <Title>Discounted Products</Title>
       <FiltersContainer
         filter_select={sortBy}
         filter_form={filterByPrice}

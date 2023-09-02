@@ -7,9 +7,9 @@ const NavMenu = () => {
     <>
       <Nav>
         <Link to="/">Main Page</Link>
-        <Link to="/categories">All categories</Link>
-        <Link to="/products">All products</Link>
-        <Link to="/sales">All sales</Link>
+        <Link to="/categories">All Categories</Link>
+        <Link to="/products">All Products</Link>
+        <Link to="/sales">Special Offers</Link>
       </Nav>
     </>
   );

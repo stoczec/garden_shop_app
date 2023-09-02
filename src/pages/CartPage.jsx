@@ -25,7 +25,7 @@ const CartPage = ({ id }) => {
       <BreadCrumbs secondTitle={'Shopping Cart'} />
       <ContainerContent>
         <ContainerLeftSide>
-          <Title>Shopping cart</Title>
+          <Title>Shopping Cart</Title>
           <ContainerPath>
             <CustomButton
               danger
@@ -34,7 +34,7 @@ const CartPage = ({ id }) => {
               Clear Cart
             </CustomButton>
             <BackLink to={'/products'}>
-              Back to store <ArrowForwardStyled />
+              Back to store (Add more items) <ArrowForwardStyled />
               <ArrowForwardStyled />
               <ArrowForwardStyled />
             </BackLink>

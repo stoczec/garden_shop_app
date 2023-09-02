@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import banner_bg from '../../assets/images/banner_bg.png';
 import Title from '../../assets/reusableStyledComponents/Title';
@@ -8,9 +8,11 @@ const SaleBanner = () => {
   return (
     <Banner>
       <Container>
-        <MainTitle>Sale</MainTitle>
-        <CustomTitle>New season</CustomTitle>
-        <Button to="/sales">Sale</Button>
+        <MainTitle>Final Sale</MainTitle>
+        <CustomTitle>
+          Up to <Span>20%</Span> off
+        </CustomTitle>
+        <Button to="/sales">Special Offers</Button>
       </Container>
     </Banner>
   );
@@ -19,6 +21,25 @@ const SaleBanner = () => {
 const clr_white = (props) => props.theme.colors.clr_white;
 const clr_accent = (props) => props.theme.colors.clr_accent;
 // SCC ========== STYLED COMPONENTS ========== //
+const shimmer = keyframes`
+  0% {
+    background-position: -200%;
+  }
+  100% {
+    background-position: 200%;
+  }
+`;
+const pulse = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
 const Banner = styled.section`
   background: url(${banner_bg}) no-repeat 100% 100% / contain, #a1e2eb;
   /* background-size: contain; */
@@ -32,12 +53,21 @@ const Container = styled.div`
   padding-top: clamp(3.75rem, calc(2.88rem + 4.38vw), 8.13rem);
   padding-bottom: clamp(3.75rem, calc(2.75rem + 5vw), 8.75rem);
 `;
-
 const MainTitle = styled.h1`
-  color: ${clr_white};
   font-size: ${(props) => props.theme.font_size.fs_80};
   font-weight: 700;
   line-height: ${(props) => props.theme.line_height.primary};
+  background: linear-gradient(
+    90deg,
+    transparent 25%,
+    rgba(51, 153, 51, 0.5) 50%,
+    transparent 75%
+  );
+  background-size: 200% 100%;
+  animation: ${shimmer} 10s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 `;
 const CustomTitle = styled(Title)`
   color: ${clr_white};
@@ -45,6 +75,11 @@ const CustomTitle = styled(Title)`
   letter-spacing: normal;
   margin-bottom: 60px;
   text-align: center;
+`;
+const Span = styled.span`
+  animation: ${pulse} 2s infinite;
+  display: inline-block;
+  color: ${(props) => props.theme.colors.clr_sale};
 `;
 const Button = styled(Link)`
   display: flex;
