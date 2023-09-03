@@ -1,8 +1,10 @@
-1. **Backend hosted on:**
+1. **App hosted on:**
+   https://garden-shop-app.vercel.app/
+2. **Backend hosted on:**
    https://telran-project-backend-y5gf.onrender.com/
    Для запуска с локального сервера, нужно изменить значение BASEURL = 'http://localhost:3333/'.
    Директория файла: \src\assets\constants\URL.js
-2. **Installed library**
+3. **Installed library**
 
    react-router-dom : предоставляет маршрутизацию (навигацию);
    @reduxjs/toolkit react-redux : предоставляет удобные средства для управления состоянием;
