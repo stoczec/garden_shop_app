@@ -28,6 +28,7 @@ const Image = styled.img`
   width: clamp(10rem, calc(8rem + 10vw), 20rem);
   height: clamp(10rem, calc(8rem + 10vw), 20rem);
   object-fit: cover;
+  border-radius: 5px;
   cursor: pointer;
   transition: all 0.35s ease-in-out;
   filter: brightness(60%);
@@ -36,7 +37,6 @@ const Image = styled.img`
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.15);
   }
-  border-radius: 5px;
 
   @media (max-width: 408px) {
     width: 280px;
