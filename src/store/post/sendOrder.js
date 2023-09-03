@@ -1,6 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASEURL } from '../../assets/constants/URL';
+import {
+  errorNotification,
+  successNotification,
+} from '../../assets/reusableStyles/notifications';
 
 export const sendOrder = createAsyncThunk(
   'form/sendOrder',
@@ -11,10 +15,10 @@ export const sendOrder = createAsyncThunk(
         order,
       ]);
       console.log(response.config.data);
-      alert('Your order has been sent!');
+      successNotification('Your order has been sent!');
     } catch (error) {
       console.error('Error sending the POST request:', error);
-      alert(error.message);
+      errorNotification(error.message);
     }
   }
 );

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import Header from '../Header/Header';
 import { Outlet, useLocation } from 'react-router-dom';
+import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { Divider, FloatButton } from 'antd';
 

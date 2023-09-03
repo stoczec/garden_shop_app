@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { BASEURL } from '../../assets/constants/URL';
+import axios from 'axios';
 
 const initialState = {
   loading: false,
@@ -11,12 +12,8 @@ export const fetchSingleProduct = createAsyncThunk(
   'product/fetchSingleProduct',
   async function (id, { rejectWithValue }) {
     try {
-      const response = await fetch(`${BASEURL}/products/${id}`);
-      if (!response.ok) {
-        throw new Error(`Error ${response.status}. ${response.statusText}`);
-      }
-      const data = await response.json();
-      return data;
+      const response = await axios.get(`${BASEURL}/products/${id}`);
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

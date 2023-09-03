@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
-import { styled } from 'styled-components';
-import Title from '../../assets/reusableStyledComponents/Title';
-import SaleContainer from './SaleContainer';
 import { useDispatch, useSelector } from 'react-redux';
+import { styled } from 'styled-components';
+// IMP ========== REQUEST ========== //
 import { fetchProductsWithSaleAsync } from '../../store/slice/productWithSaleSlice';
+// IMP ========== COMPONENTS ========== //
+import SaleContainer from './SaleContainer';
+// IMP ========== COMPONENTS FROM LIBRARIES ========== //
+import Title from '../../assets/reusableStyles/Title';
 
 const SaleCatalog = () => {
   const dispatch = useDispatch();

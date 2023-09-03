@@ -2,9 +2,13 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { styled } from 'styled-components';
+// IMP ========== REQUEST ========== //
+import { delete_all_products } from '../../store/slice/cartSlice';
 import { sendPhoneNumber } from '../../store/post/sendPhoneNumber';
 import { sendOrder } from '../../store/post/sendOrder';
-import { delete_all_products } from '../../store/slice/cartSlice';
+// IMP ========== COMPONENTS FROM LIBRARIES ========== //
+import { ToastContainer } from 'react-toastify';
+import { warningNotification } from '../../assets/reusableStyles/notifications';
 
 const FormPost = ({ style_props, title, order }) => {
   const dispatch = useDispatch();
@@ -25,18 +29,15 @@ const FormPost = ({ style_props, title, order }) => {
   const submit = (data) => {
     const orderData = order ? [...order] : []; // true - разворачиваем элементы в массиве, иначе []
     if (order && orderData.length === 0) {
-      alert('Please add products to your order before submitting.');
+      warningNotification(
+        'Please add products to your order before submitting.'
+      );
     } else if (order && orderData.length > 0) {
       dispatch(sendOrder({ phone: data.tel, order: orderData }));
       dispatch(delete_all_products());
     } else {
       dispatch(sendPhoneNumber(data.tel));
     }
-    // order
-    //   ? dispatch(sendOrder({ phone: data.tel, order: orderData })) &&
-    //     dispatch(delete_all_products())
-    //   : dispatch(sendPhoneNumber(data.tel));
-
     reset();
   };
   return (
@@ -50,13 +51,18 @@ const FormPost = ({ style_props, title, order }) => {
       />
       {errors.tel && <Error>{errors.tel.message}</Error>}
       <Button $style_props={style_props}>{title}</Button>
+      <ToastContainer
+        style={{
+          textAlign: 'center',
+          lineHeight: '150%',
+        }}
+      />
     </Form>
   );
 };
 
 // SCC ========== VARIABLES STYLED COMPONENTS ========== //
 const clr_accent = (props) => props.theme.colors.clr_accent;
-
 // SCC ========== STYLED COMPONENTS ========== //
 const Form = styled.form`
   display: flex;

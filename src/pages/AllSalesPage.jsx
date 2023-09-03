@@ -11,7 +11,7 @@ import Loading from '../components/ui/Loading';
 import NotFoundPage from './NotFoundPage';
 import PageContainer from '../components/reusableComponents/PageContainer';
 import BreadCrumbs from '../components/reusableComponents/BreadCrumbs';
-import Title from '../assets/reusableStyledComponents/Title';
+import Title from '../assets/reusableStyles/Title';
 import FiltersContainer from '../components/filters/FiltersContainer';
 import SaleContainer from '../components/sale/SaleContainer';
 

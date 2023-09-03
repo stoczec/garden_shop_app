@@ -1,8 +1,9 @@
 import React from 'react';
-import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
+import { styled } from 'styled-components';
+// IMP ========== COMPONENTS ========== //
 import CategoryContaner from './CategoryContainer';
-import Title from '../../assets/reusableStyledComponents/Title';
+import Title from '../../assets/reusableStyles/Title';
 
 const CategoryCatalog = () => {
   return (
@@ -41,6 +42,7 @@ const Button = styled(Link)`
   height: 30px;
   padding: 8px 6px;
   border: 1px solid ${clr_grey};
+  border-radius: 15px;
 
   color: ${clr_grey};
   font-size: ${(props) => props.theme.font_size.fs_12};

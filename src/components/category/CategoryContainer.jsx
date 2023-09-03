@@ -1,8 +1,9 @@
-import React from 'react';
-import { styled } from 'styled-components';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { styled } from 'styled-components';
+// IMP ========== REQUEST ========== //
 import { fetchCategories } from '../../store/slice/categorySlice';
+// IMP ========== COMPONENTS ========== //
 import CategoryCard from './CategoryCard';
 import Loading from '../ui/Loading';
 import { NotFoundPage } from '../../pages';

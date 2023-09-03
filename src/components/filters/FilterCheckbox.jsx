@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { styled } from 'styled-components';
 import { Checkbox } from 'antd';
-import { useDispatch } from 'react-redux';
 
 const FilterCheckbox = ({ filter_checkbox }) => {
   const [checked, setChecked] = useState(false);
@@ -24,7 +24,6 @@ const FilterCheckbox = ({ filter_checkbox }) => {
   );
 };
 
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
 // SCC ========== STYLED COMPONENTS ========== //
 const Container = styled.div`
   display: flex;

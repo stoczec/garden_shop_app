@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Hamburger from 'hamburger-react';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
+import Hamburger from 'hamburger-react';
 import SocialLinks from '../contactDetails/SocialLinks';
 
 const BurgerMenu = () => {
@@ -73,7 +73,7 @@ const BurgerNav = styled.nav`
 
   opacity: ${(props) => (props.$isOpen ? 1 : 0)};
   visibility: ${(props) => (props.$isOpen ? 'visible' : 'hidden')};
-  transition: visibility 1s ease; /* анимация */
+  transition: visibility 1s ease;
 
   & > *:not(:first-child, :last-child) {
     padding: 15px;

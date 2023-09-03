@@ -1,15 +1,18 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { BASEURL, CURRENCY } from '../../assets/constants/URL';
-import { GrFormClose } from 'react-icons/gr';
-
-import { useDispatch } from 'react-redux';
+// IMP ========== REQUEST ========== //
 import { delete_from_cart } from '../../store/slice/cartSlice';
+// IMP ========== COMPONENTS ========== //
 import Counter from '../reusableComponents/Counter';
+// IMP ========== COMPONENTS FROM LIBRARIES ========== //
+import { CloseOutlined } from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
+// IMP ========== OTHERS ========== //
+import { BASEURL } from '../../assets/constants/URL';
+import { CURRENCY } from '../../assets/constants/CURRENCY';
 
 const CartItem = ({ id, image, title, discont_price, price, count }) => {
   const dispatch = useDispatch();
-
   return (
     <Card>
       <Image src={`${BASEURL}${image}`} alt={title} />
@@ -58,8 +61,6 @@ const Card = styled.article`
   gap: 25px;
   position: relative;
   @media (max-width: 1000px) {
-    /* flex-direction: column;
-    align-items: center; */
     display: grid;
     grid-template-columns: 1fr 1fr; /* Два столбца */
     grid-template-rows: auto auto; /* Два ряда */
@@ -77,10 +78,14 @@ const Image = styled.img`
   object-fit: contain;
   border-radius: 20px;
   @media (max-width: 1000px) {
-    width: clamp(12.5rem, calc(5.74rem + 33.82vw), 26.88rem);
-    height: clamp(12.5rem, calc(5.74rem + 33.82vw), 26.88rem);
+    width: clamp(12.5rem, calc(8.38rem + 20.59vw), 21.25rem);
+    height: clamp(12.5rem, calc(8.38rem + 20.59vw), 21.25rem);
     grid-column: 1;
     grid-row: span 2;
+  }
+  @media (max-width: 760px) {
+    width: clamp(17.5rem, calc(14.77rem + 13.64vw), 21.25rem);
+    height: clamp(17.5rem, calc(14.77rem + 13.64vw), 21.25rem);
   }
 `;
 const ContainerTitleAndCount = styled.div`
@@ -115,17 +120,12 @@ const ContainerPrices = styled.div`
   justify-content: space-evenly;
   @media (max-width: 1000px) {
     width: clamp(12.5rem, calc(5.74rem + 33.82vw), 26.88rem);
-    /* flex-direction: row; */
-
     align-items: center;
-    /* gap: 20px; */
   }
   @media (max-width: 760px) {
     width: 100%;
     flex-direction: row;
-
     align-items: baseline;
-    /* gap: 20px; */
   }
 `;
 const ContainerCardPrices = styled.div`
@@ -145,9 +145,6 @@ const DiscountPrice = styled.p`
   font-size: ${(props) => props.theme.font_size.fs_40};
   line-height: ${(props) => props.theme.line_height.primary};
   letter-spacing: 0.9px;
-  /* @media (max-width: 434px) {
-    font-size: 20px;
-  } */
 `;
 const Price = styled.p`
   color: ${(props) => (props.$exist_discont_price ? '#8b8b8b' : clr_black)};
@@ -157,27 +154,18 @@ const Price = styled.p`
   letter-spacing: 0.6px;
   text-decoration-line: ${(props) =>
     props.$exist_discont_price ? 'line-through' : 'none'};
-  /* @media (max-width: 434px) {
-    font-size: ${(props) => (props.$exist_discont_price ? '20px' : '30px')};
-  } */
 `;
 const CurrencySymbol = styled.span`
   font-size: ${fs_20};
   line-height: ${(props) => props.theme.line_height.primary};
   letter-spacing: 0.6px;
-  /* @media (max-width: 434px) {
-    font-size: 20px;
-  } */
 `;
-const TotalSum = styled.p`
-  /* background-color: yellow; */
-`;
-const Close = styled(GrFormClose)`
+const TotalSum = styled.p``;
+const Close = styled(CloseOutlined)`
   cursor: pointer;
   position: absolute;
   top: 20px;
   right: 0;
-  font-size: 20px;
   transition: all 0.3s linear;
 
   &:hover {
@@ -185,7 +173,7 @@ const Close = styled(GrFormClose)`
   }
   @media (max-width: 1000px) {
     top: 10px;
-    font-size: 30px;
+    font-size: 20px;
   }
 `;
 export default CartItem;

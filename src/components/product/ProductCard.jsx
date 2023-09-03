@@ -4,16 +4,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { styled, keyframes } from 'styled-components';
 // IMP ========== REQUEST ========== //
 import { add_to_cart } from '../../store/slice/cartSlice';
+// IMP ========== COMPONENTS ========== //
+import Counter from '../reusableComponents/Counter';
 // IMP ========== COMPONENTS FROM LIBRARIES ========== //
 import { Image } from 'antd';
 // IMP ========== OTHERS ========== //
-import { BASEURL, CURRENCY } from '../../assets/constants/URL';
-import Counter from '../reusableComponents/Counter';
+import { BASEURL } from '../../assets/constants/URL';
+import { CURRENCY } from '../../assets/constants/CURRENCY';
 
 const ProductCard = ({ id, image, title, price, discont_price }) => {
   const { cart } = useSelector((state) => state.cart);
-  const addedToCart = cart.some((item) => item.id === id);
-  const cartItem = cart.find((item) => item.id === id); // находим в массиве товар по id
+  const isAddedToCart = cart.some((item) => item.id === id);
+  const cartItem = cart.find((item) => item.id === id); // находим в корзине товар по id
   const count = cartItem && cartItem.count ? cartItem.count : 0; // проверяем, если у него свойство count
   const discount = Math.round(((price - discont_price) / price) * 100);
 
@@ -31,11 +33,16 @@ const ProductCard = ({ id, image, title, price, discont_price }) => {
   };
   return (
     <Card>
-      <CustomImage src={`${BASEURL}${image}`} alt={title} width={`100%`} />
-      {addedToCart && <Counter id={id} count={count} style={style} />}
+      {isAddedToCart && <Counter id={id} count={count} style={style} />}
       <Link to={`/products/${id}`}>
-        <AddToCart onClick={handleAddToCart} $addedToCart={addedToCart}>
-          {addedToCart ? 'Added' : 'Add to cart'}
+        <CustomImage
+          src={`${BASEURL}${image}`}
+          alt={title}
+          width={`100%`}
+          preview={false}
+        />
+        <AddToCart onClick={handleAddToCart} $isAddedToCart={isAddedToCart}>
+          {isAddedToCart ? 'Added' : 'Add to cart'}
         </AddToCart>
         <ContainerPrices $exist_discont_price={discont_price}>
           <DiscountPrice>
@@ -98,11 +105,15 @@ const CustomImage = styled(Image)`
     height: clamp(12.5rem, calc(11rem + 7vw), 20rem);
     object-fit: contain;
   }
+  &.ant-image.css-dev-only-do-not-override-17a39f8 .ant-image-mask {
+    align-items: start; /* Измените align-items на start */
+    padding: 20px;
+  }
 `;
 const AddToCart = styled.button`
   border-radius: 21px;
   border: ${(props) =>
-    props.$addedToCart
+    props.$isAddedToCart
       ? `2px solid #ff4d4f`
       : `2px solid ${props.theme.colors.clr_accent}`};
   background-color: rgba(241, 255, 241, 0.8);
@@ -117,18 +128,17 @@ const AddToCart = styled.button`
   transform: translateX(-50%);
 
   color: ${(props) =>
-    props.$addedToCart ? `#ff4d4f` : `${props.theme.colors.clr_accent}`};
+    props.$isAddedToCart ? `#ff4d4f` : `${props.theme.colors.clr_accent}`};
   font-size: ${(props) => props.theme.font_size.fs_24};
   line-height: ${(props) => props.theme.line_height.primary};
   text-align: center;
 
-  /* visibility: ${(props) => (props.$addedToCart ? 'visible' : 'hidden')}; */
-  opacity: ${(props) => (props.$addedToCart ? 1 : 0)};
+  opacity: ${(props) => (props.$isAddedToCart ? 1 : 0)};
   transition: opacity 0.3s ease;
 
   --c: ${(props) => props.theme.colors.clr_white};
   background: ${(props) =>
-    props.$addedToCart
+    props.$isAddedToCart
       ? `linear-gradient(
         90deg,
         #0000 33%,
@@ -161,7 +171,7 @@ const AddToCart = styled.button`
     text-shadow: none;
     color: var(--c);
     box-shadow: ${(props) =>
-      props.$addedToCart
+      props.$isAddedToCart
         ? `inset 0 0 9e9Q  #ff4d4f`
         : `inset 0 0 9e9Q ${props.theme.colors.clr_accent}`};
     transition: 0s;
@@ -185,7 +195,6 @@ const Card = styled.article`
       animation: ${Shake} 1.5s infinite;
     }
     ${AddToCart} {
-      /* visibility: visible; */
       opacity: 1;
     }
     box-shadow: 0 5px 10px ${(props) => props.theme.colors.clr_black};

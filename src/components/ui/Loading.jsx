@@ -9,7 +9,6 @@ const Loading = () => {
     </LoadingContainer>
   );
 };
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
 // SCC ========== STYLED COMPONENTS ========== //
 const LoadingContainer = styled.article`
   width: 100%;

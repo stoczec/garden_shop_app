@@ -7,14 +7,14 @@ import { delete_all_products } from '../store/slice/cartSlice';
 // IMP ========== COMPONENTS ========== //
 import PageContainer from '../components/reusableComponents/PageContainer';
 import BreadCrumbs from '../components/reusableComponents/BreadCrumbs';
-import Title from '../assets/reusableStyledComponents/Title';
+import Title from '../assets/reusableStyles/Title';
 import CartContainer from '../components/cart/CartContainer';
 import OrderDetails from '../components/cart/OrderDetails';
 // IMP ========== COMPONENTS FROM LIBRARIES ========== //
-import { IoIosArrowForward } from 'react-icons/io';
+import { ShoppingOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 // IMP ========== OTHERS ========== //
-import { CURRENCY } from '../assets/constants/URL';
+import { CURRENCY } from '../assets/constants/CURRENCY';
 
 const CartPage = ({ id }) => {
   const dispatch = useDispatch();
@@ -34,9 +34,7 @@ const CartPage = ({ id }) => {
               Clear Cart
             </CustomButton>
             <BackLink to={'/products'}>
-              Back to store (Add more items) <ArrowForwardStyled />
-              <ArrowForwardStyled />
-              <ArrowForwardStyled />
+              Back to store (Add more items) <ShoppingOutlinedStyled />
             </BackLink>
           </ContainerPath>
           <ContainerProducts>
@@ -76,14 +74,16 @@ const ContainerLeftSide = styled.div`
     width: 100%;
   }
 `;
-const ContainerProducts = styled.div`
-  /* width: 50%; */
-`;
+const ContainerProducts = styled.div``;
 const ContainerPath = styled.div`
   margin: 20px 0 35px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 425px) {
+    flex-direction: column;
+    gap: 15px;
+  }
 `;
 const CustomButton = styled(Button)`
   &.ant-btn {
@@ -91,7 +91,7 @@ const CustomButton = styled(Button)`
     font-weight: inherit;
   }
 `;
-const ArrowForwardStyled = styled(IoIosArrowForward)`
+const ShoppingOutlinedStyled = styled(ShoppingOutlined)`
   transition: all 0.3s ease;
 `;
 const BackLink = styled(Link)`
@@ -102,15 +102,13 @@ const BackLink = styled(Link)`
   align-items: center;
   gap: 5px;
   &:hover {
-    ${ArrowForwardStyled} {
+    ${ShoppingOutlinedStyled} {
       color: ${(props) => props.theme.colors.clr_accent};
       transform: rotateY(180deg);
     }
   }
 `;
-const Products = styled.div`
-  /* width: 50%; */
-`;
+const Products = styled.div``;
 const Subtotall = styled.p`
   border-top: 1px solid #a7a7a7;
   padding: 25px 0;

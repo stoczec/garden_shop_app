@@ -1,9 +1,10 @@
 import React from 'react';
-import { styled } from 'styled-components';
-import { BiMinus } from 'react-icons/bi';
-import { AiOutlinePlus } from 'react-icons/ai';
-import { decrement_count, increment_count } from '../../store/slice/cartSlice';
 import { useDispatch } from 'react-redux';
+import { styled } from 'styled-components';
+// IMP ========== REQUEST ========== //
+import { decrement_count, increment_count } from '../../store/slice/cartSlice';
+// IMP ========== COMPONENTS FROM LIBRARIES ========== //
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 
 const Counter = ({ id, count, style }) => {
   const dispatch = useDispatch();
@@ -46,14 +47,14 @@ const Count = styled.p`
     font-size: ${(props) => props.theme.font_size.fs_24};
   }
 `;
-const Minus = styled(BiMinus)`
+const Minus = styled(MinusOutlined)`
   color: red;
   cursor: pointer;
   @media (max-width: 1000px) {
     font-size: ${(props) => props.theme.font_size.fs_28};
   }
 `;
-const Plus = styled(AiOutlinePlus)`
+const Plus = styled(PlusOutlined)`
   color: green;
   cursor: pointer;
   @media (max-width: 1000px) {

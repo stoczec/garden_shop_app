@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { styled } from 'styled-components';
-import { CURRENCY } from '../../assets/constants/URL';
+// IMP ========== COMPONENTS ========== //
 import FormPost from '../reusableComponents/FormPost';
+// IMP ========== OTHERS ========== //
+import { CURRENCY } from '../../assets/constants/CURRENCY';
 
 const OrderDetails = () => {
   const totalSumState = useSelector((state) => state.cart.total_sum).toFixed(2);
   const cart = useSelector((state) => state.cart.cart);
-  console.log(cart);
 
   return (
     <Container>
@@ -60,7 +61,7 @@ const Title = styled.h3`
   @media (max-width: 660px) {
     margin-bottom: 0;
     padding-bottom: 10px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid ${(props) => props.theme.colors.clr_black};
   }
 `;
 const ContainerSum = styled.div`

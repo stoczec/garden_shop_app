@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { styled } from 'styled-components';
 // IMP ========== REQUEST ========== //
 import { add_to_cart } from '../../store/slice/cartSlice';
-// IMP ========== COMPONENTS FROM LIBRARIES ========== //
-import { BASEURL, CURRENCY } from '../../assets/constants/URL';
-// IMP ========== OTHERS ========== //
-import { Image } from 'antd';
+// IMP ========== COMPONENTS ========== //
 import Counter from '../reusableComponents/Counter';
+// IMP ========== COMPONENTS FROM LIBRARIES ========== //
+import { Image } from 'antd';
+// IMP ========== OTHERS ========== //
+import { BASEURL } from '../../assets/constants/URL';
+import { CURRENCY } from '../../assets/constants/CURRENCY';
 
 const ProductSingleCard = ({
   id,
@@ -123,7 +125,9 @@ const ContainerPrices = styled.div`
   align-items: baseline;
   margin-bottom: 40px;
   @media (max-width: 900px) {
-    width: 50%;
+    justify-content: ${(props) =>
+      props.$exist_discont_price ? 'space-evenly' : 'start'};
+    width: 100%;
     padding-top: 0;
   }
 `;
@@ -179,9 +183,9 @@ const Description = styled.p`
   border-radius: 15px;
 `;
 const AddToCart = styled.button`
-  width: clamp(10.63rem, calc(4.76rem + 29.31vw), 21.25rem);
-  padding: clamp(0.75rem, calc(0.3rem + 2.24vw), 1.56rem)
-    clamp(2.5rem, calc(0.78rem + 8.62vw), 5.63rem);
+  width: clamp(12.5rem, calc(4.78rem + 13.73vw), 21.25rem);
+  padding: clamp(0.75rem, calc(0.03rem + 1.27vw), 1.56rem)
+    clamp(2.5rem, calc(-0.26rem + 4.9vw), 5.63rem);
   margin-bottom: 66px;
   border: ${(props) =>
     props.$addedToCart
@@ -235,6 +239,10 @@ const AddToCart = styled.button`
         ? `inset 0 0 9e9Q  #ff4d4f`
         : `inset 0 0 9e9Q ${props.theme.colors.clr_accent}`};
     transition: 0s;
+  }
+  @media (max-width: 900px) {
+    width: 60%;
+    padding: 10px 20px;
   }
 `;
 export default ProductSingleCard;

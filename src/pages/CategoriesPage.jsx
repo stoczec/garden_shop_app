@@ -2,7 +2,7 @@ import React from 'react';
 // IMP ========== COMPONENTS ========== //
 import PageContainer from '../components/reusableComponents/PageContainer';
 import BreadCrumbs from '../components/reusableComponents/BreadCrumbs';
-import Title from '../assets/reusableStyledComponents/Title';
+import Title from '../assets/reusableStyles/Title';
 import CategoryContainer from '../components/category/CategoryContainer';
 
 const CategoriesPage = () => {

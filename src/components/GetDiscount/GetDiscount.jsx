@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import image from '../../assets/images/banner_bg1.png';
-import Title from '../../assets/reusableStyledComponents/Title';
+import Title from '../../assets/reusableStyles/Title';
 import FormPost from '../reusableComponents/FormPost';
 
 const GetDiscount = () => {

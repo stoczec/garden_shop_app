@@ -1,11 +1,14 @@
 import React from 'react';
-import { styled } from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
-import NavMenu from './NavMenu/NavMenu';
-import logo from '../../assets/images/logo.gif';
-import { TbGardenCart } from 'react-icons/tb';
 import { useSelector } from 'react-redux';
+import { styled } from 'styled-components';
+// IMP ========== COMPONENTS ========== //
+import NavMenu from './NavMenu/NavMenu';
 import BurgerMenu from './BurgerMenu';
+// IMP ========== COMPONENTS FROM LIBRARIES ========== //
+import { ShoppingCartOutlined } from '@ant-design/icons';
+// IMP ========== OTHERS ========== //
+import logo from '../../assets/images/logo.gif';
 
 const Header = () => {
   const countState = useSelector((state) => state.cart.total_count);
@@ -73,7 +76,7 @@ const CartLink = styled(Link)`
     display: none;
   }
 `;
-const CartLogo = styled(TbGardenCart)`
+const CartLogo = styled(ShoppingCartOutlined)`
   font-size: 3em;
 `;
 const ContainerCountState = styled.span`

@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { styled } from 'styled-components';
 import { Slider, InputNumber } from 'antd';
+import { CURRENCY } from '../../assets/constants/CURRENCY';
 
 const FilterInputPrice = ({ filter_form, maxValue }) => {
   const dispatch = useDispatch();
   const [value, setValue] = useState({ min: 0, max: 0 });
-  const [isMaxSet, setIsMaxSet] = useState(0); // Добавляем состояние
+  const [isMaxSet, setIsMaxSet] = useState(0); // Добавляем состояние для самого дорогого товара
 
   useEffect(() => {
     if (!isMaxSet) {
-      // Устанавливаем значение max только в начале
+      // Устанавливаем значение max только в начале. Это цена, самого дорого товара, котоый есть
       setValue({ ...value, max: maxValue });
       setIsMaxSet(maxValue);
     }
@@ -26,7 +27,7 @@ const FilterInputPrice = ({ filter_form, maxValue }) => {
   };
 
   const priceFormatter = (value) => {
-    return `$${value}`; // Добавляем знак доллара перед значением
+    return `${CURRENCY}${value}`; // Добавляем знак доллара перед значением в input'e
   };
   return (
     <Container>
@@ -50,7 +51,7 @@ const FilterInputPrice = ({ filter_form, maxValue }) => {
             handleRangeChange({ ...value, max: maxValue })
           }
           min={0}
-          max={isMaxSet}
+          max={isMaxSet} // цена самого дорогого товара
           formatter={priceFormatter}
         />
       </ContainerInputs>
@@ -66,14 +67,13 @@ const FilterInputPrice = ({ filter_form, maxValue }) => {
     </Container>
   );
 };
-
+// SCC ========== STYLED COMPONENTS ========== //
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 `;
-
 const Title = styled.span`
   font-size: ${(props) => props.theme.font_size.fs_20};
   line-height: ${(props) => props.theme.line_height.primary};
@@ -95,7 +95,6 @@ const CustomSlider = styled(Slider)`
 `;
 const CustomInputNumber = styled(InputNumber)`
   &.ant-input-number:hover {
-    /* color: #yourTextColor; */
     border-color: ${(props) => props.theme.colors.clr_accent};
   }
 `;

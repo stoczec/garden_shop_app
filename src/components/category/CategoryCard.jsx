@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BASEURL } from '../../assets/constants/URL';
 import { styled } from 'styled-components';
-import Title from '../../assets/reusableStyledComponents/Title';
+// IMP ========== COMPONENTS ========== //
+import Title from '../../assets/reusableStyles/Title';
+// IMP ========== OTHERS ========== //
+import { BASEURL } from '../../assets/constants/URL';
 
 const CategoryCard = ({ image, title, id }) => {
   return (
@@ -36,7 +38,7 @@ const Image = styled.img`
   }
   border-radius: 5px;
 
-  @media (max-width: 376px) {
+  @media (max-width: 408px) {
     width: 280px;
     height: 280px;
   }

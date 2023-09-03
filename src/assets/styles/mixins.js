@@ -1,4 +1,5 @@
-const wrapper = () => `max-width: 1920px;
+const wrapper = () => `
+max-width: 1920px;
 margin-inline: auto;
 min-height: 100%;
 overflow: hidden;

@@ -1,8 +1,8 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
 import banner_bg from '../../assets/images/banner_bg.png';
-import Title from '../../assets/reusableStyledComponents/Title';
+import Title from '../../assets/reusableStyles/Title';
 
 const SaleBanner = () => {
   return (
@@ -42,7 +42,6 @@ const pulse = keyframes`
 `;
 const Banner = styled.section`
   background: url(${banner_bg}) no-repeat 100% 100% / contain, #a1e2eb;
-  /* background-size: contain; */
 `;
 const Container = styled.div`
   ${(props) => props.theme.mixins.container};
@@ -59,9 +58,9 @@ const MainTitle = styled.h1`
   line-height: ${(props) => props.theme.line_height.primary};
   background: linear-gradient(
     90deg,
-    transparent 25%,
+    transparent 15%,
     rgba(51, 153, 51, 0.5) 50%,
-    transparent 75%
+    transparent 85%
   );
   background-size: 200% 100%;
   animation: ${shimmer} 10s linear infinite;

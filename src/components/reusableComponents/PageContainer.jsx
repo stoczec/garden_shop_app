@@ -5,7 +5,6 @@ const PageContainer = ({ children }) => {
   return <Container>{children}</Container>;
 };
 
-// SCC ========== VARIABLES STYLED COMPONENTS ========== //
 // SCC ========== STYLED COMPONENTS ========== //
 const Container = styled.section`
   ${(props) => props.theme.mixins.container}
