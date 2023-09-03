@@ -99,16 +99,10 @@ const Discount = styled.p`
     font-size: 20px;
   }
 `;
-const CustomImage = styled(Image)`
-  &.ant-image-img {
-    width: 100%;
-    height: clamp(12.5rem, calc(11rem + 7vw), 20rem);
-    object-fit: contain;
-  }
-  &.ant-image.css-dev-only-do-not-override-17a39f8 .ant-image-mask {
-    align-items: start; /* Измените align-items на start */
-    padding: 20px;
-  }
+const CustomImage = styled.img`
+  width: 100%;
+  height: clamp(12.5rem, calc(11rem + 7vw), 20rem);
+  object-fit: contain;
 `;
 const AddToCart = styled.button`
   border-radius: 21px;
@@ -189,7 +183,7 @@ const Card = styled.article`
   box-shadow: ${box_shadow};
   transition: box-shadow 0.1s ease-in-out;
   position: relative;
-
+  overflow: hidden;
   &:hover {
     ${Discount} {
       animation: ${Shake} 1.5s infinite;

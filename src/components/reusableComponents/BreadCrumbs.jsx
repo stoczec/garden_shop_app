@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const BreadCrumbs = ({ secondLink, secondTitle, thirdTitle }) => {
   return (
     <Breadcrumb
-      style={{ fontSize: '24px' }}
+      style={{ fontSize: '24px', height: 0 }}
       items={[
         {
           title: (
