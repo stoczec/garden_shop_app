@@ -35,12 +35,7 @@ const ProductCard = ({ id, image, title, price, discont_price }) => {
     <Card>
       {isAddedToCart && <Counter id={id} count={count} style={style} />}
       <Link to={`/products/${id}`}>
-        <CustomImage
-          src={`${BASEURL}${image}`}
-          alt={title}
-          width={`100%`}
-          preview={false}
-        />
+        <CustomImage src={`${BASEURL}${image}`} alt={title} />
         <AddToCart onClick={handleAddToCart} $isAddedToCart={isAddedToCart}>
           {isAddedToCart ? 'Added' : 'Add to cart'}
         </AddToCart>

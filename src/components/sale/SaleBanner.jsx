@@ -50,7 +50,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: start;
   padding-top: clamp(3.75rem, calc(2.88rem + 4.38vw), 8.13rem);
-  padding-bottom: clamp(3.75rem, calc(2.75rem + 5vw), 8.75rem);
+  padding-bottom: clamp(3.75rem, calc(2.88rem + 4.38vw), 8.13rem);
 `;
 const MainTitle = styled.h1`
   font-size: ${(props) => props.theme.font_size.fs_80};

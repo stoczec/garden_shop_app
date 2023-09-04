@@ -51,7 +51,7 @@ const CustomTitle = styled(Title)`
   font-size: ${(props) => props.theme.font_size.fs_50};
   line-height: ${(props) => props.theme.line_height.secondary};
   letter-spacing: 1.5px;
-  margin-bottom: 45px;
+  margin-bottom: calc(45px-28px);
   span {
     font-size: ${(props) => props.theme.font_size.fs_90};
     letter-spacing: 2.7px;

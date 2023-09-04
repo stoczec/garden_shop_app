@@ -42,6 +42,12 @@ const FormPost = ({ style_props, title, order }) => {
   };
   return (
     <Form onSubmit={handleSubmit(submit)}>
+      <ToastContainer
+        style={{
+          textAlign: 'center',
+          lineHeight: '150%',
+        }}
+      />
       <Input
         $style_props={style_props}
         type="tel"
@@ -49,14 +55,10 @@ const FormPost = ({ style_props, title, order }) => {
         name="tel"
         {...telRegister}
       />
-      {errors.tel && <Error>{errors.tel.message}</Error>}
       <Button $style_props={style_props}>{title}</Button>
-      <ToastContainer
-        style={{
-          textAlign: 'center',
-          lineHeight: '150%',
-        }}
-      />
+      <ContainerError>
+        {errors.tel && <Error>{errors.tel.message}</Error>}
+      </ContainerError>
     </Form>
   );
 };
@@ -97,10 +99,14 @@ const Input = styled.input`
     width: ${(props) => (props.$style_props === 'cart' ? '100%' : '')};
   }
 `;
+const ContainerError = styled.div`
+  width: clamp(17.5rem, calc(15.09rem + 12.06vw), 29.56rem);
+  height: 28px;
+`;
 const Error = styled.p`
   color: #ff4d4f;
   font-size: 14px;
-  text-align: end;
+  text-align: center;
 `;
 const Button = styled.button`
   width: clamp(17.5rem, calc(15.09rem + 12.06vw), 29.56rem);
