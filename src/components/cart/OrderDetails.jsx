@@ -26,22 +26,23 @@ const OrderDetails = () => {
 };
 // SCC ========== STYLED COMPONENTS ========== //
 const Container = styled.article`
-  height: 440px;
+  height: 460px;
   padding: 25px;
   border-radius: 21px;
   border: 2px solid ${(props) => props.theme.colors.clr_black};
   margin-top: 129px;
   @media (max-width: 1000px) {
-    height: 300px;
+    height: 320px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 10px;
   }
-  @media (max-width: 660px) {
-    height: 370px;
+  @media (max-width: 550px) {
+    height: 420px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 30px;
     margin-top: 50px;
   }
@@ -58,7 +59,7 @@ const Title = styled.h3`
     text-align: center;
     border-bottom: none;
   }
-  @media (max-width: 660px) {
+  @media (max-width: 550px) {
     margin-bottom: 0;
     padding-bottom: 10px;
     border-bottom: 1px solid ${(props) => props.theme.colors.clr_black};
@@ -74,8 +75,9 @@ const ContainerSum = styled.div`
     align-items: center;
     margin-bottom: 0;
   }
-  @media (max-width: 660px) {
+  @media (max-width: 550px) {
     flex-direction: row;
+    gap: 30px;
     align-items: baseline;
   }
 `;
